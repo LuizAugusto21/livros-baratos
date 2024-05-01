@@ -1,0 +1,63 @@
+@import "src/styles/colors.scss";
+@import "src/styles/fonts.scss";
+
+.header{
+    padding-top: 33px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    img{
+        height: 42px;
+        width: 177;
+        margin-left: 148px;
+    }
+
+    .BarraPesquisa {
+        height: 30px; /* Defina a altura desejada para o input */
+        width: 200px; /* Defina a largura desejada para o input */
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 16px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+
+        /* Centralize verticalmente o input */
+        align-self: center;
+    }
+     
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+        padding: 0;
+        margin-left: 50px;
+        li {
+          margin-right: 20px; 
+
+          a{
+            color: #241400;
+            font-family: $font-family-sans-serif;
+            text-decoration: none;
+
+            &:hover{
+                border-bottom: solid 3px transparent;
+                border-bottom-color: $button-color;
+            }
+          }
+        }
+    }
+    button{
+        height: 45px;
+        width: 168px;
+        margin-right: 111px;
+        border-radius: 15px;
+        border: none;
+        font-size: 25px;
+
+        background-color: $button-color;
+        color: white;
+        cursor: pointer;
+    }
+}
