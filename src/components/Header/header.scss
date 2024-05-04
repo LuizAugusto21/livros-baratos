@@ -7,57 +7,67 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    img{
+    margin: 0px 140px 0px 140px;
+    .Logo{
         height: 42px;
         width: 177;
-        margin-left: 148px;
     }
 
-    .BarraPesquisa {
-        height: 30px; /* Defina a altura desejada para o input */
-        width: 200px; /* Defina a largura desejada para o input */
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 16px;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-
-        /* Centralize verticalmente o input */
-        align-self: center;
-    }
-     
-    ul {
+    .nav{
         display: flex;
-        justify-content: flex-end;
-        list-style: none;
-        padding: 0;
-        margin-left: 50px;
-        li {
-          margin-right: 20px; 
-
-          a{
-            color: #241400;
-            font-family: $font-family-sans-serif;
-            text-decoration: none;
-
-            &:hover{
-                border-bottom: solid 3px transparent;
-                border-bottom-color: $button-color;
+        direction: row;
+        align-items: center;
+        
+        ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            padding: 0;
+            margin-left: 50px;
+            li {
+                margin-right: 20px; 
+                
+                a{
+                    color: #241400;
+                    font-family: $font-family-sans-serif;
+                    text-decoration: none;
+                    
+                    &:hover{
+                        border-bottom: solid 3px transparent;
+                        border-bottom-color: $button-color;
+                    }
+                }
             }
-          }
         }
-    }
-    button{
-        height: 45px;
-        width: 168px;
-        margin-right: 111px;
-        border-radius: 15px;
-        border: none;
-        font-size: 25px;
+        button{
+            height: 45px;
+            width: 168px;
+            margin-right: 111px;
+            border-radius: 15px;
+            border: none;
+            font-size: 25px;
+            
+            background-color: $button-color;
+            color: white;
+            cursor: pointer;
+        }
 
-        background-color: $button-color;
-        color: white;
-        cursor: pointer;
+        .menu-images{
+            display: flex;
+            gap: 25px;
+            height: 35px;
+            max-width: fit-content;
+            align-items: center;
+
+            :hover{
+                cursor: pointer;
+            }
+
+            .avatarProfile{
+                display: flex;
+                align-items: center;
+            }
+
+        }
     }
 }
