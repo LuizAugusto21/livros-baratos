@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import "./header.scss";
 import SearchBar from "../SearchBar/SearchBar";
-import ProfilePic from '../Profile/ProfilePic'
+import ProfilePic from "../Profile/ProfilePic";
 
 export default function Header({ isLogged, isHome }) {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-      setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
-
 
   return (
     <div className="header">
@@ -20,8 +18,8 @@ export default function Header({ isLogged, isHome }) {
         alt="Logo contendo um livro e nome"
       />{" "}
       <div className="nav">
-        {isHome ? <SearchBar className="BarraPesquisa"></SearchBar> : null}
-        <ul>
+        {isHome ? null : <SearchBar className="BarraPesquisa"></SearchBar>}
+        <ul className="navMenu">
           <li>
             <a href="#vender">Vender</a>
           </li>
@@ -39,15 +37,32 @@ export default function Header({ isLogged, isHome }) {
         ) : (
           <div className="menu-images">
             <a href="#favorite">
-              <img src="/favorite.png" alt="itens favoritos" href="" width={38} />
+              <img
+                src="/favorite.png"
+                alt="itens favoritos"
+                href=""
+                width={38}
+              />
             </a>
 
             <a href="#Carrinho">
-              <img src="/cart.png" alt="Carrinho"  width={38}/>
+              <img src="/cart.png" alt="Carrinho" width={38} />
             </a>
-            <div className="avatarProfile">
-              <ProfilePic high={50}></ProfilePic>
-              <div className="arrow-icon">▼</div>
+
+            <div className="avatarMenu">
+              <div className="avatarProfile" onClick={toggleMenu}>
+                <ProfilePic high={50}></ProfilePic>
+                <div className="arrow-icon">▼</div>
+              </div>
+              {isMenuOpen && (
+                <div className="menuBox">
+                  <ul className="menuBox-list">
+                    <li className="Profile"> <img src="/ProfileIcon.svg" alt="" /> Conta</li>
+                    <li className="Config"> <img src="/ConfigIcon.svg" alt="" />Configurações</li>
+                    <li className="Exit"><img src="/ExitIcon.svg" alt="" /> Sair</li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         )}
