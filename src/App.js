@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header isLogged={false} isHome={false}></Header>
+      <Header isLogged={true} isHome={false}></Header>
     </div>
   );
 }
