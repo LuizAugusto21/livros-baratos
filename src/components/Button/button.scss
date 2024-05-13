@@ -1,0 +1,11 @@
+@import "src/styles/colors.scss";
+
+.botao-voltar{
+    height: 50px;
+    width: 150px;
+    color: white;
+    font-size: 18px;
+    background: $button-color;
+    border-radius: 25px;
+    margin: 10px;
+}
