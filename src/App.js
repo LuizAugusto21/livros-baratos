@@ -1,13 +1,10 @@
-import Header from './components/Header/Header'
-import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
-import Wishlist from './pages/wishlist/Wishlist';
+import ShoppingCart from './pages/shopping/ShoppingCart';
 
 function App() {
   return (
     <div className="App">
-      <Wishlist />
-      {/* <Header isLogged={true} isHome={false}></Header> */}
+      <ShoppingCart />
     </div>
   );
 }
