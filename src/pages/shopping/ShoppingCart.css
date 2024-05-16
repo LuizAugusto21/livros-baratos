@@ -5,3 +5,9 @@
 .texto-carrinho-vazio{
     color:rgba(0, 0, 0, 0.274);
 }
+
+.container-botao-voltar{
+    width: 100%;
+    position: fixed;
+    bottom: 60px;
+}

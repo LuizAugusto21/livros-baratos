@@ -13,10 +13,10 @@ export default function ShoppingCart(){
             <div className="container-principal">
                 <img className="carrinho-de-compras" width={200} src={Icone}/>
                 <h1 className="texto-carrinho-vazio">O carrinho está vazio</h1>
-            </div>
             
-            <div className="container-botao-voltar">
-                <Button></Button>
+                <div className="container-botao-voltar">
+                    <Button></Button>
+                </div>
             </div>
         </div>
     );
