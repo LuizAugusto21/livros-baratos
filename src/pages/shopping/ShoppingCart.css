@@ -1,5 +1,7 @@
-.container-botao-voltar{
-    text-align: left;
+.container-principal{
+    margin-top: 120px;
 }
 
-/* AINDA NÃO ESTÁ DANDO CERTO */
+.texto-carrinho-vazio{
+    color:rgba(0, 0, 0, 0.274);
+}
