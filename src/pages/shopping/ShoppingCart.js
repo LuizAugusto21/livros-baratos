@@ -12,16 +12,23 @@ export default function ShoppingCart(){
         <div>
             <Header isLogged={true} isHome={true}></Header>
             <div className="container-principal">
-                <div>
                     {
                         carrinhoVazio
                         ?
-                        <><img className="carrinho-de-compras" width={200} src={Icone} /><h1 className="texto-carrinho-vazio"> O carrinho está vazio</h1></>
+                        <>
+                            <img className="carrinho-de-compras" width={200} src={Icone} /><h1 className="texto-carrinho-vazio"> O carrinho está vazio</h1></>
                         :
-                        <h1>Há produtos no carrinho!!!</h1>
+                        <>
+                            <div className="bloco-lista-itens">
+                                <h2> Carrinho de compras </h2>
+                                <div className="lista-itens">
+                                </div>
+                            </div>
+                            <div className="resumo-pedido">
+                            <h2> Div vermelha </h2>
+                            </div>
+                        </>
                     }
-                </div>
-
             </div>
                 
             <div className="container-botao-voltar">
