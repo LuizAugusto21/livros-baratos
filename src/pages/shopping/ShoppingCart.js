@@ -3,6 +3,7 @@ import Button from "../../components/Button/Button";
 import "./ShoppingCart.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import trashIcon from "../../images/trash-icon.png";
+import bookCover from "../../images/Harry-Potter-1.jpg"
 
 
 // Implementação provisória do estado do carrinho 
@@ -30,6 +31,13 @@ export default function ShoppingCart(){
                             <div className="bloco-lista-itens">
                                 <h2> Carrinho de compras </h2>
                                 <div className="lista-itens">
+                                    <div className="capa-livro">
+                                        <img className = "capa-livro-image" src={bookCover} width={70} height={85}/>
+                                    </div>
+                                    <div className="titulo-livro"> Harry Potter and The Philosofer Stone
+                                    <div className="autor-livro"> J.K. Rowling </div>
+                                    </div>
+                                    
                                     <div className="preco-e-remover">
                                         <span className="preco-text">R$ 15,00</span>
                                         <img 
