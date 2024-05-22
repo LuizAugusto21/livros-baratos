@@ -1,7 +1,7 @@
 import React from "react";
 import "./BookCard.scss";
 
-export default function BookCard() {
+export default function BookCard( {preco, nomeLivro, Autor}) {
   return (
     <div className="BookCard-box">
       <div className="BookCard-content">
@@ -10,11 +10,11 @@ export default function BookCard() {
         <div className="BookCard-info">
           <p>
             <span>
-              R$ 15 <br />
-              Harry potter
+              R${preco}<br />
+              {nomeLivro}
             </span>{" "}
             <br />
-            J.K Rowling
+            {Autor}
           </p>
           <div className="condition"></div>
         </div>
