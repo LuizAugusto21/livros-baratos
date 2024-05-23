@@ -22,7 +22,9 @@ export default function ShoppingCart(){
                         <>
                             <div className="bloco-lista-itens">
                                 <h2> Carrinho de compras </h2>
-                                <ShoppingCartItem/>
+                                {/* TODO: Implementar a lógica de preenchimento dos dados do livro no componente */}
+                                <ShoppingCartItem title="Harry Potter and the Chamber of Secrets" author="J.K. Rowling" price={17}/>
+                                <ShoppingCart title="Harry Potter and the Philosofer Stone" author="J.K. Rowling" price={24}/>
                             </div>
                             <div className="resumo-pedido">
                             <h2> Resumo do pedido </h2>
