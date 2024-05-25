@@ -14,11 +14,11 @@ export default function homepage() {
       <Header isHome={true}></Header>
       <div className="title-searchbar">
         <h1>Livros Baratos só aqui</h1>
-        <SearchBar></SearchBar>
-      </div>
 
-      {/* <BookCard preco={15} nomeLivro={"Harry potter"} Autor={"J. K Rowling"}></BookCard> */}
-      <Carousel></Carousel>
+        <SearchBar></SearchBar>
+        <Carousel genero={"Top 2020"}></Carousel>
+      </div>
+      
       <Footer></Footer>
     </div>
   );

@@ -1,303 +1,392 @@
 [
-    {
-      "name": "The Silent Patient",
-      "author": "Alex Michaelides",
-      "year": "2019",
-      "Imagem": "https://example.com/the-silent-patient.jpg",
-      "genres ": "Mystery, Thriller"
-    },
-    {
-      "name": "Where the Crawdads Sing",
-      "author": "Delia Owens",
-      "year": "2018",
-      "Imagem": "https://example.com/where-the-crawdads-sing.jpg",
-      "genres ": "Fiction, Mystery"
-    },
-    {
-      "name": "Becoming",
-      "author": "Michelle Obama",
-      "year": "2018",
-      "Imagem": "https://example.com/becoming.jpg",
-      "genres ": "Autobiography"
-    },
-    {
-      "name": "Educated",
-      "author": "Tara Westover",
-      "year": "2018",
-      "Imagem": "https://example.com/educated.jpg",
-      "genres ": "Biography, Memoir"
-    },
-    {
-      "name": "The Testaments",
-      "author": "Margaret Atwood",
-      "year": "2019",
-      "Imagem": "https://example.com/the-testaments.jpg",
-      "genres ": "Dystopian, Fiction"
-    },
-    {
-      "name": "Where the Forest Meets the Stars",
-      "author": "Glendy Vanderah",
-      "year": "2019",
-      "Imagem": "https://example.com/where-the-forest-meets-the-stars.jpg",
-      "genres ": "Fiction, Mystery"
-    },
-    {
-      "name": "The Giver of Stars",
-      "author": "Jojo Moyes",
-      "year": "2019",
-      "Imagem": "https://example.com/the-giver-of-stars.jpg",
-      "genres ": "Historical Fiction"
-    },
-    {
-      "name": "The Tattooist of Auschwitz",
-      "author": "Heather Morris",
-      "year": "2018",
-      "Imagem": "https://example.com/the-tattooist-of-auschwitz.jpg",
-      "genres ": "Historical Fiction"
-    },
-    {
-      "name": "Little Fires Everywhere",
-      "author": "Celeste Ng",
-      "year": "2017",
-      "Imagem": "https://example.com/little-fires-everywhere.jpg",
-      "genres ": "Fiction, Contemporary"
-    },
-    {
-      "name": "The Alchemist",
-      "author": "Paulo Coelho",
-      "year": "1988",
-      "Imagem": "https://example.com/the-alchemist.jpg",
-      "genres ": "Fiction, Fantasy"
-    },
-    {
-      "name": "The Subtle Art of Not Giving a F*ck",
-      "author": "Mark Manson",
-      "year": "2016",
-      "Imagem": "https://example.com/the-subtle-art-of-not-giving-a-fuck.jpg",
-      "genres ": "Self-help"
-    },
-    {
-      "name": "Circe",
-      "author": "Madeline Miller",
-      "year": "2018",
-      "Imagem": "https://example.com/circe.jpg",
-      "genres ": "Fantasy, Mythology"
-    },
-    {
-      "name": "The Dutch House",
-      "author": "Ann Patchett",
-      "year": "2019",
-      "Imagem": "https://example.com/the-dutch-house.jpg",
-      "genres ": "Fiction, Historical"
-    },
-    {
-      "name": "Normal People",
-      "author": "Sally Rooney",
-      "year": "2018",
-      "Imagem": "https://example.com/normal-people.jpg",
-      "genres ": "Fiction, Romance"
-    },
-    {
-      "name": "The Institute",
-      "author": "Stephen King",
-      "year": "2019",
-      "Imagem": "https://example.com/the-institute.jpg",
-      "genres ": "Horror, Thriller"
-    },
-    {
-      "name": "The Silent Patient",
-      "author": "Alex Michaelides",
-      "year": "2019",
-      "Imagem": "https://example.com/the-silent-patient.jpg",
-      "genres ": "Mystery, Thriller"
-    },
-    {
-      "name": "Where the Crawdads Sing",
-      "author": "Delia Owens",
-      "year": "2018",
-      "Imagem": "https://example.com/where-the-crawdads-sing.jpg",
-      "genres ": "Fiction, Mystery"
-    },
-    {
-      "name": "Becoming",
-      "author": "Michelle Obama",
-      "year": "2018",
-      "Imagem": "https://example.com/becoming.jpg",
-      "genres ": "Autobiography"
-    },
-    {
-      "name": "Educated",
-      "author": "Tara Westover",
-      "year": "2018",
-      "Imagem": "https://example.com/educated.jpg",
-      "genres ": "Biography, Memoir"
-    },
-    {
-      "name": "The Testaments",
-      "author": "Margaret Atwood",
-      "year": "2019",
-      "Imagem": "https://example.com/the-testaments.jpg",
-      "genres ": "Dystopian, Fiction"
-    },
-    {
-      "name": "Where the Forest Meets the Stars",
-      "author": "Glendy Vanderah",
-      "year": "2019",
-      "Imagem": "https://example.com/where-the-forest-meets-the-stars.jpg",
-      "genres ": "Fiction, Mystery"
-    },
-    {
-      "name": "The Giver of Stars",
-      "author": "Jojo Moyes",
-      "year": "2019",
-      "Imagem": "https://example.com/the-giver-of-stars.jpg",
-      "genres ": "Historical Fiction"
-    },
-    {
-      "name": "The Tattooist of Auschwitz",
-      "author": "Heather Morris",
-      "year": "2018",
-      "Imagem": "https://example.com/the-tattooist-of-auschwitz.jpg",
-      "genres ": "Historical Fiction"
-    },
-    {
-      "name": "Little Fires Everywhere",
-      "author": "Celeste Ng",
-      "year": "2017",
-      "Imagem": "https://example.com/little-fires-everywhere.jpg",
-      "genres ": "Fiction, Contemporary"
-    },
-    {
-      "name": "The Alchemist",
-      "author": "Paulo Coelho",
-      "year": "1988",
-      "Imagem": "https://example.com/the-alchemist.jpg",
-      "genres ": "Fiction, Fantasy"
-    },
-    {
-      "name": "The Subtle Art of Not Giving a F*ck",
-      "author": "Mark Manson",
-      "year": "2016",
-      "Imagem": "https://example.com/the-subtle-art-of-not-giving-a-fuck.jpg",
-      "genres ": "Self-help"
-    },
-    {
-      "name": "Circe",
-      "author": "Madeline Miller",
-      "year": "2018",
-      "Imagem": "https://example.com/circe.jpg",
-      "genres ": "Fantasy, Mythology"
-    },
-    {
-      "name": "The Dutch House",
-      "author": "Ann Patchett",
-      "year": "2019",
-      "Imagem": "https://example.com/the-dutch-house.jpg",
-      "genres ": "Fiction, Historical"
-    },
-    {
-      "name": "Normal People",
-      "author": "Sally Rooney",
-      "year": "2018",
-      "Imagem": "https://example.com/normal-people.jpg",
-      "genres ": "Fiction, Romance"
-    },
-    {
-      "name": "The Institute",
-      "author": "Stephen King",
-      "year": "2019",
-      "Imagem": "https://example.com/the-institute.jpg",
-      "genres ": "Horror, Thriller"
-    },
-    {
-      "name": "The Silent Patient",
-      "author": "Alex Michaelides",
-      "year": "2019",
-      "Imagem": "https://example.com/the-silent-patient.jpg",
-      "genres ": "Mystery, Thriller"
-    },
-    {
-      "name": "Where the Crawdads Sing",
-      "author": "Delia Owens",
-      "year": "2018",
-      "Imagem": "https://example.com/where-the-crawdads-sing.jpg",
-      "genres ": "Fiction, Mystery"
-    },
-    {
-      "name": "Becoming",
-      "author": "Michelle Obama",
-      "year": "2018",
-      "Imagem": "https://example.com/becoming.jpg",
-      "genres ": "Autobiography"
-    },
-    {
-      "name": "Educated",
-      "author": "Tara Westover",
-      "year": "2018",
-      "Imagem": "https://example.com/educated.jpg",
-      "genres ": "Biography, Memoir"
-    },
-    {
-      "name": "The Testaments",
-      "author": "Margaret Atwood",
-      "year": "2019",
-      "Imagem": "https://example.com/the-testaments.jpg",
-      "genres ": "Dystopian, Fiction"
-    },
-    {
-      "name": "Where the Forest Meets the Stars",
-      "author": "Glendy Vanderah",
-      "year": "2019",
-      "Imagem": "https://example.com/where-the-forest-meets-the-stars.jpg",
-      "genres ": "Fiction, Mystery"
-    },
-    {
-      "name": "The Giver of Stars",
-      "author": "Jojo Moyes",
-      "year": "2019",
-      "Imagem": "https://example.com/the-giver-of-stars.jpg",
-      "genres ": "Historical Fiction"
-    },
-    {
-      "name": "The Tattooist of Auschwitz",
-      "author": "Heather Morris",
-      "year": "2018",
-      "Imagem": "https://example.com/the-tattooist-of-auschwitz.jpg",
-      "genres ": "Historical Fiction"
-    },
-    {
-      "name": "Little Fires Everywhere",
-      "author": "Celeste Ng",
-      "year": "2017",
-      "Imagem": "https://example.com/little-fires-everywhere.jpg",
-      "genres ": "Fiction, Contemporary"
-    },
-    {
-      "name": "The Alchemist",
-      "author": "Paulo Coelho",
-      "year": "1988",
-      "Imagem": "https://example.com/the-alchemist.jpg",
-      "genres ": "Fiction, Fantasy"
-    },
-    {
-      "name": "The Subtle Art of Not Giving a F*ck",
-      "author": "Mark Manson",
-      "year": "2016",
-      "Imagem": "https://example.com/the-subtle-art-of-not-giving-a-fuck.jpg",
-      "genres ": "Self-help"
-    },
-    {
-      "name": "Circe",
-      "author": "Madeline Miller",
-      "year": "2018",
-      "Imagem": "https://example.com/circe.jpg",
-      "genres ": "Fantasy, Mythology"
-    },
-    {
-      "name": "The Dutch House",
-      "author": "Ann Patchett",
-      "year": "2019",
-      "Imagem": "https://example.com/the-dutch-house.jpg",
-      "genres ": "Fiction, Historical"
-    }
-  ]
+  {
+    "name": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "year": "2019",
+    "Imagem": "https://example.com/the-silent-patient.jpg",
+    "genres ": "Mystery, Thriller",
+    "description": "Alicia Berenson’s life is seemingly perfect until one day when she shoots her husband in the face and then never speaks another word. The ensuing silence captures the public's imagination, and Theo Faber, a forensic psychotherapist, becomes obsessed with uncovering Alicia's motive."
+  },
+  {
+    "name": "Where the Crawdads Sing",
+    "author": "Delia Owens",
+    "year": "2018",
+    "Imagem": "https://example.com/where-the-crawdads-sing.jpg",
+    "genres ": "Fiction, Mystery",
+    "description": "Kya Clark, the mysterious 'Marsh Girl', has lived alone in the wild for years. When a local man is found dead, Kya becomes the prime suspect. A beautifully written tale of mystery, love, and survival in the marshlands of North Carolina."
+  },
+  {
+    "name": "Becoming",
+    "author": "Michelle Obama",
+    "year": "2018",
+    "Imagem": "https://example.com/becoming.jpg",
+    "genres ": "Autobiography",
+    "description": "In this deeply personal memoir, former First Lady Michelle Obama chronicles the experiences that have shaped her, from her childhood in Chicago to her years as an executive balancing the demands of motherhood and work, to her time spent at the world’s most famous address."
+  },
+  {
+    "name": "Educated",
+    "author": "Tara Westover",
+    "year": "2018",
+    "Imagem": "https://example.com/educated.jpg",
+    "genres ": "Biography, Memoir",
+    "description": "A memoir about a young girl who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University. Tara Westover's journey from isolation to education is a powerful story of transformation and resilience."
+  },
+  {
+    "name": "The Testaments",
+    "author": "Margaret Atwood",
+    "year": "2019",
+    "Imagem": "https://example.com/the-testaments.jpg",
+    "genres ": "Dystopian, Fiction",
+    "description": "A long-awaited sequel to 'The Handmaid's Tale', this novel picks up fifteen years after the original story. Told through the testimonies of three female narrators, it explores the inner workings and the resistance within the theocratic regime of Gilead."
+  },
+  {
+    "name": "Where the Forest Meets the Stars",
+    "author": "Glendy Vanderah",
+    "year": "2019",
+    "Imagem": "https://example.com/where-the-forest-meets-the-stars.jpg",
+    "genres ": "Fiction, Mystery",
+    "description": "After the loss of her mother and her own battle with breast cancer, Jo Teale returns to her research on nesting birds in rural Illinois. Her routine is disrupted by a mysterious child who claims to have come from the stars and changes Jo's life forever."
+  },
+  {
+    "name": "The Giver of Stars",
+    "author": "Jojo Moyes",
+    "year": "2019",
+    "Imagem": "https://example.com/the-giver-of-stars.jpg",
+    "genres ": "Historical Fiction",
+    "description": "Based on a true story, this novel follows the lives of five extraordinary women in Depression-era America who become part of the WPA Packhorse Library Project, delivering books to rural communities and fostering a love of reading."
+  },
+  {
+    "name": "The Tattooist of Auschwitz",
+    "author": "Heather Morris",
+    "year": "2018",
+    "Imagem": "https://example.com/the-tattooist-of-auschwitz.jpg",
+    "genres ": "Historical Fiction",
+    "description": "A moving, true-life tale of love and survival set during the Holocaust. Lale Sokolov, a Jewish man imprisoned at Auschwitz, is forced to tattoo identification numbers on his fellow prisoners. In the midst of horror, he finds love and hope."
+  },
+  {
+    "name": "Little Fires Everywhere",
+    "author": "Celeste Ng",
+    "year": "2017",
+    "Imagem": "https://example.com/little-fires-everywhere.jpg",
+    "genres ": "Fiction, Contemporary",
+    "description": "Set in the progressive suburb of Shaker Heights, this novel explores the intertwined fates of the picture-perfect Richardson family and the enigmatic mother-daughter duo who upend their lives. Themes of identity, privilege, and motherhood are at the forefront."
+  },
+  {
+    "name": "The Alchemist",
+    "author": "Paulo Coelho",
+    "year": "1988",
+    "Imagem": "https://example.com/the-alchemist.jpg",
+    "genres ": "Fiction, Fantasy",
+    "description": "A philosophical story about a young Andalusian shepherd named Santiago who dreams of finding a worldly treasure. His journey teaches him about the essential wisdom of listening to our hearts and following our dreams."
+  },
+  {
+    "name": "The Subtle Art of Not Giving a F*ck",
+    "author": "Mark Manson",
+    "year": "2016",
+    "Imagem": "https://example.com/the-subtle-art-of-not-giving-a-fuck.jpg",
+    "genres ": "Self-help",
+    "description": "A counterintuitive approach to living a good life, this book argues that life's struggles give it meaning and advises readers to embrace them rather than constantly seeking positivity."
+  },
+  {
+    "name": "Circe",
+    "author": "Madeline Miller",
+    "year": "2018",
+    "Imagem": "https://example.com/circe.jpg",
+    "genres ": "Fantasy, Mythology",
+    "description": "This reimagining of the life of Circe, the enchantress from the 'Odyssey', focuses on her journey from an outcast nymph to a formidable witch capable of standing up to gods and mortals alike."
+  },
+  {
+    "name": "The Dutch House",
+    "author": "Ann Patchett",
+    "year": "2019",
+    "Imagem": "https://example.com/the-dutch-house.jpg",
+    "genres ": "Fiction, Historical",
+    "description": "A tale of family, betrayal, love, and the powerful bonds that hold siblings together. After being exiled from their childhood home, the Dutch House, siblings Danny and Maeve confront their past and the people who shaped their lives."
+  },
+  {
+    "name": "Normal People",
+    "author": "Sally Rooney",
+    "year": "2018",
+    "Imagem": "https://example.com/normal-people.jpg",
+    "genres ": "Fiction, Romance",
+    "description": "A story of mutual fascination, friendship, and love. Connell and Marianne grow up in the same small town in rural Ireland, but their experiences of school and college life couldn't be more different. They weave in and out of each other’s lives, straddling that uneasy line between love and friendship."
+  },
+  {
+    "name": "The Institute",
+    "author": "Stephen King",
+    "year": "2019",
+    "Imagem": "https://example.com/the-institute.jpg",
+    "genres ": "Horror, Thriller",
+    "description": "In the middle of the night, intruders silently murder Luke Ellis’s parents and kidnap him. He wakes up at 'The Institute', a place where children with special talents are subjected to ruthless experiments. Luke is determined to escape and expose the truth."
+  },
+  {
+    "name": "The Iliad",
+    "author": "Homer",
+    "year": "800 BC",
+    "genre": "Epic",
+    "Description": "An ancient Greek epic poem"
+  },
+  {
+    "name": "The Odyssey",
+    "author": "Homer",
+    "year": "800 BC",
+    "genre": "Epic",
+    "Description": "An ancient Greek epic poem"
+  },
+  {
+    "name": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "year": "1813",
+    "genre": "Romance",
+    "Description": "A classic novel about the complexities of love and societal expectations"
+  },
+  {
+    "name": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": "1960",
+    "genre": "Coming-of-age, Southern Gothic",
+    "Description": "A powerful story about racial injustice and the loss of innocence in the American South"
+  },
+  {
+    "name": "1984",
+    "author": "George Orwell",
+    "year": "1949",
+    "genre": "Dystopian",
+    "Description": "A chilling portrayal of a totalitarian society and the power of government control"
+  },
+  {
+    "name": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "year": "1925",
+    "genre": "Tragedy, Jazz Age",
+    "Description": "A critique of the American Dream and the excesses of the Roaring Twenties"
+  },
+  {
+    "name": "Moby-Dick",
+    "author": "Herman Melville",
+    "year": "1851",
+    "genre": "Adventure, Epic",
+    "Description": "The voyage of the whaling ship Pequod and its captain, Ahab, who obsessively hunts the giant white whale, Moby-Dick."
+  },
+  
+  {
+    "name": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": "1960",
+    "genre": "Fiction",
+    "Description": "A coming-of-age story set in the fictional town of Maycomb, Alabama, during the Great Depression."
+  },
+  {
+    "name": "1984",
+    "author": "George Orwell",
+    "year": "1949",
+    "genre": "Fiction",
+    "Description": "A dystopian novel set in a totalitarian society, where the government constantly monitors and manipulates its citizens."
+  },
+  {
+    "name": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "year": "1813",
+    "genre": "Fiction",
+    "Description": "A classic romance novel that explores themes of love, class, and societal expectations in 19th century England."
+  },
+  {
+    "name": "The Diary of a Young Girl",
+    "author": "Anne Frank",
+    "year": "1947",
+    "genre": "Non-fiction",
+    "Description": "The diary of Anne Frank, a Jewish girl hiding from the Nazis in Amsterdam during World War II."
+  },
+  {
+    "name": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "year": "1937",
+    "genre": "Fantasy",
+    "Description": "A fantasy novel that follows the adventures of Bilbo Baggins, a hobbit who embarks on a quest to reclaim a treasure from a dragon."
+  },
+  {
+    "name": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "year": "1951",
+    "genre": "Fiction",
+    "Description": "A story narrated by Holden Caulfield, a disaffected teenager living in New York City after being expelled from prep school."
+  },
+  {
+    "name": "To the Lighthouse",
+    "author": "Virginia Woolf",
+    "year": "1927",
+    "genre": "Fiction",
+    "Description": "A modernist novel that explores the inner thoughts and experiences of the Ramsay family during a trip to the Isle of Skye."
+  },
+  {
+    "name": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "year": "1954",
+    "genre": "Fantasy",
+    "Description": "A high fantasy trilogy that follows a hobbit named Frodo Baggins as he journeys to destroy a powerful ring."
+  },
+  {
+    "name": "The Chronicles of Narnia",
+    "author": "C.S. Lewis",
+    "year": "1950",
+    "genre": "Fantasy",
+    "Description": "A series of seven fantasy novels set in the fictional world of Narnia, where magic and talking animals exist."
+  },
+
+  {
+    "name": "The Odyssey",
+    "author": "Homer",
+    "year": "8th century BCE",
+    "genre": "Epic Poetry",
+    "Description": "An ancient Greek epic poem that follows the hero Odysseus as he attempts to return home after the Trojan War."
+  },
+  {
+    "name": "One Hundred Years of Solitude",
+    "author": "Gabriel Garcia Marquez",
+    "year": "1967",
+    "genre": "Magical Realism",
+    "Description": "A novel that tells the story of the Buendia family and their experiences in the fictional town of Macondo."
+  },
+  {
+    "name": "War and Peace",
+    "author": "Leo Tolstoy",
+    "year": "1869",
+    "genre": "Historical Fiction",
+    "Description": "A novel that chronicles the French invasion of Russia and the impact it has on five aristocratic families."
+  },
+  {
+    "name": "The Divine Comedy",
+    "author": "Dante Alighieri",
+    "year": "1320",
+    "genre": "Epic Poetry",
+    "Description": "An epic poem that follows the journey of the main character through Hell, Purgatory, and Heaven."
+  },
+  {
+    "name": "The Iliad",
+    "author": "Homer",
+    "year": "8th century BCE",
+    "genre": "Epic Poetry",
+    "Description": "An ancient Greek epic poem that tells the story of the Trojan War."
+  },
+  {
+    "name": "The Brothers Karamazov",
+    "author": "Fyodor Dostoevsky",
+    "year": "1880",
+    "genre": "Fiction",
+    "Description": "A philosophical novel that explores themes of religion, morality, and family through the lives of the Karamazov brothers."
+  },
+  {
+    "name": "The Picture of Dorian Gray",
+    "author": "Oscar Wilde",
+    "year": "1890",
+    "genre": "Fiction",
+    "Description": "A novel that tells the story of a young man named Dorian Gray, who remains eternally youthful while a portrait of him ages and shows the effects of his immoral actions."
+  },
+  {
+    "name": "The Little Prince",
+    "author": "Antoine de Saint-Exupery",
+    "year": "1943",
+    "genre": "Children's Literature",
+    "Description": "A novella that tells the story of a young prince who travels from planet to planet, learning important life lessons along the way."
+  },
+  {
+    "name": "Brave New World",
+    "author": "Aldous Huxley",
+    "year": "1932",
+    "genre": "Fiction",
+    "Description": "A dystopian novel set in a future society where people are genetically engineered and conditioned to be content with their assigned roles."
+  },
+  {
+    "name": "The Grapes of Wrath",
+    "author": "John Steinbeck",
+    "year": "1939",
+    "genre": "Fiction",
+    "Description": "A novel that follows the Joad family as they migrate from the Dust Bowl to California during the Great Depression."
+  },
+  {
+    "name": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "year": "1866",
+    "genre": "Fiction",
+    "Description": "A psychological novel that explores the moral and psychological struggles of Raskolnikov, a poor ex-student in Saint Petersburg."
+  },
+  {
+    "name": "The Great Expectations",
+    "author": "Charles Dickens",
+    "year": "1861",
+    "genre": "Fiction",
+    "Description": "A bildungsroman that follows the life and experiences of an orphan named Pip in 19th century England."
+  },
+  {
+    "name": "The Count of Monte Cristo",
+    "author": "Alexandre Dumas",
+    "year": "1844",
+    "genre": "Historical Fiction",
+    "Description": "A novel that tells the story of Edmond Dantes, a man who is wrongly imprisoned and seeks revenge against those who betrayed him."
+  },
+  {
+    "name": "The Scarlet Letter",
+    "author": "Nathaniel Hawthorne",
+    "year": "1850",
+    "genre": "Fiction",
+    "Description": "A novel set in 17th century Puritan Boston, where a woman named Hester Prynne is forced to wear a scarlet letter 'A' as punishment for adultery."
+  },
+  {
+    "name": "Alice's Adventures in Wonderland",
+    "author": "Lewis Carroll",
+    "year": "1865",
+    "genre": "Fantasy",
+    "Description": "A children's novel that follows a young girl named Alice as she falls down a rabbit hole into a fantasy world populated by peculiar creatures."
+  },
+  {
+    "name": "The Adventures of Huckleberry Finn",
+    "author": "Mark Twain",
+    "year": "1884",
+    "genre": "Fiction",
+    "Description": "A novel that follows the adventures of Huck Finn, a young boy who escapes his abusive father and embarks on a journey down the Mississippi River."
+  },
+  {
+    "name": "The Kite Runner",
+    "author": "Khaled Hosseini",
+    "year": "2003",
+    "genre": "Fiction",
+    "Description": "A novel that tells the story of Amir, a young boy from Afghanistan, and his journey to seek redemption for past sins."
+  },
+  {
+    "name": "The Lord of the Flies",
+    "author": "William Golding",
+    "year": "1954",
+    "genre": "Fiction",
+    "Description": "A novel that follows a group of boys stranded on an uninhabited island and their descent into savagery."
+  },
+  {
+    "name": "The Book Thief",
+    "author": "Markus Zusak",
+    "year": "2005",
+    "genre": "Historical Fiction",
+    "Description": "A novel set in Nazi Germany, where a young girl named Liesel Meminger steals books to share with others and cope with the horrors of war."
+  },
+  {
+    "name": "The Girl with the Dragon Tattoo",
+    "author": "Stieg Larsson",
+    "year": "2005",
+    "genre": "Mystery",
+    "Description": "A crime novel that follows journalist Mikael Blomkvist and hacker Lisbeth Salander as they investigate a decades-old disappearance."
+  },
+  {
+    "name": "The Hitchhiker's Guide to the Galaxy",
+    "author": "Douglas Adams",
+    "year": "1979",
+    "genre": "Science Fiction",
+    "Description": "A comedic science fiction series that follows the adventures of Arthur Dent, a hapless Englishman, as he travels through space."
+  },
+
+  {
+    "name": "The Odyssey",
+    "author": "Homer",
+    "year": "8th century BCE",
+    "genre": "Epic Poetry",
+    "Description": "An ancient Greek epic poem that follows the hero Odysseus as he attempts to return home after the Trojan War."
+  }
+  
+]

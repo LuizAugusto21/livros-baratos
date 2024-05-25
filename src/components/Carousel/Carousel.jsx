@@ -3,7 +3,7 @@ import BookCard from "../BookCard/BookCard";
 
 import "./carousel.scss";
 
-export default function Carousel() {
+export default function Carousel({ genero}) {
   const [data, setData] = useState([]);
   const carousel = useRef(null);
   const [startIndex, setStartIndex] = useState(0);
@@ -38,6 +38,7 @@ export default function Carousel() {
 
   return (
     <div>
+        <h1>{genero}</h1>
       <div className="carousel" ref={carousel} >
         <button onClick={handlePrev} className="leftArrow" disabled={data.length <= itemsPerPage}>
           <img src="/arrow_icon.png" alt="Scroll Left" />
