@@ -1,0 +1,103 @@
+@import "src/styles/colors.scss";
+@import "src/styles/fonts.scss";
+
+
+
+*{
+    font-family: $font-family-sans-serif;
+}
+.header {
+  padding-top: 33px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 140px 0px 140px;
+  .Logo{
+    height: 42px;
+    width: 177;
+
+    &:hover{
+        cursor: pointer;
+    }
+  }
+
+  .nav{
+    display: flex;
+    direction: row;
+    align-items: center;
+
+    .navMenu{
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+      padding: 0;
+      margin-left: 50px;
+      li{
+        margin-right: 20px;
+
+        a{
+          color: #241400;
+          font-family: $font-family-sans-serif;
+          text-decoration: none;
+
+          &:hover {
+            border-bottom: solid 3px transparent;
+            border-bottom-color: $button-color;
+          }
+        }
+      }
+    }
+    button{
+      height: 45px;
+      width: 168px;
+      border-radius: 15px;
+      border: none;
+      font-size: 25px;
+
+      background-color: $button-color;
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu-images {
+      display: flex;
+      gap: 25px;
+      height: 35px;
+      max-width: fit-content;
+      align-items: center;
+
+      :hover {
+        cursor: pointer;
+      }
+
+      .avatarProfile {
+        display: flex;
+        align-items: center;
+      }
+
+      .menuBox {
+        display: flex;
+        flex-direction: column;
+        border: solid;
+        border-radius: 25px;
+        position: absolute;
+
+        .menuBox-list {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          padding: 0 10px 0 10px;
+          gap: 10px;
+
+          list-style: none;
+
+
+          .Exit{
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
