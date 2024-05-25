@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Cadastro.css';
+// Importe seus estilos aqui
 
-export default props => (
-    <React.Fragment>
+function Cadastro(props) {
+    const cadastrar = () => {
+        // Implementação da função cadastrar
+    };
+
+    return (
         <main className="content">
             <div className="container">
                 <div className="cadastro">
-                <div className="input-container">
+                    <div className="input-container">
                         <label>Qual o tipo da conta?</label>
                         <div className="radio-buttons">
                             <input type="radio" id="leitor" name="tipo-conta" value="leitor" className="input-field" />
@@ -39,7 +43,7 @@ export default props => (
                     </div>
 
                     <div className="login-buttons">
-                        <button onClick={Cadastrar}>CADASTRAR</button>
+                        <button onClick={cadastrar}>CADASTRAR</button>
                     </div>
 
                     <div className="login-link">
@@ -48,9 +52,7 @@ export default props => (
                 </div>
             </div>  
         </main>
-    </React.Fragment>
-);
-
-function Cadastrar() {
-    // Implementação da função Cadastrar
+    );
 }
+
+export default Cadastro;
