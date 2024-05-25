@@ -9,8 +9,8 @@ import  HomePage  from "./pages/homepage/homepage";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <HomePage></HomePage>
+    <App />
+    {/* <HomePage></HomePage> */}
   </React.StrictMode>
 );
 
