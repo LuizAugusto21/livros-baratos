@@ -1,21 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Cadastro from "./pages/singup/Cadastro";
-import homepage from "./pages/homepage/homepage";
+import Homepage from "./pages/homepage/homepage";
 
-function App(props) {
+function App() {
   return (
     <Router>
-      <div className="app">
-        <div className="content">
-          <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/cadastro" component={Cadastro} />
-            <Route path="/" component={homepage} />
-          </Switch>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/" element={<Homepage />} />
+      </Routes>
     </Router>
   );
 }

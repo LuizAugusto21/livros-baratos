@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./header.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import ProfilePic from "../Profile/ProfilePic";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({ isLogged, isHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,12 +11,16 @@ export default function Header({ isLogged, isHome }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+
+  const navigate = useNavigate();
+
   return (
     <div className="header">
       <img
         className="Logo"
         src="/LogoHeader.png"
         alt="Logo contendo um livro e nome"
+        onClick={navigate("/")}
       />{" "}
       <div className="nav">
         {isHome ? null : <SearchBar className="BarraPesquisa"></SearchBar>}
@@ -33,7 +38,7 @@ export default function Header({ isLogged, isHome }) {
 
         {/* Verfica se está logado para exibir o botão de login ou o avatar */}
         {!isLogged ? (
-          <button>Login</button>
+          <button onClick={() => navigate("/login")}>Login</button>
         ) : (
           <div className="menu-images">
             <a href="#favorite">

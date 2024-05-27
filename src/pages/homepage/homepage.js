@@ -16,7 +16,7 @@ export default function homepage() {
         <h1>Livros Baratos só aqui</h1>
 
         <SearchBar></SearchBar>
-        <Carousel genero={"Top 2020"}></Carousel>
+        <Carousel genero={"Todos"}></Carousel>
       </div>
       
       <Footer></Footer>
