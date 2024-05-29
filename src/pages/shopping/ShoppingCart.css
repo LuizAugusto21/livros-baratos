@@ -4,7 +4,6 @@
     .bloco-lista-itens{
         flex: 1;
         padding: 10px;
-        border: 1px solid #000;
         margin: 20px;
 
         /* margin-top: 120px;
@@ -34,13 +33,49 @@
     .resumo-pedido{
         flex: 1;
         padding: 10px;
-        border: 1px solid #000;
         margin: 20px;
-        /* display: inline-block; */
-        /* margin-right: 100px; */
-        /* float: right; */
-        /* height: 400px; Pensar numa maneira disso acompnhar o tamanho da lista de itens */
-        /* width: 680px; 
-        background: red; */
+
+        .item-resumo-pedido{
+            display: flex;
+            position: relative;
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+
+            .item-resumo-texto{
+                display: inline-block;
+                font-size: 1.4em;
+            }
+
+            .item-resumo-preco{
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                font-size: 1.4em;
+            }
+        }
+        hr{
+            margin-top: 40px;
+        }
+        .total-resumo-pedido{
+            display: flex;
+            position: relative;
+            width: 80%;
+            margin: auto;
+
+            .total-resumo-texto{
+                display: inline-block;
+                font-size: 1.4em;
+
+            }
+
+            .total-resumo-preco{
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                font-size: 1.4em;
+            }
+        }
+
     }
 }
