@@ -1,14 +1,10 @@
 import React from "react";
 import "./button.scss";
 
-// function goBack(){
-//     window.location.href = "home???"
-// }
-
-export default function Button(){
+export default function Button({text="Voltar"}){
     return(
         <div className="container-botao">
-            <button className="botao-voltar" onclick="goBack()">Voltar</button>
+            <button className="botao">{text}</button>
         </div>
     );
 }
