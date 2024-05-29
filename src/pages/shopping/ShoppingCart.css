@@ -1,17 +1,11 @@
 .container-principal{
     display: flex;
+    flex-wrap: wrap;
 
     .bloco-lista-itens{
         flex: 1;
         padding: 10px;
         margin: 20px;
-
-        /* margin-top: 120px;
-        margin-left: 100px;
-        float: left;
-        display: inline-block; */
-        /* height: 400px; Pensar numa maneira disso acompanhar o tamanho da lista de itens */
-        /* width: 680px;  */
         
         h2{
                 color:black;
@@ -22,12 +16,6 @@
         .texto-carrinho-vazio{
             color:rgba(0, 0, 0, 0.274);
         }
-
-        .container-botao-voltar{
-            width: 100%;
-            position: fixed;
-            bottom: 60px;
-        }            
     }
 
     .resumo-pedido{
@@ -78,4 +66,8 @@
         }
 
     }
+
+    /* .container-botao-geral{
+
+    } */
 }

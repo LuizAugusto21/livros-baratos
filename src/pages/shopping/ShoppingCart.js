@@ -41,14 +41,15 @@ export default function ShoppingCart(){
                                     <div className="total-resumo-texto">Total</div>
                                     <div className="total-resumo-preco">R$ 30,00</div>
                                 </div>
-                                
+                            </div>
+                                <div className="conteiner-botao-geral">
+                                <Button></Button>
+                                <div>
+                                <Button className="conteiner-botao-geral"text="Comprar"></Button>
+                            </div>
                             </div>
                         </>
                     }
-            </div>
-                
-            <div className="container-botao-voltar">
-                <Button></Button>
             </div>
         </div>
     );
