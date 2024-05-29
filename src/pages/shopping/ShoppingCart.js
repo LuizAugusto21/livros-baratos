@@ -17,17 +17,20 @@ export default function ShoppingCart(){
                         carrinhoVazio
                         ?
                         <>
-                            <img className="carrinho-de-compras" width={200} src={shoppingCartIcon} /><h1 className="texto-carrinho-vazio"> O carrinho está vazio</h1></>
+                            <img className="carrinho-de-compras" width={200} src={shoppingCartIcon} alt="Carrinho de compras vazio"/><h1 className="texto-carrinho-vazio"> O carrinho está vazio</h1></>
                         :
                         <>
                             <div className="bloco-lista-itens">
                                 <h2> Carrinho de compras </h2>
                                 {/* TODO: Implementar a lógica de preenchimento dos dados do livro no componente */}
-                                <ShoppingCartItem title="Harry Potter and the Chamber of Secrets" author="J.K. Rowling" price={17}/>
-                                <ShoppingCart title="Harry Potter and the Philosofer Stone" author="J.K. Rowling" price={24}/>
+                                <ShoppingCartItem title="Harry Potter and the Philosofer Stone" author="J.K. Rowling" price={17}/> 
                             </div>
                             <div className="resumo-pedido">
+                            
+                            {/* Prosseguir a implementação amanhã */}
+                            <div></div>
                             <h2> Resumo do pedido </h2>
+                            <h2>Total</h2>
                             </div>
                         </>
                     }
