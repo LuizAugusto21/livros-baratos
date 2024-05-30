@@ -1,17 +1,11 @@
 .container-principal{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     .bloco-lista-itens{
-        flex: 1;
+        
         padding: 10px;
         margin: 20px;
-
-        /* margin-top: 120px;
-        margin-left: 100px;
-        float: left;
-        display: inline-block; */
-        /* height: 400px; Pensar numa maneira disso acompanhar o tamanho da lista de itens */
-        /* width: 680px;  */
         
         h2{
                 color:black;
@@ -23,15 +17,9 @@
             color:rgba(0, 0, 0, 0.274);
         }
 
-        .container-botao-voltar{
-            width: 100%;
-            position: fixed;
-            bottom: 60px;
-        }            
     }
 
     .resumo-pedido{
-        flex: 1;
         padding: 10px;
         margin: 20px;
 
@@ -77,5 +65,9 @@
             }
         }
 
+    }
+    .container-botao-geral{
+        margin-top: 50px;
+        display: inline-block;
     }
 }

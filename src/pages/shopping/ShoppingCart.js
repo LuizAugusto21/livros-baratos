@@ -40,15 +40,16 @@ export default function ShoppingCart(){
                                 <div className="total-resumo-pedido">
                                     <div className="total-resumo-texto">Total</div>
                                     <div className="total-resumo-preco">R$ 30,00</div>
-                                </div>
-                                
+                                </div>                   
                             </div>
+                            <div className="container-botao-geral">
+                                    <Button></Button>
+                                </div>
+                                <div className="container-botao-geral">
+                                    <Button text="Comprar"></Button>
+                                </div>
                         </>
                     }
-            </div>
-                
-            <div className="container-botao-voltar">
-                <Button></Button>
             </div>
         </div>
     );
