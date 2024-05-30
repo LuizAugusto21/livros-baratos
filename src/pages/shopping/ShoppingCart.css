@@ -1,9 +1,9 @@
 .container-principal{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     .bloco-lista-itens{
-        flex: 1;
+        
         padding: 10px;
         margin: 20px;
         
@@ -19,7 +19,6 @@
     }
 
     .resumo-pedido{
-        flex: 1;
         padding: 10px;
         margin: 20px;
 
@@ -66,8 +65,8 @@
         }
 
     }
-
-    /* .container-botao-geral{
-
-    } */
+    .container-botao-geral{
+        margin-top: 50px;
+        display: inline-block;
+    }
 }
