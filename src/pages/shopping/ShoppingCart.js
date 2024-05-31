@@ -1,4 +1,3 @@
-import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import "./ShoppingCart.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
@@ -11,7 +10,6 @@ let carrinhoVazio = false;
 export default function ShoppingCart(){
     return(  
         <div>
-            <Header isLogged={true} isHome={true}></Header>
             <div className="container-principal">
                     {
                         carrinhoVazio
