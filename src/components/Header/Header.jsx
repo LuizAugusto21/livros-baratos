@@ -6,13 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function Header({ isLogged, isHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
-  const navigate = useNavigate();
+  const handleLogoClick = () => {
+    navigate("/");
+  };
 
   return (
     <div className="header">
@@ -20,10 +22,10 @@ export default function Header({ isLogged, isHome }) {
         className="Logo"
         src="/LogoHeader.png"
         alt="Logo contendo um livro e nome"
-        onClick={navigate("/")}
-      />{" "}
+        onClick={handleLogoClick}
+      />
       <div className="nav">
-        {isHome ? null : <SearchBar className="BarraPesquisa"></SearchBar>}
+        {isHome ? null : <SearchBar className="BarraPesquisa" />}
         <ul className="navMenu">
           <li>
             <a href="#vender">Vender</a>
@@ -36,7 +38,6 @@ export default function Header({ isLogged, isHome }) {
           </li>
         </ul>
 
-        {/* Verfica se está logado para exibir o botão de login ou o avatar */}
         {!isLogged ? (
           <button onClick={() => navigate("/login")}>Login</button>
         ) : (
@@ -45,7 +46,6 @@ export default function Header({ isLogged, isHome }) {
               <img
                 src="/favorite.png"
                 alt="itens favoritos"
-                href=""
                 width={38}
               />
             </a>
@@ -56,15 +56,21 @@ export default function Header({ isLogged, isHome }) {
 
             <div className="avatarMenu">
               <div className="avatarProfile" onClick={toggleMenu}>
-                <ProfilePic high={50}></ProfilePic>
+                <ProfilePic high={50} />
                 <div className="arrow-icon">▼</div>
               </div>
               {isMenuOpen && (
                 <div className="menuBox">
                   <ul className="menuBox-list">
-                    <li className="Profile"> <img src="/ProfileIcon.svg" alt="" /> Conta</li>
-                    <li className="Config"> <img src="/ConfigIcon.svg" alt="" />Configurações</li>
-                    <li className="Exit"><img src="/ExitIcon.svg" alt="" /> Sair</li>
+                    <li className="Profile">
+                      <img src="/ProfileIcon.svg" alt="" /> Conta
+                    </li>
+                    <li className="Config">
+                      <img src="/ConfigIcon.svg" alt="" /> Configurações
+                    </li>
+                    <li className="Exit">
+                      <img src="/ExitIcon.svg" alt="" /> Sair
+                    </li>
                   </ul>
                 </div>
               )}
