@@ -2,24 +2,19 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Footer from "../../components/Footer/Footer";
-import BookCard from '../../components/BookCard/BookCard'
-
-import "../homepage/homepage.scss"
 import Carousel from "../../components/Carousel/Carousel";
-
-
-export default function homepage() {
+import "./homepage.scss"; 
+export default function Homepage() {
   return (
-    <div>
-      <Header isHome={true}></Header>
-      <div className="title-searchbar">
-        <h1>Livros Baratos só aqui</h1>
-
-        <SearchBar></SearchBar>
-        <Carousel genero={"Top 2020"}></Carousel>
-      </div>
-      
-      <Footer></Footer>
+    <div className="app-container">
+      {/* <Header isHome={true} /> */}
+      <main className="main-content">
+          <h1>Livros Baratos só aqui</h1>
+          <SearchBar />
+          <Carousel genero={"Todos"} />
+          <Carousel genero={"Todos"} />
+      </main>
+      {/* <Footer /> */}
     </div>
   );
 }

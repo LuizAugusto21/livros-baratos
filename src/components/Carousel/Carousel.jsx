@@ -37,7 +37,7 @@ export default function Carousel({ genero}) {
   };
 
   return (
-    <div>
+    <div className="carousel-content">
         <h1>{genero}</h1>
       <div className="carousel" ref={carousel} >
         <button onClick={handlePrev} className="leftArrow" disabled={data.length <= itemsPerPage}>

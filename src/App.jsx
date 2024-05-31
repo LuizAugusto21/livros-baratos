@@ -1,21 +1,29 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/login/Login";
-import Cadastro from "./pages/singup/Cadastro";
-import homepage from "./pages/homepage/homepage";
+import Signup from "./pages/singup/Cadastro";
+import Homepage from "./pages/homepage/homepage";
+import Header from './components/Header/Header'
+import  Footer from './components/Footer/Footer'
 
-function App(props) {
+
+import "./global.scss";
+
+function App() {
   return (
     <Router>
-      <div className="app">
-        <div className="content">
-          <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/cadastro" component={Cadastro} />
-            <Route path="/" component={homepage} />
-          </Switch>
+       <div className="app-container">
+          <Header isHome={true}/>
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              {/* Adicione mais rotas conforme necessário */}
+            </Routes>
+          </main>
+          <Footer />
         </div>
-      </div>
     </Router>
   );
 }

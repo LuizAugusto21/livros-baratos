@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import './Login.css';
+import './Login.css';
 
 function Login(props) {
     const entrarLogin = () => {
@@ -8,8 +8,8 @@ function Login(props) {
     };
 
     return (
-        <div className="page-background"> {/* Adicionando uma nova div com a classe page-background */}
-            <main className="CardLogin">
+        <>
+            <main className="content">
                 <div className="container">
                     <div className="login">
                         <div className="input-container">
@@ -39,7 +39,7 @@ function Login(props) {
                     </div>
                 </div>  
             </main>
-        </div>
+        </>
     );
 }
 
