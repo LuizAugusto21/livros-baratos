@@ -1,0 +1,56 @@
+@import '../../styles/colors.scss';
+
+
+.BookCard-box{
+    margin-left: 50px;
+    margin-top: 20px;
+
+    // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    width: 184px;
+
+    .BookCard-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .BookCard-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+
+        p{
+            span{
+                font-weight: bold;
+            }
+        }
+
+        .condition{
+            width: 25px;
+            height: 25px; 
+            background-color: $condition-new; 
+            border-radius: 50%;
+        }
+    }
+
+    button{
+        color: white;
+        background-color: $button-color;
+        height: 25px;
+        width: 106px;
+
+        font-size: 15px;
+        font-weight: bold;
+
+        margin-bottom: 10px;
+
+        border-style: none;
+        border-radius: 3px;
+    }
+
+    :hover{
+        cursor: pointer;
+    }
+}

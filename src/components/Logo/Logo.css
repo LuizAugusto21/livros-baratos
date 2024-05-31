@@ -1,0 +1,14 @@
+/* Main.css */
+
+aside.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 275Px; /* Defina a largura máxima desejada */
+    padding: 10px 20px;
+
+}
+
+aside.logo img {
+    width: 100%; /* Garante que a imagem não ultrapasse a largura máxima do contêiner */
+}

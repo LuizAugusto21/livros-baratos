@@ -1,0 +1,18 @@
+@import '../../styles/fonts.scss';
+
+
+.footer-box{
+    display: flex;
+    flex-direction: column;
+    background-color: #895314;
+    align-items: center;
+    color: white;
+    width: 100%;
+
+    margin-top: 40px;
+
+    .footer-box-text{
+        font-family: $font-family-sans-serif;
+        font-weight: lighter;
+    }
+}

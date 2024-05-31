@@ -1,0 +1,33 @@
+// .carousel-content{
+//   margin-top: 0px;
+// }
+
+.carousel {
+  display: flex;
+}
+
+.carousel button {
+}
+
+
+.leftArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-style: none;
+  padding: 5;
+  margin-left: 84px;
+
+  transform: rotate(180deg);
+}
+
+.rightArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-style: none;
+  padding: 5;
+  margin-right: 84px;
+}
