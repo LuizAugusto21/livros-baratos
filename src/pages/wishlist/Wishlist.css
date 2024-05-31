@@ -1,5 +1,18 @@
 
-.titulo-favorito{
-    text-align: center;
-    margin-top: 30px;
+.container-principal{
+    
+    .titulo-favorito{
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .lista-favoritos{
+        display: flex;
+        margin-left: 15%
+    }
+    
+    .container-botao-voltar{
+        width: 100%;
+    }
+    
 }
