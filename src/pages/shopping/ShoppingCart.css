@@ -1,3 +1,13 @@
+.container-principal-vazio{
+    text-align: center;
+    margin-top: 100px;
+
+    .texto-carrinho-vazio{
+        color:rgba(0, 0, 0, 0.274);
+        margin-bottom: 50px;
+    }
+}
+
 .container-principal{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -12,10 +22,6 @@
                 text-align: left;
                 padding-left: 10px;
             }
-
-        .texto-carrinho-vazio{
-            color:rgba(0, 0, 0, 0.274);
-        }
     }
 
     .resumo-pedido{
@@ -68,5 +74,6 @@
     .container-botao-geral{
         margin-top: 50px;
         display: inline-block;
+        text-align: center;
     }
 }
