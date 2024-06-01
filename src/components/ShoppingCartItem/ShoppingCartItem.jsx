@@ -10,14 +10,14 @@ function removerItem(){
     // document.getElementById("trash-icon").style.backgroundColor = "red";
 }
 
-export default function ShoppingCartItem({book_cover=bookCover, title, author, price}){
+export default function ShoppingCartItem({book_cover=bookCover, name, author, price}){
     return(
         <div>
             <div className="item-carrinho">
                 <div className="capa-livro">
                     <img className = "capa-livro-image" alt="capa do livro" src={book_cover} width={70} height={85}/>
                 </div>
-                <div className="titulo-livro">{title}
+                <div className="titulo-livro">{name}
                 <div className="autor-livro">{author}</div>
                 </div>
                 
