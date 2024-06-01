@@ -74,5 +74,6 @@
     .container-botao-geral{
         margin-top: 50px;
         display: inline-block;
+        text-align: center;
     }
 }
