@@ -6,18 +6,21 @@ import ShoppingCartItem from "../../components/ShoppingCartItem/ShoppingCartItem
 
 
 // Implementação provisória do estado do carrinho 
-let carrinhoVazio = false;
+let carrinhoVazio = true;
 
 export default function ShoppingCart(){
     return(  
         <div>
             <Header isLogged={true} isHome={true}></Header>
-            <div className="container-principal">
+            <div className="container-principal-vazio">
                     {
                         carrinhoVazio
                         ?
                         <>
-                            <img className="carrinho-de-compras" width={200} src={shoppingCartIcon} alt="Carrinho de compras vazio"/><h1 className="texto-carrinho-vazio"> O carrinho está vazio</h1></>
+                            <img className="carrinho-de-compras" width={200} src={shoppingCartIcon} alt="Carrinho de compras vazio"/>
+                            <h1 className="texto-carrinho-vazio"> O carrinho está vazio</h1>
+                            <Button></Button>
+                        </>
                         :
                         <>
                             <div className="bloco-lista-itens">
