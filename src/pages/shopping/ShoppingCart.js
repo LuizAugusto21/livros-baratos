@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import ShoppingCartItem from "../../components/ShoppingCartItem/ShoppingCartItem";
-import ItensOnCartResume from "../../components/ItemOnCartResume/ItensOnCartResume";
+import ItensOnCartResume from "../../components/ItensOnCartResume/ItensOnCartResume";
 import "./ShoppingCart.css";
 
 export default function ShoppingCart(){
@@ -27,40 +27,7 @@ export default function ShoppingCart(){
         else return false;
     }
 
-
-
-    /* 
-    
-    criaa novo elemento div { class=resumo-texto (id?) }
-    preencher com "Item + " " + { contador }"
-    associar novo elemento a div pai
-
-    criar novo elemento div { class=resumo-preco (id?) }
-    preencher com "R$ { preco }"
-    associar novo elemento a div pai
-    
-    */
-
-    // useEffect(() => { fillItensResumeOnCart() }, [])
-    
-    // function fillItensResumeOnCart(){
-    //     for(let i=0; i<itensOnCart.length; i++){
-    //         let newDivElementText = document.createElement("div")
-    //         newDivElementText.className = "resumo-pedido-texto"
-    //         newDivElementText.textContent = "Item " + count
-    //         document.getElementById("item-resumo-pedido").appendChild(newDivElementText)
-
-    //         let newDivElementPrice = document.createElement("div")
-    //         newDivElementPrice.className = "resumo-pedido-preco"
-    //         newDivElementPrice.textContent = "R$" + 20 // Valor provisório
-    //         document.getElementById("item-resumo-pedido").appendChild(newDivElementPrice)
-            
-    //         setCount(count+1)
-    //     }
-    //     setCount(0)
-    // }
-
-    return(  
+   return(  
         <div>
             <Header isLogged={true} isHome={true}></Header>
             {
