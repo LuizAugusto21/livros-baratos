@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "tipo": "sebo",
+      "nome": "nome1",
+      "endereco": "end1",
+      "contato": "contato1",
+      "email": "email1",
+      "login": "login1",
+      "senha": "senha1",
+      "id": 1
+    },
+    {
+      "tipo": "sebo",
+      "nome": "1",
+      "endereco": "1",
+      "contato": "1",
+      "email": "1",
+      "login": "1",
+      "senha": "1",
+      "id": 2
+    }
+  ]
+}
