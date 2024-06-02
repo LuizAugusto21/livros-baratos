@@ -29,26 +29,36 @@
         padding: 10px;
         margin: 20px;
 
-        .item-resumo-pedido{
+        .lista-itens-resumo-pedido{
             display: flex;
+            flex-direction: column;
             position: relative;
             width: 80%;
             margin: auto;
             margin-top: 20px;
+            padding: 10px;
 
-            .item-resumo-texto{
-                display: inline-block;
-                font-size: 1.4em;
-            }
-
-            .item-resumo-preco{
-                display: inline-block;
-                font-size: 1.4em;
-                position: absolute;
-                right: 0;
-                margin-right: 150px;
-            }
+            .resumo-pedido-item {
+                justify-content: space-between; /* Garante que os itens estejam distribuídos corretamente */
+                width: 100%;
+                margin-bottom: 10px; /* Espaçamento entre as linhas */
+                padding: 10px;
+            
+                .resumo-pedido-texto{
+                    font-size: 1.4em;
+                    margin-top: 15px;
+                }
+            
+                .resumo-pedido-preco{
+                    font-size: 1.4em;
+                    position: absolute;
+                    right: 0;
+                    margin-right: 150px;
+                    margin-top: -25px;
+                }
         }
+        }
+
         hr{
             margin-top: 40px;
             margin-right: 170px;
@@ -63,6 +73,7 @@
             .total-resumo-texto{
                 display: inline-block;
                 font-size: 1.4em;
+                margin-left: 10px ;
 
             }
 
@@ -70,7 +81,7 @@
                 display: inline-block;
                 position: absolute;
                 right: 0;
-                margin-right: 150px;
+                margin-right: 140px;
                 font-size: 1.4em;
             }
         }

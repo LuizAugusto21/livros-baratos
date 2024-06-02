@@ -2,17 +2,13 @@ import React, {useState, useEffect} from "react";
 
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
-import "./ShoppingCart.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import ShoppingCartItem from "../../components/ShoppingCartItem/ShoppingCartItem";
-
-
-// Implementação provisória do estado do carrinho 
-let carrinhoVazio = false;
+import ItensOnCartResume from "../../components/ItemOnCartResume/ItensOnCartResume";
+import "./ShoppingCart.css";
 
 export default function ShoppingCart(){
     const [itensOnCart, setItensOnCart] = useState([]);
-    const [count, setCount] = useState(0);
 
     // Preenche a lista de itens no carrinho
     useEffect(() => {
@@ -30,6 +26,39 @@ export default function ShoppingCart(){
         if(itensOnCart.length <= 0) return true
         else return false;
     }
+
+
+
+    /* 
+    
+    criaa novo elemento div { class=resumo-texto (id?) }
+    preencher com "Item + " " + { contador }"
+    associar novo elemento a div pai
+
+    criar novo elemento div { class=resumo-preco (id?) }
+    preencher com "R$ { preco }"
+    associar novo elemento a div pai
+    
+    */
+
+    // useEffect(() => { fillItensResumeOnCart() }, [])
+    
+    // function fillItensResumeOnCart(){
+    //     for(let i=0; i<itensOnCart.length; i++){
+    //         let newDivElementText = document.createElement("div")
+    //         newDivElementText.className = "resumo-pedido-texto"
+    //         newDivElementText.textContent = "Item " + count
+    //         document.getElementById("item-resumo-pedido").appendChild(newDivElementText)
+
+    //         let newDivElementPrice = document.createElement("div")
+    //         newDivElementPrice.className = "resumo-pedido-preco"
+    //         newDivElementPrice.textContent = "R$" + 20 // Valor provisório
+    //         document.getElementById("item-resumo-pedido").appendChild(newDivElementPrice)
+            
+    //         setCount(count+1)
+    //     }
+    //     setCount(0)
+    // }
 
     return(  
         <div>
@@ -54,7 +83,6 @@ export default function ShoppingCart(){
                                     .slice()
                                     .map((item, index) => {
                                     const {name, author} = item;
-                                    let count=1;
                                     return(
                                         <ShoppingCartItem 
                                             key={index}
@@ -69,36 +97,21 @@ export default function ShoppingCart(){
                     </div>
                     <div className="resumo-pedido">
                         <h2> Resumo do pedido </h2>
-                        <div className="item-resumo-pedido">
-                        <>
-                            {
-                                itensOnCart
-                                    .slice()
-                                    .map(() => {
-                                    return(
-                                        <>
-                                            <div className="item-resumo-texto">Item 1</div>
-                                            <div className="item-resumo-preco">R$ 20</div>
-                                            {/* TALVEZ EU TENHA QUE CRIAR UM COMPONENTE */}
-                                        </>
-                                    )
-                                    }
-                                )
-                            }
-                        </>
+                        <div className="lista-itens-resumo-pedido">
+                            <ItensOnCartResume size={itensOnCart.length}/>
                         </div>
                         <hr></hr>
                         <div className="total-resumo-pedido">
                             <div className="total-resumo-texto">Total</div>
-                            <div className="total-resumo-preco">R$ 30,00</div>
+                            <div className="total-resumo-preco">R$ 30</div>
                         </div> 
+                    </div>
                         <div className="container-botao-geral">
                             <Button/>
                         </div>
                         <div className="container-botao-geral">
                             <Button text="Comprar"/>
                         </div>
-                    </div>
                 </div>
             }
         </div>
