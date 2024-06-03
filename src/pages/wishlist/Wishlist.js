@@ -23,7 +23,6 @@ export default function Wishlist(){
     // Cria os BookCard utilzando a lista 
     return(
         <div>
-            <Header isLogged={true} isHome={true}></Header>
             <div className="container-principal">
                 <h1 className="titulo-favorito">Wishlist</h1>
                 <div className="lista-favoritos">

@@ -29,7 +29,6 @@ export default function ShoppingCart(){
 
    return(  
         <div>
-            <Header isLogged={true} isHome={true}></Header>
             {
                 emptyCart()
                 ?
