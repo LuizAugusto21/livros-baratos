@@ -14,7 +14,7 @@ export default function ItensOnCartResume({size}){
         }
 
         generateItens()
-    }, [])
+    }, [size])
 
     return(
             <div className="resumo-pedido-item">
