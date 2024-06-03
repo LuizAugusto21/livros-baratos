@@ -6,7 +6,6 @@ export default function BookCard( {preco, nomeLivro, Autor}) {
     <div className="BookCard-box">
       <div className="BookCard-content">
         <img src="/default-placeholder.png" alt="" height={166} />
-
         <div className="BookCard-info">
           <p>
             <span>
@@ -18,7 +17,6 @@ export default function BookCard( {preco, nomeLivro, Autor}) {
           </p>
           <div className="condition"></div>
         </div>
-
         <button>Comprar</button>
       </div>
     </div>

@@ -1,14 +1,10 @@
 import React from "react";
 import "./ShoppingCartItem.scss";
 import trashIcon from "../../images/trash-icon.png";
-import bookCover from "../../images/Harry-Potter-1.jpg"
+import bookCover from "../../images/Harry-Potter-1.jpg";
 
 // TODO: Será a função de remover o item do carrinho
-function removerItem(){
-    // TODO: Implementar a lógica de deleção
-
-    // document.getElementById("trash-icon").style.backgroundColor = "red";
-}
+function removerItem(){ /* Implementar lógica */}
 
 export default function ShoppingCartItem({book_cover=bookCover, name, author, price}){
     return(

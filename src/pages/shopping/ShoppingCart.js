@@ -21,7 +21,7 @@ export default function ShoppingCart(){
     }, []);
 
     function emptyCart(){
-        if(itensOnCart.length <= 0) return true
+        if(itensOnCart.length <= 0) return true;
         else return false;
     }
 

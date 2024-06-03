@@ -5,16 +5,16 @@ export default function ItensOnCartResume({size}){
 
     useEffect(()=> {
         const generateItens = () =>{
-            const newItensResume = []
+            const newItensResume = [];
             for(let i=0; i<size; i++){
                 newItensResume.push(<div className="resumo-pedido-texto">Item {i+1}</div>, 
-                                    <div className="resumo-pedido-preco"> R$ 20</div>)
+                                    <div className="resumo-pedido-preco"> R$ 20</div>);
             }
-            setItensResume(newItensResume)
+            setItensResume(newItensResume);
         }
 
-        generateItens()
-    }, [size])
+        generateItens();
+    }, [size]);
 
     return(
             <div className="resumo-pedido-item">
