@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./header.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import ProfilePic from "../Profile/ProfilePic";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header({ isLogged, isHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +14,14 @@ export default function Header({ isLogged, isHome }) {
 
   const handleLogoClick = () => {
     navigate("/");
+  };
+
+  const handleWishlistClick = () => {
+    navigate("/wishlist");
+  };
+
+  const handleShoppingCartClick = () => {
+    navigate("/carrinho");
   };
 
   return (
@@ -42,7 +50,7 @@ export default function Header({ isLogged, isHome }) {
           <button onClick={() => navigate("/login")}>Login</button>
         ) : (
           <div className="menu-images">
-            <a href="#favorite">
+            <a onClick={handleWishlistClick}>
               <img
                 src="/favorite.png"
                 alt="itens favoritos"
@@ -50,7 +58,7 @@ export default function Header({ isLogged, isHome }) {
               />
             </a>
 
-            <a href="#Carrinho">
+            <a onClick={handleShoppingCartClick}>
               <img src="/cart.png" alt="Carrinho" width={38} />
             </a>
 
