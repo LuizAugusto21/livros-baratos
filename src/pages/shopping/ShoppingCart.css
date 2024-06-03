@@ -1,3 +1,13 @@
+.container-principal-vazio{
+    text-align: center;
+    margin-top: 100px;
+
+    .texto-carrinho-vazio{
+        color:rgba(0, 0, 0, 0.274);
+        margin-bottom: 50px;
+    }
+}
+
 .container-principal{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -6,43 +16,53 @@
         
         padding: 10px;
         margin: 20px;
+        margin-left: 100px;
         
         h2{
                 color:black;
                 text-align: left;
                 padding-left: 10px;
             }
-
-        .texto-carrinho-vazio{
-            color:rgba(0, 0, 0, 0.274);
-        }
     }
 
     .resumo-pedido{
         padding: 10px;
         margin: 20px;
 
-        .item-resumo-pedido{
+        .lista-itens-resumo-pedido{
             display: flex;
+            flex-direction: column;
             position: relative;
             width: 80%;
             margin: auto;
             margin-top: 20px;
+            padding: 10px;
 
-            .item-resumo-texto{
-                display: inline-block;
-                font-size: 1.4em;
-            }
-
-            .item-resumo-preco{
-                display: inline-block;
-                position: absolute;
-                right: 0;
-                font-size: 1.4em;
-            }
+            .resumo-pedido-item {
+                justify-content: space-between; /* Garante que os itens estejam distribuídos corretamente */
+                width: 100%;
+                margin-bottom: 10px; /* Espaçamento entre as linhas */
+                padding: 10px;
+            
+                .resumo-pedido-texto{
+                    font-size: 1.4em;
+                    margin-top: 15px;
+                }
+            
+                .resumo-pedido-preco{
+                    font-size: 1.4em;
+                    position: absolute;
+                    right: 0;
+                    margin-right: 150px;
+                    margin-top: -25px;
+                }
         }
+        }
+
         hr{
             margin-top: 40px;
+            margin-right: 170px;
+            width: 600px;
         }
         .total-resumo-pedido{
             display: flex;
@@ -53,6 +73,7 @@
             .total-resumo-texto{
                 display: inline-block;
                 font-size: 1.4em;
+                margin-left: 10px ;
 
             }
 
@@ -60,6 +81,7 @@
                 display: inline-block;
                 position: absolute;
                 right: 0;
+                margin-right: 140px;
                 font-size: 1.4em;
             }
         }
@@ -68,5 +90,6 @@
     .container-botao-geral{
         margin-top: 50px;
         display: inline-block;
+        text-align: center;
     }
 }
