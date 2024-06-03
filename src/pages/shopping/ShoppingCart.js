@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from "react";
-
-import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import ShoppingCartItem from "../../components/ShoppingCartItem/ShoppingCartItem";
@@ -40,7 +38,7 @@ export default function ShoppingCart(){
                     </div>
                 </>
                 :
-                <div className="container-principal">
+                <div className="container-principal-carrinho">
                     <div className="bloco-lista-itens">
                         <h2> Carrinho de compras </h2>
                         <>

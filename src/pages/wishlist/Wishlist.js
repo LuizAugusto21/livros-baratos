@@ -22,7 +22,7 @@ export default function Wishlist(){
     // Cria os BookCard utilzando a lista 
     return(
         <div>
-            <div className="container-principal">
+            <div className="container-principal-favorito">
                 <h1 className="titulo-favorito">Wishlist</h1>
                 <div className="lista-favoritos">
                     <>
