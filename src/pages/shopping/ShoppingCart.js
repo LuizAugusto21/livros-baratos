@@ -7,22 +7,33 @@ import "./ShoppingCart.css";
 
 export default function ShoppingCart(){
     const [itensOnCart, setItensOnCart] = useState([]);
-
+    let totalPrice = 0;
+    
     // Preenche a lista de itens no carrinho
     useEffect(() => {
         fetch("http://localhost:3000/data/ItensOnCartData.json")
         .then((response) => response.json())
         .then((itens) => {
             setItensOnCart(itens);
+            calculateTotalPrice();
         })
         .catch((error) => {
             console.error("Erro ao buscar os dados:", error);
         });
-    }, []);
+    }, [itensOnCart]); 
 
     function emptyCart(){
         if(itensOnCart.length <= 0) return true;
         else return false;
+    }
+
+    function calculateTotalPrice(){
+        let precos = itensOnCart.map(item => item.price);
+        precos.forEach(item=>{totalPrice+=item});
+
+        document.getElementById("preco-total").innerText = "R$ " + totalPrice;
+
+        totalPrice=0;
     }
 
    return(  
@@ -46,13 +57,13 @@ export default function ShoppingCart(){
                                 itensOnCart
                                     .slice()
                                     .map((item, index) => {
-                                    const {name, author} = item;
+                                    const {name, author, price} = item;
                                     return(
                                         <ShoppingCartItem 
                                             key={index}
                                             name={name}
                                             author={author}
-                                            price={20} />
+                                            price={price} />
                                     )
                                     }
                                 )
@@ -62,12 +73,12 @@ export default function ShoppingCart(){
                     <div className="resumo-pedido">
                         <h2> Resumo do pedido </h2>
                         <div className="lista-itens-resumo-pedido">
-                            <ItensOnCartResume size={itensOnCart.length}/>
+                            <ItensOnCartResume size={itensOnCart.length} price={itensOnCart.map(e=>e.price)}/>
                         </div>
                         <hr></hr>
                         <div className="total-resumo-pedido">
                             <div className="total-resumo-texto">Total</div>
-                            <div className="total-resumo-preco">R$ 30</div>
+                            <div className="total-resumo-preco" id="preco-total">R$ </div>
                         </div> 
                     </div>
                         <div className="container-botao-geral">
