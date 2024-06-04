@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
        <div className="app-container">
-          <Header isHome={true} />
+          <Header isHome={true} isLogged={true}/>
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Homepage />} />

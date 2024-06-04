@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 
-export default function ItensOnCartResume({size}){
+export default function ItensOnCartResume({size, price}){
     const [ itensResume, setItensResume] = useState([]);
 
     useEffect(()=> {
@@ -8,7 +8,7 @@ export default function ItensOnCartResume({size}){
             const newItensResume = [];
             for(let i=0; i<size; i++){
                 newItensResume.push(<div className="resumo-pedido-texto">Item {i+1}</div>, 
-                                    <div className="resumo-pedido-preco"> R$ 20</div>);
+                                    <div id={"item " + (i+1)} className="resumo-pedido-preco"> R$ {price[i]}</div>);
             }
             setItensResume(newItensResume);
         }
