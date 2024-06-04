@@ -5,7 +5,8 @@
     "year": "2019",
     "Imagem": "https://example.com/the-silent-patient.jpg",
     "genres ": "Mystery, Thriller",
-    "description": "Alicia Berenson’s life is seemingly perfect until one day when she shoots her husband in the face and then never speaks another word. The ensuing silence captures the public's imagination, and Theo Faber, a forensic psychotherapist, becomes obsessed with uncovering Alicia's motive."
+    "description": "Alicia Berenson’s life is seemingly perfect until one day when she shoots her husband in the face and then never speaks another word. The ensuing silence captures the public's imagination, and Theo Faber, a forensic psychotherapist, becomes obsessed with uncovering Alicia's motive.",
+    "price": 23.00
   },
   {
     "name": "Where the Crawdads Sing",
@@ -13,6 +14,17 @@
     "year": "2018",
     "Imagem": "https://example.com/where-the-crawdads-sing.jpg",
     "genres ": "Fiction, Mystery",
-    "description": "Kya Clark, the mysterious 'Marsh Girl', has lived alone in the wild for years. When a local man is found dead, Kya becomes the prime suspect. A beautifully written tale of mystery, love, and survival in the marshlands of North Carolina."
+    "description": "Kya Clark, the mysterious 'Marsh Girl', has lived alone in the wild for years. When a local man is found dead, Kya becomes the prime suspect. A beautifully written tale of mystery, love, and survival in the marshlands of North Carolina.",
+    "price": 10.00
+  },
+  {
+    "name": "Where the Crawdads Sing",
+    "author": "Delia Owens",
+    "year": "2018",
+    "Imagem": "https://example.com/where-the-crawdads-sing.jpg",
+    "genres ": "Fiction, Mystery",
+    "description": "Kya Clark, the mysterious 'Marsh Girl', has lived alone in the wild for years. When a local man is found dead, Kya becomes the prime suspect. A beautifully written tale of mystery, love, and survival in the marshlands of North Carolina.",
+    "price": 28.00
   }
+  
 ]
