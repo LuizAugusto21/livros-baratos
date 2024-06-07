@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import "./BookDetails.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
@@ -10,6 +10,16 @@ import CarouselAlternative from "../../components/CarouselAlternative/CarouselAl
 
 export default function BookDetails(){
 
+    const [book, setBook] = useState(null);
+
+    useEffect(() => {
+        // Carregar o objeto do localStorage ao montar o componente
+        const storedBook = loadCurrentBookData('currentBook');
+        if (storedBook) {
+          setBook(storedBook);
+        }
+      }, []);
+
     return(
         <div className="container-principal-livro-detalhado">
             <div className="container-detalhes-e-carrossel"> 
@@ -18,9 +28,9 @@ export default function BookDetails(){
                     <div className="container-imagem-informacoes">
                         <img className="imagem-capa-livro" src={BookCover} alt="capa do livro" />
                         <div className="informacoes">
-                            <span>Titulo: Harry Potter e a Pedra Filosofal</span>
-                            <span>Editora: Rocco | Autor(a): J.K. Rowling</span>
-                            <span>Ano: 2002</span>
+                            <span>Titulo:</span>
+                            <span>Editora: | Autor(a): </span>
+                            <span>Ano: </span>
                         </div>
                     </div>
                     
@@ -28,7 +38,7 @@ export default function BookDetails(){
                         <div className="detalhes-compra">
                             <div className="preco-informacoes">
                                 <div className="preco">
-                                    R$ 20,00
+                                    R$ {book.name}
                                 </div>
                                 <div className="sebo">
                                     Sebo Top
@@ -53,7 +63,7 @@ export default function BookDetails(){
                                 </div>
                             </div>
                         </div>
-                        <div className="detalhes-descricao"> <p>Alicia Berenson’s life is seemingly perfect until one day when she shoots her husband in the face and then never speaks another word. The ensuing silence captures the public's imagination, and Theo Faber, a forensic psychotherapist, becomes obsessed with uncovering Alicia's motive.</p>
+                        <div className="detalhes-descricao"> <p></p>
                         </div>
                         <div className="detalhes-botao">
                             <Button/>
@@ -61,15 +71,47 @@ export default function BookDetails(){
                     </div>
                 </div>
                 <div className="container-carrossel">
-                    <CarouselAlternative />
+                    {/* <CarouselAlternative /> */}
                 </div>
 
             </div>
             
             <div className="container-recomendacoes">
                 <span>Também disponível em...</span>
+                <div className="recomendacao">
+                    <div className="sebo-nome">
+                        Livreto Ninja
+                    </div>
+                    <div className="container-preco-condition">
+                        <div className="preco-recomendacao">
+                            R$ 15,00
+                        </div>   
+                        <div className="condition"></div>
+                    </div>
+                    
+                </div>
+                <div className="recomendacao">
+                <div className="sebo-nome">
+                        Sebo Rio Branco
+                    </div>
+                    <div className="container-preco-condition">
+                        <div className="preco-recomendacao">
+                            R$ 25,00
+                        </div>   
+                        <div className="condition"></div>
+                    </div>
+                </div>
             </div>
 
         </div>
     );
+}
+
+function loadCurrentBookData(key){
+    const jsonValue = localStorage.getItem(key); 
+
+    if(jsonValue !== null){
+        return JSON.parse(jsonValue);
+    }
+    return null;
 }

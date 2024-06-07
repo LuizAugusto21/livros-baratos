@@ -125,6 +125,51 @@
         text-align: left;
         font-weight: bold;
         font-size: 1.5em;
-        background: green;
+        margin-right: 50px;
+
+        .recomendacao{
+            height: 50px;
+            margin-top: 0px;
+            display: flex;
+            background: #E16A00;
+            border-radius: 10px;
+            color: white;
+            border: 1px solid black;
+
+            .sebo-nome{
+                font-weight: normal;
+                margin-left: 30px;
+                margin-top: 10px;
+            }
+
+            .container-preco-condition{
+                display: flex;
+                margin-top: 10px;
+    
+                .preco-recomendacao{
+                    font-size: 1em;
+                    display: inline-block;
+                    position: absolute;
+                    right: 110px;
+                    font-weight: normal;
+                }
+
+                .condition{
+                    width: 20px;
+                    height: 20px; 
+                    display: inline-block;
+                    position: absolute;
+                    right: 80px;
+                    margin-left: 20px;
+                    margin-top: 5px;
+                    background-color: yellow; 
+                    border-radius: 50%;
+                }
+            } 
+        }
+
+        .recomendacao-2{
+            background: yellow;
+        }
     }
 }
