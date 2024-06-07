@@ -46,13 +46,16 @@ export default function Carousel({ genero}) {
         {data
           .slice(startIndex, startIndex + itemsPerPage)
           .map((item, index) => {
-            const { name, author } = item;
+            const { name, author, year, genres, description } = item;
             return (
               <BookCard
                 key={index}
                 preco={15}
                 nomeLivro={name}
                 Autor={author}
+                ano={year}
+                generos={genres}
+                descricao={description}
               />
             );
           })}
