@@ -10,15 +10,26 @@ import CarouselAlternative from "../../components/CarouselAlternative/CarouselAl
 
 export default function BookDetails(){
 
-    const [book, setBook] = useState(null);
+    const [ book, setBook ] = useState(null);
 
     useEffect(() => {
         // Carregar o objeto do localStorage ao montar o componente
         const storedBook = loadCurrentBookData('currentBook');
         if (storedBook) {
           setBook(storedBook);
+          console.log("O VALOR DE book é " + storedBook.name);
         }
       }, []);
+
+      // Função de carregar o livro atual ()
+    function loadCurrentBookData(key){
+        const jsonValue = localStorage.getItem(key); 
+
+        if(jsonValue !== null){
+            return JSON.parse(jsonValue);
+        }
+        return null;
+    }
 
     return(
         <div className="container-principal-livro-detalhado">
@@ -27,24 +38,47 @@ export default function BookDetails(){
                     
                     <div className="container-imagem-informacoes">
                         <img className="imagem-capa-livro" src={BookCover} alt="capa do livro" />
-                        <div className="informacoes">
-                            <span>Titulo:</span>
-                            <span>Editora: | Autor(a): </span>
-                            <span>Ano: </span>
-                        </div>
+                        <>
+                            <div className="informacoes">
+                                { book 
+                                ?
+                                <div>
+                                    <span>Titulo: {book.name}</span>
+                                    <span>Editora: Genrico | Autor(a): {book.author}</span>
+                                    <span>Ano: {book.year}</span>
+                                </div>
+                                :
+
+                                <div></div>
+
+                                }
+                            </div>
+                        </>
                     </div>
                     
                     <div className="container-detalhes-compra-descricao">
                         <div className="detalhes-compra">
+                            <>
+                            { book 
+                            
+                            ?
+                            
                             <div className="preco-informacoes">
-                                <div className="preco">
-                                    R$ {book.name}
-                                </div>
-                                <div className="sebo">
-                                    Sebo Top
-                                </div>
-                                <div className="status"> Novo</div>
-                            </div>
+                                
+                                    <div className="preco">
+                                        R$ {book.price.toFixed(2)}
+                                    </div>
+                                    <div className="sebo">
+                                        Sebo Top
+                                    </div>
+                                    <div className="status"> Novo</div>
+                            </div> 
+                            
+                            :
+
+                            <div></div>
+                            }   
+                            </>
                             <div className="preco-botoes">
                                 <div className="botao-comprar">
                                     Comprar
@@ -63,8 +97,20 @@ export default function BookDetails(){
                                 </div>
                             </div>
                         </div>
-                        <div className="detalhes-descricao"> <p></p>
-                        </div>
+                        <>
+                            {
+                                book 
+                                
+                                ?
+                                
+                                <div className="detalhes-descricao"> 
+                                    <p> {book.description} </p>
+                                </div>
+                                :
+                                
+                                <div></div>
+                            }
+                        </>
                         <div className="detalhes-botao">
                             <Button/>
                         </div>
@@ -105,13 +151,4 @@ export default function BookDetails(){
 
         </div>
     );
-}
-
-function loadCurrentBookData(key){
-    const jsonValue = localStorage.getItem(key); 
-
-    if(jsonValue !== null){
-        return JSON.parse(jsonValue);
-    }
-    return null;
 }
