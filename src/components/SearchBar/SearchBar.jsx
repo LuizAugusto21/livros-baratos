@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SearchBar.scss";
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/data/BookData.json")
@@ -31,7 +33,8 @@ export default function SearchBar() {
         );
       });
       setSearchResult(filtered);
-      console.log(searchResult)
+      console.log(searchResult);
+      navigate("/search")
     }
   };
 

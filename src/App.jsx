@@ -7,8 +7,9 @@ import  Footer from './components/Footer/Footer'
 import Login from "./pages/login/Login";
 import Signup from "./pages/singup/Cadastro";
 import Homepage from "./pages/homepage/homepage";
-import Wishlist from './pages/wishlist/Wishlist'
-import ShoppingCart from './pages/shopping/ShoppingCart'
+import Wishlist from './pages/wishlist/Wishlist';
+import ShoppingCart from './pages/shopping/ShoppingCart';
+import Search from './pages/search/Search';
 import "./global.scss";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               <Route path="/cadastro" element={<Signup />} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/carrinho" element={<ShoppingCart />} />
+              <Route path="/search" element={<Search />} />
               {/* Adicione mais rotas conforme necessário */}
             </Routes>
           </main>

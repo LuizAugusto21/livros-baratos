@@ -9,8 +9,7 @@ export default function Filter() {
   };
 
   return (
-    <React.Fragment>
-      <main className="content">
+      <main>
         <button className="filter-button" onClick={togglePopup}>Filtrar <img src='/sorter-img.PNG' alt="Filtrar" className="filter-icon" /></button>
 
         {isPopupOpen && (
@@ -48,6 +47,5 @@ export default function Filter() {
           </div>
         )}
       </main>
-    </React.Fragment>
   );
 }
