@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { SearchContext } from '../../contexts/SearchContext';
 import "./Sorter.css";
 
 export default function Sorter() {
   const [isOpen, setIsOpen] = useState(false);
-  const orderCategories = ['Alfabética', 'Mais vendidos', 'Novidades', 'Menor Preço', 'Maior Preço'];
-  const [selectedCategory, setSelectedCategory] = useState('Mais vendidos');
+  const { setSearchResult } = useContext(SearchContext);
+
+  const orderAlphabetically = (books) => {
+    const sortedBooks = [...books].sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      return nameA.localeCompare(nameB);
+    });
+    setSearchResult(sortedBooks);
+  };
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+  const handleCategoryClick = () => {
     setIsOpen(false);
-    console.log(`Categoria selecionada: ${category}`);
-    // Aqui você pode adicionar lógica para fazer algo com a categoria selecionada, como filtrar os livros, etc.
+    orderAlphabetically(); // Chama a função para ordenar alfabeticamente
   };
 
   return (
@@ -23,15 +30,11 @@ export default function Sorter() {
         <span className="dropdown-label-sorter">Ordenar por <img src='/sorter-icon.PNG' alt="Filtrar" className="filter-icon" /></span>
         <div className="dropdown-sorter">
             <button className="dropdown-toggle-sorter" onClick={toggleDropdown}>
-            {selectedCategory}
+            Alfabética
             </button>
             {isOpen && (
             <ul className="dropdown-menu-sorter">
-                {orderCategories.map((category, index) => (
-                <li key={index} onClick={() => handleCategoryClick(category)}>
-                    {category}
-                </li>
-                ))}
+                <li onClick={handleCategoryClick}>Alfabética</li>
             </ul>
             )}
         </div>

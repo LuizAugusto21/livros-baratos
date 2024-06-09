@@ -10,10 +10,12 @@ import Homepage from "./pages/homepage/homepage";
 import Wishlist from './pages/wishlist/Wishlist';
 import ShoppingCart from './pages/shopping/ShoppingCart';
 import Search from './pages/search/Search';
+import { SearchProvider } from './contexts/SearchContext';
 import "./global.scss";
 
 function App() {
   return (
+    <SearchProvider>
     <Router>
        <div className="app-container">
           <Header isHome={true} isLogged={true}/>
@@ -24,13 +26,16 @@ function App() {
               <Route path="/cadastro" element={<Signup />} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/carrinho" element={<ShoppingCart />} />
-              <Route path="/search" element={<Search />} />
+
+                <Route path="/search" element={<Search />} />
+
               {/* Adicione mais rotas conforme necessário */}
             </Routes>
           </main>
           <Footer />
         </div>
     </Router>
+  </SearchProvider>
   );
 }
 
