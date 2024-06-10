@@ -1,10 +1,29 @@
 import React from "react";
 import "./button.scss";
+import {Link, useNavigate} from "react-router-dom";
+
+
 
 export default function Button({text="Voltar"}){
-    return(
+
+    const navigate = useNavigate();
+
+    function isGoBackButton(){
+        if(text === "Voltar") return true;
+        else return false;
+    }
+
+    return( 
         <div className="container-botao">
-            <button className="botao">{text}</button>
+            <>
+            {
+                isGoBackButton()
+            ?
+                <button className="botao" onClick={()=>navigate(-1)}>{text}</button>
+            :
+                <button className="botao">{text}</button>
+            }
+            </>
         </div>
     );
 }
