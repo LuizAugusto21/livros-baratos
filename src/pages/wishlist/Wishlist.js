@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import BookCard from "../../components/BookCard/BookCard";
 import Button from "../../components/Button/Button";
 import "./Wishlist.css";
+import HeartIcon from "../../images/heart-icon.png";
 
 export default function Wishlist(){
 
@@ -30,7 +31,11 @@ export default function Wishlist(){
           {
             emptyFavorites()
             ?
-              <div>aaaa</div>
+              <div className="container-principal-vazio-wishlist">
+                  <img className="icone-coracao" width={200} src={HeartIcon} alt="Icone de coração"/>
+                  <h1 className="texto-favoritos-vazio"> Você ainda não possui favoritos</h1>
+                  <Button/>
+              </div>
             :
               <div className="container-principal-favorito">
                 <h1 className="titulo-favorito">Wishlist</h1>
