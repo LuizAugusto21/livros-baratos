@@ -1,33 +1,43 @@
-
 import React, {useEffect, useState} from "react";
 import BookCard from "../../components/BookCard/BookCard";
 import Button from "../../components/Button/Button";
 import "./Wishlist.css";
 
 export default function Wishlist(){
-      const [favoritesList, setFavoritesList] = useState([]);
 
-      // Preenche a lista de favoritos
-      useEffect(() => {
-        fetch("http://localhost:3000/data/FavoriteData.json")
-          .then((response) => response.json())
-          .then((favorites) => {
-            setFavoritesList(favorites);
-          })
-          .catch((error) => {
-            console.error("Erro ao buscar os dados:", error);
-          });
-      }, []);
+    // Carrega a lista de favoritos
+    const listaStorage = localStorage.getItem("Favorites");  
+    const [favorites, setFavorites] = useState(listaStorage ? JSON.parse(listaStorage) : []);
+
+    // Atualiza a lista de favoritos a cada mudança
+    useEffect(() => {
+      localStorage.setItem("Favorites", JSON.stringify(favorites))
+    }, [favorites]);
+
+    function emptyFavorites(){
+        if(favorites.length <= 0) return true;
+        else return false;
+    }
+
+    function clearAll(){
+      setFavorites([]);
+    }
 
     // Cria os BookCard utilzando a lista 
     return(
         <div>
-            <div className="container-principal-favorito">
+          <>
+          {
+            emptyFavorites()
+            ?
+              <div>aaaa</div>
+            :
+              <div className="container-principal-favorito">
                 <h1 className="titulo-favorito">Wishlist</h1>
                 <div className="lista-favoritos">
                     <>
                       {
-                        favoritesList
+                        favorites
                           .slice()
                           .map((item, index) => {
                             const { name, author } = item;
@@ -43,10 +53,12 @@ export default function Wishlist(){
                     )}
                     </>
                 </div>
-                <div className="container-botao-voltar"> 
-                    <Button></Button>
-                </div>
-            </div>
+              <div className="container-botao-voltar"> 
+                  <Button></Button> <button onClick={clearAll}>CLEAR ALL</button>
+              </div>
+              </div>
+          }
+        </>
         </div>
     );
 }
