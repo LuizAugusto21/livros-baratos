@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import "./BookDetails.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
-
 import BookCover from "../../images/Harry-Potter-1.jpg";
 import heartEmptyIcon from "../../images/Coracao-vazio.png";
 // import heartFullIcon from "../../images/Coracao-cheio.png";
@@ -11,26 +10,73 @@ import CarouselAlternative from "../../components/CarouselAlternative/CarouselAl
 export default function BookDetails(){
 
     const [ book, setBook ] = useState(null);
+    const [ favorites, setFavorites ] = useState([]);
+
+     // Função para salvar os dados no localStorage
+    const saveToLocalStorage = (key, value) => {
+        localStorage.setItem(key, JSON.stringify(value));
+    };
+
+    // Adiciona o livro a lista de favoritos
+    function handleFavoriteButtonClick(){
+
+        // Adiciona o livro aos favoritos
+        const updatedFavorites = [...favorites, book]; 
+        setFavorites(updatedFavorites);
+
+        // Registra a lista atualizada
+        saveToLocalStorage("Favorites", updatedFavorites);
+
+        console.log("Adicionou a lista de favoritos")
+
+        // TODO: Mudar o icone de coração do botão
+
+    }
 
     useEffect(() => {
-        // Carregar o objeto do localStorage ao montar o componente
-        const storedBook = loadCurrentBookData('currentBook');
+        // Carrega o livro atual
+        const storedBook = loadCurrentData("currentBook");
         if (storedBook) {
-          setBook(storedBook);
-          console.log("O VALOR DE book é " + storedBook.name);
+            setBook(storedBook);
         }
       }, []);
 
-      // Função de carregar o livro atual ()
-    function loadCurrentBookData(key){
-        const jsonValue = localStorage.getItem(key); 
+      useEffect(() => {
+        // Carrega a lista atual de favoritos
+        const storedFavorites = loadFavoriteData("Favorites");
+        if (storedFavorites) {
+            setFavorites(storedFavorites);
+        }
+      }, []);
 
-        if(jsonValue !== null){
-            return JSON.parse(jsonValue);
+    // Carrega o livro atual 
+    function loadCurrentData(key){
+        const jsonValue = localStorage.getItem(key);
+        if(jsonValue){
+            try{
+                return JSON.parse(jsonValue);
+            } catch(e) {
+                console.error("Erro ao analisar JSON: ", e);
+                return null;
+            }
         }
         return null;
-    }
+     }
 
+    // Carrega a lista de favoritos
+    function loadFavoriteData(key){
+        const jsonValue = localStorage.getItem(key);
+        if(jsonValue){
+            try{
+                return JSON.parse(jsonValue);
+            } catch(e) {
+                console.error("Erro ao analisar JSON: ", e);
+                return [];
+            }
+        }
+        return [];
+    }
+  
     return(
         <div className="container-principal-livro-detalhado">
             <div className="container-detalhes-e-carrossel"> 
@@ -42,15 +88,13 @@ export default function BookDetails(){
                             <div className="informacoes">
                                 { book 
                                 ?
-                                <div>
-                                    <span>Titulo: {book.name}</span>
-                                    <span>Editora: Genrico | Autor(a): {book.author}</span>
-                                    <span>Ano: {book.year}</span>
-                                </div>
+                                    <div>
+                                        <span>Titulo: {book.name}</span>
+                                        <span>Editora: Genêrico | Autor(a): {book.author}</span>
+                                        <span>Ano: {book.year}</span>
+                                    </div>
                                 :
-
-                                <div></div>
-
+                                    <div></div>
                                 }
                             </div>
                         </>
@@ -60,23 +104,19 @@ export default function BookDetails(){
                         <div className="detalhes-compra">
                             <>
                             { book 
-                            
                             ?
-                            
-                            <div className="preco-informacoes">
-                                
-                                    <div className="preco">
-                                        R$ {book.price.toFixed(2)}
-                                    </div>
-                                    <div className="sebo">
-                                        Sebo Top
-                                    </div>
-                                    <div className="status"> Novo</div>
-                            </div> 
-                            
+                                <div className="preco-informacoes">
+                                    
+                                        <div className="preco">
+                                            R$ {book.price.toFixed(2)}
+                                        </div>
+                                        <div className="sebo">
+                                            Sebo Top
+                                        </div>
+                                        <div className="status"> Novo</div>
+                                </div> 
                             :
-
-                            <div></div>
+                                <div></div>
                             }   
                             </>
                             <div className="preco-botoes">
@@ -91,23 +131,19 @@ export default function BookDetails(){
                                     </span> 
                                     <img className="carrinho-de-compras" src={shoppingCartIcon} alt="icone de carrinho" />
                                     </button>
-                                    <button className="adicionar-favorito">
+                                    <button className="adicionar-favorito" onClick={handleFavoriteButtonClick}>
                                         <img  className="icone-coracao" alt="icone de coração" src={heartEmptyIcon} />          
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <>
-                            {
-                                book 
-                                
-                                ?
-                                
+                            { book                          
+                            ?
                                 <div className="detalhes-descricao"> 
                                     <p> {book.description} </p>
                                 </div>
-                                :
-                                
+                            :                                   
                                 <div></div>
                             }
                         </>
