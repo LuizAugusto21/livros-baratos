@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./BookCard.scss";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -7,24 +7,71 @@ import { Link, useNavigate } from "react-router-dom";
 export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, generos}) {
   
   const navigate = useNavigate();
+  const [ book, setBook ] = useState(null);
+
+  useEffect(()=> {
+    // Cria um objeto com as informações do livro atual
+    const newBook = { name: nomeLivro,
+      author: Autor,
+      price: preco,
+      genres: generos,
+      description: descricao,
+      year: ano };
+
+      setBook(newBook);
+  }, [])
 
   const handleDetailClick = () => {
     
-    // Salva o livro atual em formato JSON
-    const book = { name: nomeLivro,
-                   author: Autor,
-                   price: preco,
-                   genres: generos,
-                   description: descricao,
-                   year: ano }
-
     const jsonValue = JSON.stringify(book);
-    localStorage.setItem('currentBook', jsonValue);
+    localStorage.setItem("currentBook", jsonValue);
     
     // Vai para a página de detalhes
     navigate("/detalhes");
 
   }
+
+  const [ itemsOnCart, setItemsOnCart] = useState([]);
+
+  // Função para salvar os dados no localStorage
+  const saveToLocalStorage = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  };
+
+  function handleBuyButtonClick(){
+    const updatedItemsOnCart = [...itemsOnCart, book]; 
+        setItemsOnCart(updatedItemsOnCart);
+
+        // Registra a lista atualizada
+        saveToLocalStorage("OnCart", updatedItemsOnCart);
+
+        console.log("Adicionou a lista do carrinho de compras");
+
+        // Navega até a página de carrinho
+        navigate("/carrinho")
+  }
+
+  useEffect(() => {
+    // Carrega a lista atual de itens no carrinho
+    const storedItensOnCart = loadListData("OnCart");
+    if (storedItensOnCart) {
+        setItemsOnCart(storedItensOnCart);
+    }
+  }, []);
+
+  // Carrega a lista de favoritos
+  function loadListData(key){
+    const jsonValue = localStorage.getItem(key);
+    if(jsonValue){
+        try{
+            return JSON.parse(jsonValue);
+        } catch(e) {
+            console.error("Erro ao analisar JSON: ", e);
+            return [];
+        }
+    }
+    return [];
+}
   
   return (
     <div className="BookCard-box">
@@ -41,7 +88,7 @@ export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, gene
           </p>
           <div className="condition"></div>
         </div>
-        <button>Comprar</button>
+        <button onClick={handleBuyButtonClick}>Comprar</button>
       </div>
     </div>
   );
