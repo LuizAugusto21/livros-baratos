@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
+import {Link, useNavigate} from "react-router-dom"
 import "./BookDetails.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import BookCover from "../../images/Harry-Potter-1.jpg";
@@ -9,8 +10,11 @@ import CarouselAlternative from "../../components/CarouselAlternative/CarouselAl
 
 export default function BookDetails(){
 
+    const navigate = useNavigate();
+
     const [ book, setBook ] = useState(null);
     const [ favorites, setFavorites ] = useState([]);
+    const [ itemsOnCart, setItemsOnCart ] = useState([]);
 
      // Função para salvar os dados no localStorage
     const saveToLocalStorage = (key, value) => {
@@ -27,11 +31,31 @@ export default function BookDetails(){
         // Registra a lista atualizada
         saveToLocalStorage("Favorites", updatedFavorites);
 
-        console.log("Adicionou a lista de favoritos")
-
         // TODO: Mudar o icone de coração do botão
 
     }
+
+    // Adiciona o livro ao carrinho de compras
+    function handleAddToCartButton(){
+        const updatedItemsOnCart = [...itemsOnCart, book]; 
+        setItemsOnCart(updatedItemsOnCart);
+
+        // Registra a lista atualizada
+        saveToLocalStorage("OnCart", updatedItemsOnCart);
+
+    }
+
+    // Adiciona ao carrinho e vai para a página do carrinho
+    function handleBuyButtonClick(){
+        const updatedItemsOnCart = [...itemsOnCart, book]; 
+            setItemsOnCart(updatedItemsOnCart);
+    
+            // Registra a lista atualizada
+            saveToLocalStorage("OnCart", updatedItemsOnCart);
+    
+            // Navega até a página de carrinho
+            navigate("/carrinho")
+      }
 
     useEffect(() => {
         // Carrega o livro atual
@@ -43,9 +67,17 @@ export default function BookDetails(){
 
       useEffect(() => {
         // Carrega a lista atual de favoritos
-        const storedFavorites = loadFavoriteData("Favorites");
+        const storedFavorites = loadListData("Favorites");
         if (storedFavorites) {
             setFavorites(storedFavorites);
+        }
+      }, []);
+
+      useEffect(() => {
+        // Carrega a lista atual de itens no carrinho
+        const storedItensOnCart = loadListData("OnCart");
+        if (storedItensOnCart) {
+            setItemsOnCart(storedItensOnCart);
         }
       }, []);
 
@@ -64,7 +96,7 @@ export default function BookDetails(){
      }
 
     // Carrega a lista de favoritos
-    function loadFavoriteData(key){
+    function loadListData(key){
         const jsonValue = localStorage.getItem(key);
         if(jsonValue){
             try{
@@ -120,11 +152,11 @@ export default function BookDetails(){
                             }   
                             </>
                             <div className="preco-botoes">
-                                <div className="botao-comprar">
+                                <div className="botao-comprar" onClick={handleBuyButtonClick}>
                                     Comprar
                                 </div>
                                 <div className="adicionar-carrinho-favorito">
-                                    <button className="adicionar-carrinho"> 
+                                    <button className="adicionar-carrinho" onClick={handleAddToCartButton}> 
                                     <img className="carrinho-de-compras" src={shoppingCartIcon} alt="icone de carrinho"/>
                                     <span className="adicionar">
                                         ADICIONAR
