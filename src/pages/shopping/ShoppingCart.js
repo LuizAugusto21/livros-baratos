@@ -2,39 +2,44 @@ import React, {useState, useEffect} from "react";
 import Button from "../../components/Button/Button";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import ShoppingCartItem from "../../components/ShoppingCartItem/ShoppingCartItem";
-import ItensOnCartResume from "../../components/ItensOnCartResume/ItensOnCartResume";
+import ItemsOnCartResume from "../../components/ItemsOnCartResume/ItemsOnCartResume";
 import "./ShoppingCart.css";
 
 export default function ShoppingCart(){
-    const [itensOnCart, setItensOnCart] = useState([]);
-    let totalPrice = 0;
     
-    // Preenche a lista de itens no carrinho
-    useEffect(() => {
-        fetch("http://localhost:3000/data/ItensOnCartData.json")
-        .then((response) => response.json())
-        .then((itens) => {
-            setItensOnCart(itens);
-            calculateTotalPrice();
-        })
-        .catch((error) => {
-            console.error("Erro ao buscar os dados:", error);
-        });
-    }, [itensOnCart]); 
-
+    // Carrega a lista de livros no carrinho
+    const listaStorage = localStorage.getItem("OnCart");  
+    const [itemsOnCart, setItemsOnCart] = useState(listaStorage ? JSON.parse(listaStorage) : []);
+ 
+     // Atualiza a lista de favoritos a cada mudança
+     useEffect(() => {
+       localStorage.setItem("OnCart", JSON.stringify(itemsOnCart));
+           calculateTotalPrice();
+     }, [itemsOnCart]);
+ 
     function emptyCart(){
-        if(itensOnCart.length <= 0) return true;
+        if(itemsOnCart.length <= 0) return true;
         else return false;
     }
 
     function calculateTotalPrice(){
-        let precos = itensOnCart.map(item => item.price);
-        precos.forEach(item=>{totalPrice+=item});
+        let totalPrice = 0;
+        if(itemsOnCart.length > 0){
+            let precos = itemsOnCart.map(item => item.price);
+            precos.forEach(item=>{totalPrice+=item});
 
-        document.getElementById("preco-total").innerText = "R$ " + totalPrice;
+            const precoTotalElement = document.getElementById("preco-total")
+            if(precoTotalElement){
+                precoTotalElement.innerText = "R$ " + totalPrice;
+            }
 
-        totalPrice=0;
+        }
+        
     }
+
+    function clearAll(){
+        setItemsOnCart([]);
+      }
 
    return(  
         <div>
@@ -42,7 +47,7 @@ export default function ShoppingCart(){
                 emptyCart()
                 ?
                 <>
-                    <div className="container-principal-vazio">
+                    <div className="container-principal-vazio-shopping">
                         <img className="carrinho-de-compras" width={200} src={shoppingCartIcon} alt="Carrinho de compras vazio"/>
                         <h1 className="texto-carrinho-vazio"> O carrinho está vazio</h1>
                             <Button/>
@@ -54,7 +59,7 @@ export default function ShoppingCart(){
                         <h2> Carrinho de compras </h2>
                         <>
                             {
-                                itensOnCart
+                                itemsOnCart
                                     .slice()
                                     .map((item, index) => {
                                     const {name, author, price} = item;
@@ -73,12 +78,12 @@ export default function ShoppingCart(){
                     <div className="resumo-pedido">
                         <h2> Resumo do pedido </h2>
                         <div className="lista-itens-resumo-pedido">
-                            <ItensOnCartResume size={itensOnCart.length} price={itensOnCart.map(e=>e.price)}/>
+                            <ItemsOnCartResume size={itemsOnCart.length} price={itemsOnCart.map(e=>e.price)}/>
                         </div>
                         <hr></hr>
                         <div className="total-resumo-pedido">
                             <div className="total-resumo-texto">Total</div>
-                            <div className="total-resumo-preco" id="preco-total">R$ </div>
+                            <div className="total-resumo-preco" id="preco-total">R$ 0.00</div>
                         </div> 
                     </div>
                         <div className="container-botao-geral">
@@ -87,6 +92,8 @@ export default function ShoppingCart(){
                         <div className="container-botao-geral">
                             <Button text="Comprar"/>
                         </div>
+
+                        <button onClick={clearAll}>Clear all</button>
                 </div>
             }
         </div>
