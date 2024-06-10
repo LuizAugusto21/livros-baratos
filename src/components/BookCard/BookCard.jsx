@@ -21,8 +21,6 @@ export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, gene
     const jsonValue = JSON.stringify(book);
     localStorage.setItem('currentBook', jsonValue);
     
-    console.log("LIVRO CRIADO")
-    
     // Vai para a página de detalhes
     navigate("/detalhes");
 
