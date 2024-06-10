@@ -71,6 +71,7 @@
                         .botao-comprar{
                             font-size: 3.5em;
                             color: orangered;
+                            cursor: pointer;
                         }
 
                     .adicionar-carrinho-favorito{
@@ -84,6 +85,8 @@
 
                                 margin-left: 5px;
                                 width: 80%;
+                                cursor: pointer;
+                                
 
                                 .carrinho-de-compras{
                                     height: 25px;
@@ -99,6 +102,11 @@
                             .adicionar-favorito{
                                 display: inline-block;
                                 background: white;
+                                cursor: pointer;
+                                
+                                &:hover{
+                                    background-color: rgba(255, 166, 0, 0.493);
+                                }
                             }
                         } 
                     }
