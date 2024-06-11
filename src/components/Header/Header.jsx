@@ -1,19 +1,21 @@
-import React, { useState } from "react";
-import "./header.scss";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from '../../contexts/AuthContext';
 import SearchBar from "../SearchBar/SearchBar";
 import ProfilePic from "../Profile/ProfilePic";
-import { Link, useNavigate } from "react-router-dom";
+import "./header.scss";
 
-export default function Header({ isLogged, isHome }) {
+export default function Header({ isHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { isLogged, logout } = useContext(AuthContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleLogoClick = () => {
-    navigate("/User");
+    navigate("/");
   };
 
   const handleWishlistClick = () => {
@@ -22,6 +24,11 @@ export default function Header({ isLogged, isHome }) {
 
   const handleShoppingCartClick = () => {
     navigate("/carrinho");
+  };
+
+  const handleLogoutClick = () => {
+    logout();
+    navigate("/login");
   };
 
   return (
@@ -72,7 +79,7 @@ export default function Header({ isLogged, isHome }) {
                     <li className="Config">
                       <img src="/ConfigIcon.svg" alt="" /> Configurações
                     </li>
-                    <li className="Exit">
+                    <li className="Exit" onClick={handleLogoutClick}>
                       <img src="/ExitIcon.svg" alt="" /> Sair
                     </li>
                   </ul>

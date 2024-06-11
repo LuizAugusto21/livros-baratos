@@ -11,12 +11,15 @@ import Wishlist from './pages/wishlist/Wishlist';
 import ShoppingCart from './pages/shopping/ShoppingCart';
 import Search from './pages/search/Search';
 import { SearchProvider } from './contexts/SearchContext';
+import { AuthProvider } from './contexts/AuthContext';
+
 import Proximidade from "./pages/proximidade/Proximidade";
 import "./global.scss";
 import Sebos from "./pages/Sebos/Sebos";
 
 function App() {
   return (
+    <AuthProvider>
     <SearchProvider>
     <Router>
        <div className="app-container">
@@ -38,6 +41,7 @@ function App() {
         </div>
     </Router>
   </SearchProvider>
+  </AuthProvider>
   );
 }
 

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import axios from 'axios';
 import './Login.css';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Login = () => {
   const [formData, setFormData] = useState({ login: '', senha: '' });
   const [errorMessage, setErrorMessage] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +25,7 @@ const Login = () => {
       const user = users.find(user => user.login === formData.login && user.senha === formData.senha);
 
       if (user) {
+        login(); // Chama a função login do contexto
         const { from } = location.state || { from: { pathname: "/" } };
         navigate(from.pathname);
       } else {
