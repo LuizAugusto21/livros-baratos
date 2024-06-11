@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 
-export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, generos}) {
+export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, generos, favoritado}) {
   
   const navigate = useNavigate();
   const [ book, setBook ] = useState(null);
@@ -16,7 +16,8 @@ export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, gene
       price: preco,
       genres: generos,
       description: descricao,
-      year: ano };
+      year: ano,
+      isFavorited: favoritado};
 
       setBook(newBook);
   }, [])
