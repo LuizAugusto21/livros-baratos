@@ -5,7 +5,7 @@ import styles from "./BookDetails.module.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import BookCover from "../../images/default-placeholder.png";
 import heartEmptyIcon from "../../images/Coracao-vazio.png";
-// import heartFullIcon from "../../images/Coracao-cheio.png";
+import heartFullIcon from "../../images/Coracao-cheio.png";
 import CarouselAlternative from "../../components/CarouselAlternative/CarouselAlternative";
 
 export default function BookDetails(){
@@ -16,6 +16,7 @@ export default function BookDetails(){
     const [ favorites, setFavorites ] = useState([]);
     const [ itemsOnCart, setItemsOnCart ] = useState([]);
 
+
      // Função para salvar os dados no localStorage
     const saveToLocalStorage = (key, value) => {
         localStorage.setItem(key, JSON.stringify(value));
@@ -24,14 +25,35 @@ export default function BookDetails(){
     // Adiciona o livro a lista de favoritos
     function handleFavoriteButtonClick(){
 
-        // Adiciona o livro aos favoritos
-        const updatedFavorites = [...favorites, book]; 
-        setFavorites(updatedFavorites);
+        if(book.isFavorited){
+            // Livro já foi favoritado
+            setFavorites(prevFavorites => {
+                const updatedFavorites = [...prevFavorites];
+                // Implemente a lógica para encontrar o índice do item a ser removido (por exemplo, com base no nome do livro)
+                const indexToRemove = updatedFavorites.findIndex(item => item.name === book.name);
+                if (indexToRemove !== -1) {
+                    updatedFavorites.splice(indexToRemove, 1);
 
-        // Registra a lista atualizada
-        saveToLocalStorage("Favorites", updatedFavorites);
+                    book.isFavorited = !book.isFavorited;
+                    
+                    // Registra a lista atualizada
+                    saveToLocalStorage("Favorites", updatedFavorites);
+                }
+                return updatedFavorites;
+            });
+        }
+        else{
+            // Livro não foi favoritado
+            
+            // Adiciona o livro aos favoritos
+            const updatedFavorites = [...favorites, book]; 
+            setFavorites(updatedFavorites);
 
-        // TODO: Mudar o icone de coração do botão
+            book.isFavorited = !book.isFavorited;
+
+            // Registra a lista atualizada
+            saveToLocalStorage("Favorites", updatedFavorites);   
+        }
 
     }
 
@@ -56,6 +78,10 @@ export default function BookDetails(){
             // Navega até a página de carrinho
             navigate("/carrinho")
       }
+
+    function isFavorited(){
+        return book ?  book.isFavorited : false;
+    }
 
     useEffect(() => {
         // Carrega o livro atual
@@ -163,7 +189,16 @@ export default function BookDetails(){
                                     <img className={styles["carrinho-de-compras"]} src={shoppingCartIcon} alt="icone de carrinho" />
                                     </button>
                                     <button className={styles["adicionar-favorito"]} onClick={handleFavoriteButtonClick}>
-                                        <img className={styles["icone-coracao"]} alt="icone de coração" src={heartEmptyIcon} />          
+                                        <>
+                                            {
+                                                isFavorited()
+                                                ?
+                                                <img className={styles["icone-coracao"]} alt="icone de coração" src={heartFullIcon} />  
+                                                :
+                                                <img className={styles["icone-coracao"]} alt="icone de coração" src={heartEmptyIcon} />  
+                                            }
+                                        </>
+                                                
                                     </button>
                                 </div>
                             </div>
