@@ -11,7 +11,7 @@ export default function ShoppingCart(){
     const listaStorage = localStorage.getItem("OnCart");  
     const [itemsOnCart, setItemsOnCart] = useState(listaStorage ? JSON.parse(listaStorage) : []);
  
-     // Atualiza a lista de favoritos a cada mudança
+     // Atualiza a lista de compras a cada mudança
      useEffect(() => {
        localStorage.setItem("OnCart", JSON.stringify(itemsOnCart));
            calculateTotalPrice();
@@ -68,7 +68,9 @@ export default function ShoppingCart(){
                                                 key={index}
                                                 name={name}
                                                 author={author}
-                                                price={price} 
+                                                price={price}
+                                                items={itemsOnCart}
+                                                setItems={setItemsOnCart}
                                             />
                                         );
                                     })
