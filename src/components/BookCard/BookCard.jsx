@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import styles from "./BookCard.module.scss";
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 
 export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, generos, favoritado}) {
