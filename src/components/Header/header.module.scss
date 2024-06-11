@@ -1,18 +1,17 @@
 @import "src/styles/colors.module.scss";
 @import "src/styles/fonts.module.scss";
 
-
-
 *{
     font-family: $font-family-sans-serif;
 }
+
 .header {
   padding-top: 33px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 140px 0px 140px;
+  margin: 0px 140px 35px 140px;
   .Logo{
     height: 42px;
     width: 177;
