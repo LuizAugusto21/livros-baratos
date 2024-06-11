@@ -36,13 +36,13 @@ export default function Header({ isLogged, isHome }) {
         {isHome ? null : <SearchBar className="BarraPesquisa" />}
         <ul className="navMenu">
           <li>
-            <a href="#vender">Vender</a>
+            <Link to=""> Vender</Link>
           </li>
           <li>
-            <a href="#sebos">Sebos</a>
+            <Link to="/sebos">Sebos</Link>
           </li>
           <li>
-            <a href="#proximidade">Por proximidade</a>
+            <Link to="/proximidade"> Por proximidade</Link>
           </li>
         </ul>
 
@@ -51,11 +51,7 @@ export default function Header({ isLogged, isHome }) {
         ) : (
           <div className="menu-images">
             <a onClick={handleWishlistClick}>
-              <img
-                src="/favorite.png"
-                alt="itens favoritos"
-                width={38}
-              />
+              <img src="/favorite.png" alt="itens favoritos" width={38} />
             </a>
 
             <a onClick={handleShoppingCartClick}>
