@@ -10,6 +10,7 @@ import Homepage from "./pages/homepage/homepage";
 import Wishlist from './pages/wishlist/Wishlist'
 import ShoppingCart from './pages/shopping/ShoppingCart'
 import "./global.scss";
+import BookDetails from "./pages/bookDetails/BookDetails";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/cadastro" element={<Signup />} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/carrinho" element={<ShoppingCart />} />
+              <Route path="/detalhes" element={<BookDetails />} />
               {/* Adicione mais rotas conforme necessário */}
             </Routes>
           </main>
