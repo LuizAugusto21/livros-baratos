@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./ShoppingCartItem.module.scss";
 import trashIcon from "../../images/trash-icon.png";
 import bookCover from "../../images/Harry-Potter-1.jpg";
 
-// TODO: Será a função de remover o item do carrinho
-function removerItem(){ /* Implementar lógica */}
-
 export default function ShoppingCartItem({book_cover=bookCover, name, author, price}){
+
+    // Carrega a lista de livros no carrinho
+    const listaStorage = localStorage.getItem("OnCart");  
+    const [itemsOnCart, setItemsOnCart] = useState(listaStorage ? JSON.parse(listaStorage) : []);
+ 
+     // Atualiza a lista de compras a cada mudança
+     useEffect(() => {
+       localStorage.setItem("OnCart", JSON.stringify(itemsOnCart));
+     }, [itemsOnCart]);
+
+
+
+    // TODO: Será a função de remover o item do carrinho
+    function handleRemoveButtonClick(){ 
+        // Remove o item do carrinho com base no índice do item clicado
+        setItemsOnCart(prevItems => {
+            const updatedItems = [...prevItems];
+            // Implemente a lógica para encontrar o índice do item a ser removido (por exemplo, com base no nome do livro)
+            const indexToRemove = updatedItems.findIndex(item => item.name === name);
+            if (indexToRemove !== -1) {
+                updatedItems.splice(indexToRemove, 1);
+            }
+            return updatedItems;
+        });   
+        // Força a recarga da página
+        window.location.reload();
+    }
+
     return (
         <div>
             <div className={styles["item-carrinho"]}>
@@ -23,7 +48,7 @@ export default function ShoppingCartItem({book_cover=bookCover, name, author, pr
                         className={styles["trash-icon"]} 
                         alt="icone de lixeira" 
                         src={trashIcon} 
-                        onClick={() => { removerItem() }} 
+                        onClick={handleRemoveButtonClick}
                     />
                 </div>
             </div>
