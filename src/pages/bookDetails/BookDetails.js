@@ -147,7 +147,8 @@ export default function BookDetails(){
                                 ?
                                     <div>
                                         <span>Titulo: {book.name}</span>
-                                        <span>Editora: Genêrico | Autor(a): {book.author}</span>
+                                        <span>Autor(a): {book.author}</span>
+                                        <span>Gênero: {book.genres}</span>
                                         <span>Ano: {book.year}</span>
                                     </div>
                                 :
