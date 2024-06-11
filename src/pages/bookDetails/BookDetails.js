@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
 import {Link, useNavigate} from "react-router-dom"
-import "./BookDetails.css";
+import styles from "./BookDetails.module.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
 import BookCover from "../../images/default-placeholder.png";
 import heartEmptyIcon from "../../images/Coracao-vazio.png";
@@ -109,15 +109,14 @@ export default function BookDetails(){
         return [];
     }
   
-    return(
-        <div className="container-principal-livro-detalhado">
-            <div className="container-detalhes-e-carrossel"> 
-                <div className="container-detalhes">
-                    
-                    <div className="container-imagem-informacoes">
-                        <img className="imagem-capa-livro" src={BookCover} alt="capa do livro" />
+    return (
+        <div className={styles["container-principal-livro-detalhado"]}>
+            <div className={styles["container-detalhes-e-carrossel"]}>
+                <div className={styles["container-detalhes"]}>
+                    <div className={styles["container-imagem-informacoes"]}>
+                        <img className={styles["imagem-capa-livro"]} src={BookCover} alt="capa do livro" />
                         <>
-                            <div className="informacoes">
+                            <div className={styles["informacoes"]}>
                                 { book 
                                 ?
                                     <div>
@@ -132,39 +131,39 @@ export default function BookDetails(){
                         </>
                     </div>
                     
-                    <div className="container-detalhes-compra-descricao">
-                        <div className="detalhes-compra">
+                    <div className={styles["container-detalhes-compra-descricao"]}>
+                        <div className={styles["detalhes-compra"]}>
                             <>
                             { book 
                             ?
-                                <div className="preco-informacoes">
+                                <div className={styles["preco-informacoes"]}>
                                     
-                                        <div className="preco">
+                                        <div className={styles["preco"]}>
                                             R$ {book.price.toFixed(2)}
                                         </div>
-                                        <div className="sebo">
+                                        <div className={styles["sebo"]}>
                                             Sebo Top
                                         </div>
-                                        <div className="status"> Novo</div>
+                                        <div className={styles["status"]}> Novo</div>
                                 </div> 
                             :
                                 <div></div>
                             }   
                             </>
-                            <div className="preco-botoes">
-                                <div className="botao-comprar" onClick={handleBuyButtonClick}>
+                            <div className={styles["preco-botoes"]}>
+                                <div className={styles["botao-comprar"]} onClick={handleBuyButtonClick}>
                                     Comprar
                                 </div>
-                                <div className="adicionar-carrinho-favorito">
-                                    <button className="adicionar-carrinho" onClick={handleAddToCartButton}> 
-                                    <img className="carrinho-de-compras" src={shoppingCartIcon} alt="icone de carrinho"/>
-                                    <span className="adicionar">
+                                <div className={styles["adicionar-carrinho-favorito"]}>
+                                    <button className={styles["adicionar-carrinho"]} onClick={handleAddToCartButton}> 
+                                    <img className={styles["carrinho-de-compras"]} src={shoppingCartIcon} alt="icone de carrinho"/>
+                                    <span className={styles["adicionar"]}>
                                         ADICIONAR
                                     </span> 
-                                    <img className="carrinho-de-compras" src={shoppingCartIcon} alt="icone de carrinho" />
+                                    <img className={styles["carrinho-de-compras"]} src={shoppingCartIcon} alt="icone de carrinho" />
                                     </button>
-                                    <button className="adicionar-favorito" onClick={handleFavoriteButtonClick}>
-                                        <img  className="icone-coracao" alt="icone de coração" src={heartEmptyIcon} />          
+                                    <button className={styles["adicionar-favorito"]} onClick={handleFavoriteButtonClick}>
+                                        <img className={styles["icone-coracao"]} alt="icone de coração" src={heartEmptyIcon} />          
                                     </button>
                                 </div>
                             </div>
@@ -172,51 +171,49 @@ export default function BookDetails(){
                         <>
                             { book                          
                             ?
-                                <div className="detalhes-descricao"> 
+                                <div className={styles["detalhes-descricao"]}> 
                                     <p> {book.description} </p>
                                 </div>
                             :                                   
                                 <div></div>
                             }
                         </>
-                        <div className="detalhes-botao">
-                            <Button/>
+                        <div className={styles["detalhes-botao"]}>
+                            <Button />
                         </div>
                     </div>
                 </div>
-                <div className="container-carrossel">
-                    {/* <CarouselAlternative /> */}
+                <div className={styles["container-carrossel"]}>
+                    <CarouselAlternative />
                 </div>
-
             </div>
             
-            <div className="container-recomendacoes">
+            <div className={styles["container-recomendacoes"]}>
                 <span>Também disponível em...</span>
-                <div className="recomendacao">
-                    <div className="sebo-nome">
+                <div className={styles["recomendacao"]}>
+                    <div className={styles["sebo-nome"]}>
                         Livreto Ninja
                     </div>
-                    <div className="container-preco-condition">
-                        <div className="preco-recomendacao">
+                    <div className={styles["container-preco-condition"]}>
+                        <div className={styles["preco-recomendacao"]}>
                             R$ 15,00
                         </div>   
-                        <div className="condition"></div>
+                        <div className={styles["condition"]}></div>
                     </div>
-                    
                 </div>
-                <div className="recomendacao">
-                <div className="sebo-nome">
+                <div className={styles["recomendacao"]}>
+                    <div className={styles["sebo-nome"]}>
                         Sebo Rio Branco
                     </div>
-                    <div className="container-preco-condition">
-                        <div className="preco-recomendacao">
+                    <div className={styles["container-preco-condition"]}>
+                        <div className={styles["preco-recomendacao"]}>
                             R$ 25,00
                         </div>   
-                        <div className="condition"></div>
+                        <div className={styles["condition"]}></div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
+    
 }
