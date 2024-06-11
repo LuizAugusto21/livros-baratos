@@ -1,11 +1,10 @@
 import React from "react";
+import styles from "./Proximidade.module.scss"; 
 
-
-import "./Proximidade.scss"; 
 export default function proximidade() {
   return (
-    <main className="conteudo-proximidade">
-      <div className="titulos">
+    <main className={styles["conteudo-proximidade"]}>
+      <div className={styles["titulos"]}>
         <h1>Por proximidade</h1>
         <p>Veja sebos próximos a sua região.</p>
       </div>

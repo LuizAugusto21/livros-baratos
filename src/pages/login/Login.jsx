@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import axios from 'axios';
-import './Login.css';
+import styles from './Login.module.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({ login: '', senha: '' });
@@ -36,48 +36,49 @@ const Login = () => {
 
   return (
     <React.Fragment>
-      <main className="content">
-        <div className="container">
+      <main className={styles["content"]}>
+        <div className={styles["container"]}>
           <Logo />
-          <div className="login">
-            {errorMessage && <div className="error-message">{errorMessage}</div>}
+          <div className={styles["login"]}>
+            {errorMessage && <div className={styles["error-message"]}>{errorMessage}</div>}
             <form onSubmit={handleSubmit}>
-              <div className="input-container">
+              <div className={styles["input-container"]}>
                 <label htmlFor="login">LOGIN</label>
                 <input
                   type="text"
                   id="login"
-                  className="input-field"
+                  className={styles["input-field"]}
                   name="login"
                   value={formData.login}
                   onChange={handleChange}
                 />
               </div>
-              <div className="input-container">
+              <div className={styles["input-container"]}>
                 <label htmlFor="senha">SENHA</label>
                 <input
                   type="password"
                   id="senha"
-                  className="input-field"
+                  className={styles["input-field"]}
                   name="senha"
                   value={formData.senha}
                   onChange={handleChange}
                 />
               </div>
-              <div className="login-buttons">
+              <div className={styles["login-buttons"]}>
                 <br />
                 <button type="submit">ENTRAR</button>
               </div>
             </form>
-            <div className="signup-container">
+            <div className={styles["signup-container"]}>
               <h5>Ainda não possui uma conta?</h5>
-              <Link to="/cadastro" className="signup-link">Cadastre-se</Link>
+              <Link to="/cadastro" className={styles["signup-link"]}>Cadastre-se</Link>
             </div>
           </div>
         </div>
       </main>
     </React.Fragment>
   );
+
 };
 
 export default Login;

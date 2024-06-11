@@ -5,26 +5,26 @@ import Category from '../../components/Category/Category';
 import Sorter from '../../components/Sorter/Sorter';
 import BookCard from '../../components/BookCard/BookCard';
 import { SearchContext } from '../../contexts/SearchContext';
-import './Search.css';
+import styles from './Search.module.css';
 
 export default function Search() {
   const { searchResult } = useContext(SearchContext);
 
   return (
-    <div className='app-container'>
+    <div className={styles["app-container"]}>
       <main>
-        <div className='main-content'>
+        <div className={styles["main-content"]}>
           <h1>Livros Baratos só aqui</h1>
           <SearchBar />
         </div>
-        <div className='filters-container'>
+        <div className={styles["filters-container"]}>
           <Category />
-          <div className='right-filters'>
+          <div className={styles["right-filters"]}>
             <Sorter />
             <Filter />
           </div>
         </div>
-        <div className='search-results'>
+        <div className={styles["search-results"]}>
           {searchResult.length > 0 ? (
             searchResult.map((book, index) => (
               <BookCard
@@ -35,12 +35,13 @@ export default function Search() {
               />
             ))
           ) : (
-            <div className='results-null'>
-                <p>Nenhum resultado encontrado para a busca.</p>
+            <div className={styles["results-null"]}>
+              <p>Nenhum resultado encontrado para a busca.</p>
             </div>
           )}
         </div>
       </main>
     </div>
   );
+
 }

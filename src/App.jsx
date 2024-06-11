@@ -12,7 +12,7 @@ import ShoppingCart from './pages/shopping/ShoppingCart';
 import Search from './pages/search/Search';
 import { SearchProvider } from './contexts/SearchContext';
 import Proximidade from "./pages/proximidade/Proximidade";
-import "./global.scss";
+import styles from "./global.module.scss";
 import BookDetails from "./pages/bookDetails/BookDetails";
 import Sebos from "./pages/Sebos/Sebos";
 
@@ -20,7 +20,7 @@ function App() {
   return (
     <SearchProvider>
     <Router>
-       <div className="app-container">
+       <div className={styles["app-container"]}>
           <Header isHome={true} isLogged={true}/>
           <main>
             <Routes>

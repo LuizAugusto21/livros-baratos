@@ -1,4 +1,4 @@
-@import "src/styles/colors.scss";
+@import "src/styles/colors.module.scss";
 
 .botao{
     height: 50px;
@@ -9,7 +9,7 @@
     border-radius: 25px;
 
     &:hover{
-        background-color: #f57302;;;
+        background-color: #f57302;
     }
 }
 
