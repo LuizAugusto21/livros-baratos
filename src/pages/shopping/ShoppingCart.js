@@ -37,10 +37,6 @@ export default function ShoppingCart(){
         
     }
 
-    function clearAll(){
-        setItemsOnCart([]);
-      }
-
       return (
         <div>
             {
@@ -94,7 +90,6 @@ export default function ShoppingCart(){
                     <div className={styles["container-botao-geral"]}>
                         <Button text="Comprar" />
                     </div>
-                    <button onClick={clearAll}>Clear all</button>
                 </div>
             }
         </div>
