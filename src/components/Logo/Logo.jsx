@@ -1,15 +1,11 @@
 import './Logo.css';
 import React from 'react';
-// import logo from '../../images/logo-lg.PNG';
+import logo from '../../images/logo-lg.PNG';
 
-function Logo(props) {
-  return (
+export default props => (
     <aside className="logo">
-      <a href="/" className="logo">
-        <img src='/images/logo-lg.PNG' alt="logo" />
-      </a>
+        <a href="/" className="logo">
+            <img src={logo} alt="logo" />
+        </a>
     </aside>
-  );
-}
-
-export default Logo;
+);
