@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import BookCard from "../../components/BookCard/BookCard";
 import Button from "../../components/Button/Button";
-import "./Wishlist.css";
+import styles from "./Wishlist.module.css";
 import HeartIcon from "../../images/heart-icon.png";
 
 export default function Wishlist(){
@@ -25,45 +25,46 @@ export default function Wishlist(){
     }
 
     // Cria os BookCard utilzando a lista 
-    return(
-        <div>
+    return (
+      <div>
           <>
-          {
-            emptyFavorites()
-            ?
-              <div className="container-principal-vazio-wishlist">
-                  <img className="icone-coracao" width={200} src={HeartIcon} alt="Icone de coração"/>
-                  <h1 className="texto-favoritos-vazio"> Você ainda não possui favoritos</h1>
-                  <Button/>
-              </div>
-            :
-              <div className="container-principal-favorito">
-                <h1 className="titulo-favorito">Wishlist</h1>
-                <div className="lista-favoritos">
-                    <>
-                      {
-                        favorites
-                          .slice()
-                          .map((item, index) => {
-                            const { name, author } = item;
-                            return (
-                              <BookCard 
-                                key={index}
-                                preco={15}
-                                nomeLivro={name}
-                                Autor={author}
-                              />
-                            );    
-                        }
-                    )}
-                    </>
-                </div>
-              <div className="container-botao-voltar"> 
-                  <Button></Button> <button onClick={clearAll}>CLEAR ALL</button>
-              </div>
-              </div>
-          }
-        </>
-        </div>
-    );
+              {
+                  emptyFavorites()
+                      ? 
+                      <div className={styles["container-principal-vazio-wishlist"]}>
+                          <img className={styles["icone-coracao"]} width={200} src={HeartIcon} alt="Icone de coração" />
+                          <h1 className={styles["texto-favoritos-vazio"]}> Você ainda não possui favoritos</h1>
+                          <Button />
+                      </div>
+                      :
+                      <div className={styles["container-principal-favorito"]}>
+                          <h1 className={styles["titulo-favorito"]}>Wishlist</h1>
+                          <div className={styles["lista-favoritos"]}>
+                              <>
+                                  {
+                                      favorites
+                                          .slice()
+                                          .map((item, index) => {
+                                              const { name, author } = item;
+                                              return (
+                                                  <BookCard
+                                                      key={index}
+                                                      preco={15}
+                                                      nomeLivro={name}
+                                                      Autor={author}
+                                                  />
+                                              );
+                                          })
+                                  }
+                              </>
+                          </div>
+                          <div className={styles["container-botao-voltar"]}>
+                              <Button></Button> <button onClick={clearAll}>CLEAR ALL</button>
+                          </div>
+                      </div>
+              }
+          </>
+      </div>
+  );
+  
 }
