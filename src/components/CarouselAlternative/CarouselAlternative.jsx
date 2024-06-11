@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "./CarouselAlternative.module.scss";
 import BookCardAlternative from "../BookCardAlternative/BookCardAlternative";
 
-export default function Carousel({ genero}) {
+export default function CarouselAlternative({ genero}) {
   const [data, setData] = useState([]);
   const carousel = useRef(null);
   const [startIndex, setStartIndex] = useState(0);
@@ -46,13 +46,16 @@ export default function Carousel({ genero}) {
             {data
                 .slice(startIndex, startIndex + itemsPerPage)
                 .map((item, index) => {
-                    const { name, author } = item;
+                    const { name, author, year, genres, description } = item;
                     return (
                         <BookCardAlternative
-                            key={index}
-                            preco={15}
-                            nomeLivro={name}
-                            Autor={author}
+                        key={index}
+                        preco={15}
+                        nomeLivro={name}
+                        Autor={author}
+                        ano={year}
+                        generos={genres}
+                        descricao={description}
                         />
                     );
                 })}
