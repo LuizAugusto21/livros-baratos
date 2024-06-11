@@ -72,6 +72,11 @@
                             font-size: 3.5em;
                             color: orangered;
                             cursor: pointer;
+
+                            &:hover{
+                                text-decoration: underline;
+                                border-radius: 15px;
+                            }
                         }
 
                     .adicionar-carrinho-favorito{
@@ -96,6 +101,11 @@
                                 .adicionar{
                                     margin: 5px 5px 0px 5px;
                                     font-size: 20px;
+                                }
+
+                                &:hover{
+                                    text-decoration: underline;
+                                    background-color: rgba(255, 68, 0, 0.877);
                                 }
                             }
 

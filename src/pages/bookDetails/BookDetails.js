@@ -3,7 +3,7 @@ import Button from "../../components/Button/Button";
 import {Link, useNavigate} from "react-router-dom"
 import "./BookDetails.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
-import BookCover from "../../images/Harry-Potter-1.jpg";
+import BookCover from "../../images/default-placeholder.png";
 import heartEmptyIcon from "../../images/Coracao-vazio.png";
 // import heartFullIcon from "../../images/Coracao-cheio.png";
 import CarouselAlternative from "../../components/CarouselAlternative/CarouselAlternative";
