@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./header.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import ProfilePic from "../Profile/ProfilePic";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header({ isLogged, isHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +14,14 @@ export default function Header({ isLogged, isHome }) {
 
   const handleLogoClick = () => {
     navigate("/");
+  };
+
+  const handleWishlistClick = () => {
+    navigate("/wishlist");
+  };
+
+  const handleShoppingCartClick = () => {
+    navigate("/carrinho");
   };
 
   return (
@@ -28,13 +36,13 @@ export default function Header({ isLogged, isHome }) {
         {isHome ? null : <SearchBar className="BarraPesquisa" />}
         <ul className="navMenu">
           <li>
-            <a href="#vender">Vender</a>
+            <Link to=""> Vender</Link>
           </li>
           <li>
-            <a href="#sebos">Sebos</a>
+            <Link to="/sebos">Sebos</Link>
           </li>
           <li>
-            <a href="#proximidade">Por proximidade</a>
+            <Link to="/proximidade"> Por proximidade</Link>
           </li>
         </ul>
 
@@ -42,15 +50,11 @@ export default function Header({ isLogged, isHome }) {
           <button onClick={() => navigate("/login")}>Login</button>
         ) : (
           <div className="menu-images">
-            <a href="#favorite">
-              <img
-                src="/favorite.png"
-                alt="itens favoritos"
-                width={38}
-              />
+            <a onClick={handleWishlistClick}>
+              <img src="/favorite.png" alt="itens favoritos" width={38} />
             </a>
 
-            <a href="#Carrinho">
+            <a onClick={handleShoppingCartClick}>
               <img src="/cart.png" alt="Carrinho" width={38} />
             </a>
 

@@ -82,6 +82,7 @@
         border: solid;
         border-radius: 25px;
         position: absolute;
+        z-index: 1001;
 
         .menuBox-list {
           display: flex;
@@ -92,9 +93,26 @@
 
           list-style: none;
 
+          .Profile:hover{
+            width: 100%;
+            background: rgba(134, 133, 133, 0.548);
+            border-radius: 25px;
+          }
+
+          .Config:hover{
+            width: 100%;
+            background: rgba(134, 133, 133, 0.548);
+            border-radius: 25px;
+          }
 
           .Exit{
             color: red;
+          }
+          .Exit:hover{
+            width: 100%;
+            color: black;
+            background: rgba(255, 0, 0, 0.548);
+            border-radius: 25px;
           }
         }
       }
