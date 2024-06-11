@@ -59,7 +59,7 @@ export default function Wishlist(){
                               </>
                           </div>
                           <div className={styles["container-botao-voltar"]}>
-                              <Button></Button> <button onClick={clearAll}>CLEAR ALL</button>
+                              <Button></Button> <button onClick={clearAll}>Limpar tudo</button>
                           </div>
                       </div>
               }

@@ -88,7 +88,7 @@ return (
               </p>
               <div className={styles["condition"]}></div>
           </div>
-          <button onClick={handleBuyButtonClick}>Comprar</button>
+          <button className={styles["botao-comprar"]} onClick={handleBuyButtonClick}>Comprar</button>
       </div>
   </div>
 );
