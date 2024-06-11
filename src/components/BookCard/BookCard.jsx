@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import "./BookCard.scss";
+import styles from "./BookCard.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -73,23 +73,24 @@ export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, gene
     return [];
 }
   
-  return (
-    <div className="BookCard-box">
-      <div className="BookCard-content">
-        <img src="/default-placeholder.png" alt="" height={166} onClick={handleDetailClick}/>
-        <div className="BookCard-info">
-          <p>
-            <span>
-              R${preco}<br />
-              {nomeLivro}
-            </span>{" "}
-            <br />
-            {Autor}
-          </p>
-          <div className="condition"></div>
-        </div>
-        <button onClick={handleBuyButtonClick}>Comprar</button>
+return (
+  <div className={styles["BookCard-box"]}>
+      <div className={styles["BookCard-content"]}>
+          <img src="/default-placeholder.png" alt="" height={166} onClick={handleDetailClick} />
+          <div className={styles["BookCard-info"]}>
+              <p>
+                  <span>
+                      R${preco}<br />
+                      {nomeLivro}
+                  </span>{" "}
+                  <br />
+                  {Autor}
+              </p>
+              <div className={styles["condition"]}></div>
+          </div>
+          <button onClick={handleBuyButtonClick}>Comprar</button>
       </div>
-    </div>
-  );
+  </div>
+);
+
 }

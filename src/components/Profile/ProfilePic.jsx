@@ -1,10 +1,10 @@
 import React from "react";
-import "./profilePic.scss";
+import styles from "./profilePic.module.scss";
 
 export default function Profile({ high, width }) {
   return (
     <img
-      className="profilePic"
+      className={styles["profilePic"]}
       src="/default_profilePic.jpg"
       alt="Foto de perfil"
       height={high}

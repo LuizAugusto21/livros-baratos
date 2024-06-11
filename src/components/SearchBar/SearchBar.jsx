@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SearchContext } from '../../contexts/SearchContext';
-import './SearchBar.scss';
+import styles from './SearchBar.module.scss';
 
 export default function SearchBar() {
   const [search, setSearch] = useState('');
@@ -57,7 +57,7 @@ export default function SearchBar() {
   return (
     <div>
       <input
-        className='pesquisa'
+        className={styles['pesquisa']}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={handleSearch}

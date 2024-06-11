@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShoppingCartItem.scss";
+import styles from "./ShoppingCartItem.module.scss";
 import trashIcon from "../../images/trash-icon.png";
 import bookCover from "../../images/Harry-Potter-1.jpg";
 
@@ -7,22 +7,27 @@ import bookCover from "../../images/Harry-Potter-1.jpg";
 function removerItem(){ /* Implementar lógica */}
 
 export default function ShoppingCartItem({book_cover=bookCover, name, author, price}){
-    return(
+    return (
         <div>
-            <div className="item-carrinho">
-                <div className="capa-livro">
-                    <img className = "capa-livro-image" alt="capa do livro" src={book_cover} width={70} height={85}/>
+            <div className={styles["item-carrinho"]}>
+                <div className={styles["capa-livro"]}>
+                    <img className={styles["capa-livro-image"]} alt="capa do livro" src={book_cover} width={70} height={85} />
                 </div>
-                <div className="titulo-livro">{name}
-                <div className="autor-livro">{author}</div>
+                <div className={styles["titulo-livro"]}>{name}
+                    <div className={styles["autor-livro"]}>{author}</div>
                 </div>
-                
-                <div className="preco-e-remover">
-                    <span className="preco-text">R$ {price}</span>
+                <div className={styles["preco-e-remover"]}>
+                    <span className={styles["preco-text"]}>R$ {price}</span>
                     <img 
-                    id="trash-icon" className="trash-icon" alt="icone de lixeira" src={trashIcon} onClick={ () => {removerItem()} } />
+                        id="trash-icon" 
+                        className={styles["trash-icon"]} 
+                        alt="icone de lixeira" 
+                        src={trashIcon} 
+                        onClick={() => { removerItem() }} 
+                    />
                 </div>
             </div>
         </div>
     );
+    
 }

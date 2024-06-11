@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import BookCard from "../BookCard/BookCard";
 
-import "./carousel.scss";
+import styles from "./carousel.module.scss";
 
 export default function Carousel({ genero}) {
   const [data, setData] = useState([]);
@@ -37,32 +37,32 @@ export default function Carousel({ genero}) {
   };
 
   return (
-    <div className="carousel-content">
+    <div className={styles["carousel-content"]}>
         <h1>{genero}</h1>
-      <div className="carousel" ref={carousel} >
-        <button onClick={handlePrev} className="leftArrow" disabled={data.length <= itemsPerPage}>
-          <img src="/arrow_icon.png" alt="Scroll Left" />
-        </button>
-        {data
-          .slice(startIndex, startIndex + itemsPerPage)
-          .map((item, index) => {
-            const { name, author, year, genres, description } = item;
-            return (
-              <BookCard
-                key={index}
-                preco={15}
-                nomeLivro={name}
-                Autor={author}
-                ano={year}
-                generos={genres}
-                descricao={description}
-              />
-            );
-          })}
-        <button onClick={handleNext} className="rightArrow" disabled={data.length <= itemsPerPage}>
-          <img src="/arrow_icon.png" alt="Scroll right" />
-        </button>
-      </div>
+        <div className={styles["carousel"]} ref={carousel}>
+            <button onClick={handlePrev} className={styles["leftArrow"]} disabled={data.length <= itemsPerPage}>
+                <img src="/arrow_icon.png" alt="Scroll Left" />
+            </button>
+            {data
+                .slice(startIndex, startIndex + itemsPerPage)
+                .map((item, index) => {
+                    const { name, author, year, genres, description } = item;
+                    return (
+                        <BookCard
+                            key={index}
+                            preco={15}
+                            nomeLivro={name}
+                            Autor={author}
+                            ano={year}
+                            generos={genres}
+                            descricao={description}
+                        />
+                    );
+                })}
+            <button onClick={handleNext} className={styles["rightArrow"]} disabled={data.length <= itemsPerPage}>
+                <img src="/arrow_icon.png" alt="Scroll right" />
+            </button>
+        </div>
     </div>
-  );
+);
 }

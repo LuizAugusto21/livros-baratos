@@ -1,5 +1,5 @@
 import React from "react";
-import "./button.scss";
+import styles from "./Button.module.scss";
 import {Link, useNavigate} from "react-router-dom";
 
 
@@ -14,14 +14,14 @@ export default function Button({text="Voltar"}){
     }
 
     return( 
-        <div className="container-botao">
+        <div className={styles["container-botao"]}>
             <>
             {
                 isGoBackButton()
             ?
-                <button className="botao" onClick={()=>navigate(-1)}>{text}</button>
+                <button className={styles["botao"]} onClick={()=>navigate(-1)}>{text}</button>
             :
-                <button className="botao">{text}</button>
+                <button className={styles["botao"]}>{text}</button>
             }
             </>
         </div>

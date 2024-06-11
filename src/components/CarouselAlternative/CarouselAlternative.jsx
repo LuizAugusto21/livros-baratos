@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import "./CarouselAlternative.scss";
+import styles from "./CarouselAlternative.module.scss";
 import BookCardAlternative from "../BookCardAlternative/BookCardAlternative";
 
 export default function Carousel({ genero}) {
@@ -37,29 +37,30 @@ export default function Carousel({ genero}) {
   };
 
   return (
-    <div className="carousel-content">
+    <div className={styles["carousel-content"]}>
         <h1>{genero}</h1>
-      <div className="carousel" ref={carousel} >
-        <button onClick={handlePrev} className="leftArrow" disabled={data.length <= itemsPerPage}>
-          <img src="/arrow_icon.png" alt="Scroll Left" />
-        </button>
-        {data
-          .slice(startIndex, startIndex + itemsPerPage)
-          .map((item, index) => {
-            const { name, author } = item;
-            return (
-              <BookCardAlternative
-                key={index}
-                preco={15}
-                nomeLivro={name}
-                Autor={author}
-              />
-            );
-          })}
-        <button onClick={handleNext} className="rightArrow" disabled={data.length <= itemsPerPage}>
-          <img src="/arrow_icon.png" alt="Scroll right" />
-        </button>
-      </div>
+        <div className={styles["carousel"]} ref={carousel}>
+            <button onClick={handlePrev} className={styles["leftArrow"]} disabled={data.length <= itemsPerPage}>
+                <img src="/arrow_icon.png" alt="Scroll Left" />
+            </button>
+            {data
+                .slice(startIndex, startIndex + itemsPerPage)
+                .map((item, index) => {
+                    const { name, author } = item;
+                    return (
+                        <BookCardAlternative
+                            key={index}
+                            preco={15}
+                            nomeLivro={name}
+                            Autor={author}
+                        />
+                    );
+                })}
+            <button onClick={handleNext} className={styles["rightArrow"]} disabled={data.length <= itemsPerPage}>
+                <img src="/arrow_icon.png" alt="Scroll right" />
+            </button>
+        </div>
     </div>
-  );
+);
+
 }

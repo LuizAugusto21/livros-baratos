@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import styles from "../../pages/shopping/ShoppingCart.module.css";
 
 export default function ItemsOnCartResume({size, price}){
     const [ itemsResume, setItemsResume] = useState([]);
@@ -7,8 +8,8 @@ export default function ItemsOnCartResume({size, price}){
         const generateitems = () =>{
             const newitemsResume = [];
             for(let i=0; i<size; i++){
-                newitemsResume.push(<div className="resumo-pedido-texto">Item {i+1}</div>, 
-                                    <div id={"item " + (i+1)} className="resumo-pedido-preco"> R$ {price[i]}</div>);
+                newitemsResume.push(<div className={styles["resumo-pedido-texto"]}>Item {i+1}</div>, 
+                                    <div id={"item " + (i+1)} className={styles["resumo-pedido-preco"]}> R$ {price[i]}</div>);
             }
             setItemsResume(newitemsResume);
         }
@@ -17,9 +18,8 @@ export default function ItemsOnCartResume({size, price}){
     }, [size]);
 
     return(
-            <div className="resumo-pedido-item">
+            <div className={styles["resumo-pedido-item"]}>
                 {itemsResume}                  
-            </div>
-        
-    )
+            </div>   
+    );
 }

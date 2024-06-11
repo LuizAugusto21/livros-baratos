@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { SearchContext } from '../../contexts/SearchContext';
-import "./Sorter.css";
+import styles from "./Sorter.module.css";
 
 export default function Sorter() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,19 +26,20 @@ export default function Sorter() {
 
   return (
     <main>
-        <div className="dropdown-container-sorter">
-        <span className="dropdown-label-sorter">Ordenar por <img src='/sorter-icon.PNG' alt="Filtrar" className="filter-icon" /></span>
-        <div className="dropdown-sorter">
-            <button className="dropdown-toggle-sorter" onClick={toggleDropdown}>
-            Alfabética
-            </button>
-            {isOpen && (
-            <ul className="dropdown-menu-sorter">
-                <li onClick={handleCategoryClick}>Alfabética</li>
-            </ul>
-            )}
-        </div>
+        <div className={styles["dropdown-container-sorter"]}>
+            <span className={styles["dropdown-label-sorter"]}>Ordenar por <img src='/sorter-icon.PNG' alt="Filtrar" className={styles["filter-icon"]} /></span>
+            <div className={styles["dropdown-sorter"]}>
+                <button className={styles["dropdown-toggle-sorter"]} onClick={toggleDropdown}>
+                    Alfabética
+                </button>
+                {isOpen && (
+                    <ul className={styles["dropdown-menu-sorter"]}>
+                        <li onClick={handleCategoryClick}>Alfabética</li>
+                    </ul>
+                )}
+            </div>
         </div>
     </main>
-  );
+);
+
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./header.scss";
+import styles from "./header.module.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import ProfilePic from "../Profile/ProfilePic";
 import { Link, useNavigate } from "react-router-dom";
@@ -25,16 +25,16 @@ export default function Header({ isLogged, isHome }) {
   };
 
   return (
-    <div className="header">
+    <div className={styles["header"]}>
       <img
-        className="Logo"
+        className={styles["Logo"]}
         src="/LogoHeader.png"
         alt="Logo contendo um livro e nome"
         onClick={handleLogoClick}
       />
-      <div className="nav">
-        {isHome ? null : <SearchBar className="BarraPesquisa" />}
-        <ul className="navMenu">
+      <div className={styles["nav"]}>
+        {isHome ? null : <SearchBar className={styles["BarraPesquisa"]} />}
+        <ul className={styles["navMenu"]}>
           <li>
             <Link to=""> Vender</Link>
           </li>
@@ -49,7 +49,7 @@ export default function Header({ isLogged, isHome }) {
         {!isLogged ? (
           <button onClick={() => navigate("/login")}>Login</button>
         ) : (
-          <div className="menu-images">
+          <div className={styles["menu-images"]}>
             <a onClick={handleWishlistClick}>
               <img src="/favorite.png" alt="itens favoritos" width={38} />
             </a>
@@ -58,21 +58,21 @@ export default function Header({ isLogged, isHome }) {
               <img src="/cart.png" alt="Carrinho" width={38} />
             </a>
 
-            <div className="avatarMenu">
-              <div className="avatarProfile" onClick={toggleMenu}>
+            <div className={styles["avatarMenu"]}>
+              <div className={styles["avatarProfile"]} onClick={toggleMenu}>
                 <ProfilePic high={50} />
-                <div className="arrow-icon">▼</div>
+                <div className={styles["arrow-icon"]}>▼</div>
               </div>
               {isMenuOpen && (
-                <div className="menuBox">
-                  <ul className="menuBox-list">
-                    <li className="Profile">
+                <div className={styles["menuBox"]}>
+                  <ul className={styles["menuBox-list"]}>
+                    <li className={styles["Profile"]}>
                       <img src="/ProfileIcon.svg" alt="" /> Conta
                     </li>
-                    <li className="Config">
+                    <li className={styles["Config"]}>
                       <img src="/ConfigIcon.svg" alt="" /> Configurações
                     </li>
-                    <li className="Exit">
+                    <li className={styles["Exit"]}>
                       <img src="/ExitIcon.svg" alt="" /> Sair
                     </li>
                   </ul>
@@ -83,5 +83,6 @@ export default function Header({ isLogged, isHome }) {
         )}
       </div>
     </div>
-  );
+);
+
 }

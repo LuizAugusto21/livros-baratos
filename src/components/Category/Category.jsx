@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { SearchContext } from '../../contexts/SearchContext';
-import "./Category.css";
+import styles from "./Category.module.css";
 
 export default function Category() {
   const { selectedCategory, setSelectedCategory } = useContext(SearchContext);
@@ -18,22 +18,23 @@ export default function Category() {
   };
 
   return (
-    <div className="dropdown-container">
-      <span className="dropdown-label">CATEGORIA</span>
-      <div className="dropdown">
-        <button className="dropdown-toggle" onClick={toggleDropdown}>
-          {selectedCategory ? selectedCategory : '-- TODOS --'}
-        </button>
-        {isOpen && (
-          <ul className="dropdown-menu">
-            {categories.map((category, index) => (
-              <li key={index} onClick={() => handleCategoryClick(category)}>
-                {category}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+    <div className={styles["dropdown-container"]}>
+        <span className={styles["dropdown-label"]}>CATEGORIA</span>
+        <div className={styles["dropdown"]}>
+            <button className={styles["dropdown-toggle"]} onClick={toggleDropdown}>
+                {selectedCategory ? selectedCategory : '-- TODOS --'}
+            </button>
+            {isOpen && (
+                <ul className={styles["dropdown-menu"]}>
+                    {categories.map((category, index) => (
+                        <li key={index} onClick={() => handleCategoryClick(category)}>
+                            {category}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
     </div>
-  );
+);
+
 }
