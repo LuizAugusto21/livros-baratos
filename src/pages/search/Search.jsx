@@ -11,9 +11,9 @@ export default function Search() {
   const { searchResult } = useContext(SearchContext);
 
   return (
-    <div className='app-container'>
+    <div className='app-container-search'>
       <main>
-        <div className='main-content'>
+        <div className='main-content-search'>
           <h1>Livros Baratos só aqui</h1>
           <SearchBar />
         </div>

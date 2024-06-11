@@ -19,6 +19,16 @@
       "login": "1",
       "senha": "1",
       "id": 2
+    },
+    {
+      "tipo": "leitor",
+      "nome": "1",
+      "endereco": "1",
+      "contato": "1",
+      "email": "1",
+      "login": "1",
+      "senha": "1",
+      "id": 3
     }
   ]
 }

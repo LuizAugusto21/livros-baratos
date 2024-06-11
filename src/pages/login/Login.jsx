@@ -36,40 +36,47 @@ const Login = () => {
 
   return (
     <React.Fragment>
-      <main className="content">
-        <div className="container">
+      <main className="content-login">
+        <div className="container-login">
           <Logo />
           <div className="login">
-            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            {errorMessage && <div className="error-message-login">{errorMessage}</div>}
             <form onSubmit={handleSubmit}>
-              <div className="input-container">
+              <div className="input-container-login">
                 <label htmlFor="login">LOGIN</label>
                 <input
                   type="text"
                   id="login"
-                  className="input-field"
+                  className="input-field-login"
                   name="login"
                   value={formData.login}
                   onChange={handleChange}
                 />
               </div>
-              <div className="input-container">
+              <div className="input-container-login">
                 <label htmlFor="senha">SENHA</label>
                 <input
                   type="password"
                   id="senha"
-                  className="input-field"
+                  className="input-field-login"
                   name="senha"
                   value={formData.senha}
                   onChange={handleChange}
                 />
               </div>
+              <div className="input-container-lembrar-frgt">
+                        <div className="remember-me">
+                            <input type="checkbox" id="lembrar" />
+                            <label htmlFor="lembrar">Lembre-se de mim</label>
+                        </div>
+                        <a href="https://www.metropoledigital.ufrn.br/portal/" target="_blank" rel="noopener noreferrer">Esqueci minha senha</a> 
+                    </div>
               <div className="login-buttons">
                 <br />
                 <button type="submit">ENTRAR</button>
               </div>
             </form>
-            <div className="signup-container">
+            <div className="signup-container-login">
               <h5>Ainda não possui uma conta?</h5>
               <Link to="/cadastro" className="signup-link">Cadastre-se</Link>
             </div>

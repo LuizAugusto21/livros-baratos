@@ -13,7 +13,7 @@ export default function Header({ isLogged, isHome }) {
   };
 
   const handleLogoClick = () => {
-    navigate("/");
+    navigate("/User");
   };
 
   const handleWishlistClick = () => {
