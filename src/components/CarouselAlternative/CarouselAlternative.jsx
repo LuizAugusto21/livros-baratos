@@ -46,7 +46,7 @@ export default function CarouselAlternative({ genero}) {
             {data
                 .slice(startIndex, startIndex + itemsPerPage)
                 .map((item, index) => {
-                    const { name, author, year, genres, description } = item;
+                    const { name, author, year, genre, description } = item;
                     return (
                         <BookCardAlternative
                         key={index}
@@ -54,7 +54,7 @@ export default function CarouselAlternative({ genero}) {
                         nomeLivro={name}
                         Autor={author}
                         ano={year}
-                        generos={genres}
+                        generos={genre}
                         descricao={description}
                         />
                     );
