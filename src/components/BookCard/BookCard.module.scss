@@ -27,11 +27,27 @@
             }
         }
 
-        .condition{
-            width: 25px;
-            height: 25px; 
-            background-color: $condition-new; 
-            border-radius: 50%;
+        .price-condition{
+            display: flex;
+            position: relative;
+            margin-bottom: 5px;
+            width: 163px;
+            
+            .price{
+                font-size: large;
+                font-weight: bold;
+
+            }
+
+            .condition{
+                width: 25px;
+                height: 25px; 
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                background-color: $condition-new; 
+                border-radius: 50%;
+            }
         }
     }
 

@@ -79,14 +79,16 @@ return (
           <img src="/default-placeholder.png" alt="" height={166} onClick={handleDetailClick} />
           <div className={styles["BookCard-info"]}>
               <p>
+              <div className={styles["price-condition"]}>
+                        <div className={styles["price"]}>R${preco}</div>
+                        <div className={styles["condition"]}></div>
+                    </div>
                   <span>
-                      R${preco}<br />
                       {nomeLivro}
                   </span>{" "}
                   <br />
                   {Autor}
               </p>
-              <div className={styles["condition"]}></div>
           </div>
           <button className={styles["botao-comprar"]} onClick={handleBuyButtonClick}>Comprar</button>
       </div>
