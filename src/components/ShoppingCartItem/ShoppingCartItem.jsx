@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ShoppingCartItem.module.scss";
 import trashIcon from "../../images/trash-icon.png";
-import bookCover from "../../images/Harry-Potter-1.jpg";
+import bookCover from "../../images/default-placeholder.png";
 
 export default function ShoppingCartItem({book_cover=bookCover, name, author, price}){
 

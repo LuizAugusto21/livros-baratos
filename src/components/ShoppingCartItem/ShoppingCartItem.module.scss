@@ -20,9 +20,17 @@
 
     .titulo-livro{
         text-align: left;
+        font-weight: bold;
         margin-top: 15px;
         margin-left: 10px;
+
+        .autor-livro{
+            font-weight: normal;
+            margin-top: 5px;
+        }
     }
+
+    
 
     .preco-e-remover{
         position: absolute;
