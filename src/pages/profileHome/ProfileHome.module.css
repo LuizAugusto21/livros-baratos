@@ -5,12 +5,12 @@
     .container-navegavel{
         height: 100%;
         border-right: 1px solid rgba(0, 0, 0, 0.295);
+        padding-left: 80px;
 
         .container-paginas-botoes{
             height: 100%;
             display: grid;
             grid-template-rows:75% 25%;
-           
 
             .paginas{
 
@@ -33,14 +33,25 @@
                         margin-left: 20px;
                     }
                 }
-        
-                .home{
-                    margin-top: 40px;
+                .atalhos{
+                    margin-top: 50px;
+                    .home{
+                        color: rgb(255, 115, 0);
+                        filter: invert(53%) sepia(97%) saturate(2538%) hue-rotate(349deg) brightness(106%) contrast(100%);
+                    }
+                    .home,
+                    .editar,
+                    .vendas,
+                    .compras {
+                        
+                        margin-bottom: 25px; /* Ou o valor que você desejar */
+                        margin-left: 10px;
+                    }
                 }
-        
             }
 
             .botoes{
+                margin-left: 10px;
                 div{
                     margin: 15px 0px 0px 50px;
                     cursor: pointer;
@@ -63,11 +74,12 @@
         .titulo-e-botao{
             width: 700px;
 
-            margin: 100px 0px 0px 50px;
+            margin: 100px 0px 50px 50px;
             display: flex;
             position: relative;
             .titulo{
                 font-size: 2em;
+                font-weight: bold;
             }
 
             .botao-cadastrar{
@@ -92,3 +104,29 @@
         }
     }
 }
+
+.icons {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+.home:hover,
+.editar:hover,
+.vendas:hover,
+.compras:hover,
+.voltar:hover {
+    color: rgb(255, 115, 0);
+    cursor: pointer;
+}
+
+.home:hover img,
+.editar:hover img,
+.vendas:hover img,
+.compras:hover img,
+.voltar:hover img {
+    filter: invert(53%) sepia(97%) saturate(2538%) hue-rotate(349deg) brightness(106%) contrast(100%);
+}
+
+

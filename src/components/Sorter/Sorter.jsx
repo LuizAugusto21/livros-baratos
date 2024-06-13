@@ -27,7 +27,7 @@ export default function Sorter() {
   return (
     <main>
         <div className={styles["dropdown-container-sorter"]}>
-            <span className={styles["dropdown-label-sorter"]}>Ordenar por <img src='/sorter-icon.PNG' alt="Filtrar" className={styles["filter-icon"]} /></span>
+            <span className={styles["dropdown-label-sorter"]}>Ordenar por <img src='/sorter-icon.PNG' alt="Filtrar" className={styles["sorter-icon"]} /></span>
             <div className={styles["dropdown-sorter"]}>
                 <button className={styles["dropdown-toggle-sorter"]} onClick={toggleDropdown}>
                     Alfabética

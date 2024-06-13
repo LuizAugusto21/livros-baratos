@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import axios from 'axios';
-import styles from './Login.module.css';
+import './Login.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({ login: '', senha: '' });
@@ -37,49 +37,55 @@ const Login = () => {
 
   return (
     <React.Fragment>
-      <main className={styles["content"]}>
-        <div className={styles["container"]}>
+      <main className="content-login">
+        <div className="container-login">
           <Logo />
-          <div className={styles["login"]}>
-            {errorMessage && <div className={styles["error-message"]}>{errorMessage}</div>}
+          <div className="login">
+            {errorMessage && <div className="error-message-login">{errorMessage}</div>}
             <form onSubmit={handleSubmit}>
-              <div className={styles["input-container"]}>
+              <div className="input-container-login">
                 <label htmlFor="login">LOGIN</label>
                 <input
                   type="text"
                   id="login"
-                  className={styles["input-field"]}
+                  className="input-field-login"
                   name="login"
                   value={formData.login}
                   onChange={handleChange}
                 />
               </div>
-              <div className={styles["input-container"]}>
+              <div className="input-container-login">
                 <label htmlFor="senha">SENHA</label>
                 <input
                   type="password"
                   id="senha"
-                  className={styles["input-field"]}
+                  className="input-field-login"
                   name="senha"
                   value={formData.senha}
                   onChange={handleChange}
                 />
               </div>
-              <div className={styles["login-buttons"]}>
+              <div className="input-container-lembrar-frgt">
+                        <div className="remember-me">
+                            <input type="checkbox" id="lembrar" />
+                            <label htmlFor="lembrar">Lembre-se de mim</label>
+                        </div>
+                        <a href="https://www.metropoledigital.ufrn.br/portal/" target="_blank" rel="noopener noreferrer">Esqueci minha senha</a> 
+                    </div>
+              <div className="login-buttons">
                 <br />
                 <button type="submit">ENTRAR</button>
               </div>
             </form>
-            <div className={styles["signup-container"]}>
+            <div className="signup-container-login">
               <h5>Ainda não possui uma conta?</h5>
-              <Link to="/cadastro" className={styles["signup-link"]}>Cadastre-se</Link>
+              <Link to="/cadastro" className="signup-link">Cadastre-se</Link>
             </div>
           </div>
         </div>
       </main>
     </React.Fragment>
   );
-
 };
 
 export default Login;

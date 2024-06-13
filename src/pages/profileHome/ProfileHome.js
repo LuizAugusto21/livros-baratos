@@ -1,34 +1,44 @@
 import React from "react";
-import BookCardAlternative from "../../components/BookCardAlternative/BookCardAlternative"
+import BookCardAlternative from "../../components/BookCardAlternative/BookCardAlternative";
 import { useNavigate } from "react-router-dom";
 import styles from "./ProfileHome.module.css";
 import profilePic from "../../images/default_profilePic.jpg";
 
-
-
-export default function ProfileHome(){
+export default function ProfileHome() {
     const navigate = useNavigate();
 
-    return(
+    return (
         <div className={styles["container-principal"]}>
             <div className={styles["container-navegavel"]}>
                 <div className={styles["container-paginas-botoes"]}>
                     <div className={styles["paginas"]}>
                         <div className={styles["foto-e-nome"]}>
-                            <img className={styles["foto"]} src={profilePic} />
+                            <img className={styles["foto"]} src={profilePic} alt="Profile" />
                             <div className={styles["nome"]}>Fulano de Tal</div>
                         </div>
-                        <div className={styles["home"]}>Home</div>
-                        <div className={styles["editar"]}>Editar Perfil</div>
-                        <div className={styles["vendas"]}>Vendas</div>
-                        <div className={styles["compras"]}>Compras</div>
+                        <div className={styles["atalhos"]}>
+                            <div className={styles["home"]}>
+                                <img src='/home-icon.PNG' alt="home" className={styles.icons} /> Home
+                            </div>
+                            <div className={styles["editar"]} onClick={() => navigate("/profileEdit")}>
+                                <img src='/edit-icon.PNG' alt="editar" className={styles.icons} /> Editar Perfil
+                            </div>
+                            <div className={styles["vendas"]} onClick={() => navigate("/profileVendas")}>
+                                <img src='/vendas-icon.PNG' alt="vendas" className={styles.icons} /> Vendas
+                            </div>
+                            <div className={styles["compras"]} onClick={() => navigate("/profileCompras")}>
+                                <img src='/carrinho-icon.PNG' alt="compras" className={styles.icons} /> Compras
+                            </div>
+                        </div>
                     </div>
                     <div className={styles["botoes"]}>
-                        <div className={styles["sair"]}> Sair </div>
-                        <div className={styles["voltar"] } onClick={() => navigate("/")}> Voltar </div>
-
+                        <div className={styles["sair"]}>
+                            <img src='/ExitIcon.svg' alt="home" className={styles.icons}/> Sair 
+                        </div>
+                        <div className={styles["voltar"]} onClick={() => navigate("/")}>
+                            <img src='/icon-voltar.PNG' alt="home" className={styles.icons}/> Voltar 
+                        </div>
                     </div>
-                   
                 </div>
             </div>
             <div className={styles["container-conteudo"]}>

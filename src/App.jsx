@@ -15,6 +15,10 @@ import Proximidade from "./pages/proximidade/Proximidade";
 import styles from "./global.module.scss";
 import BookDetails from "./pages/bookDetails/BookDetails";
 import Sebos from "./pages/Sebos/Sebos";
+import ProfileHome from "./pages/profileHome/ProfileHome";
+import ProfileCompras from "./pages/profileCompras/ProfileCompras";
+import ProfileVendas from "./pages/profileVendas/ProfileVendas";
+import ProfileEdit from "./pages/profileEdit/ProfileEdit";
 
 function App() {
   return (
@@ -32,7 +36,11 @@ function App() {
               <Route path="/detalhes" element={<BookDetails />} />
               <Route path="/proximidade" element={< Proximidade/>} />
               <Route path="/sebos" element={< Sebos/>} />
-              <Route path="/search" element={<Search />} />
+              <Route path="/search" element={<Search/>} />
+              <Route path="/profileHome" element={<ProfileHome/>} />
+              <Route path="/profileCompras" element={<ProfileCompras/>} />
+              <Route path="/profileVendas" element={<ProfileVendas/>} />
+              <Route path="/profileEdit" element={<ProfileEdit/>} />
               {/* Adicione mais rotas conforme necessário */}
             </Routes>
           </main>

@@ -18,23 +18,22 @@ export default function Category() {
   };
 
   return (
-    <div className={styles["dropdown-container"]}>
-        <span className={styles["dropdown-label"]}>CATEGORIA</span>
-        <div className={styles["dropdown"]}>
-            <button className={styles["dropdown-toggle"]} onClick={toggleDropdown}>
-                {selectedCategory ? selectedCategory : '-- TODOS --'}
-            </button>
-            {isOpen && (
-                <ul className={styles["dropdown-menu"]}>
-                    {categories.map((category, index) => (
-                        <li key={index} onClick={() => handleCategoryClick(category)}>
-                            {category}
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
+    <div className={styles["dropdown-container-category"]}>
+      <span className={styles["dropdown-label-category"]}>CATEGORIA</span>
+      <div className={styles["dropdown-category"]}>
+        <button className={styles["dropdown-toggle-category"]} onClick={toggleDropdown}>
+          {selectedCategory ? selectedCategory : '-- TODOS --'}
+        </button>
+        {isOpen && (
+          <ul className={styles["dropdown-menu-category"]}>
+            {categories.map((category, index) => (
+              <li key={index} onClick={() => handleCategoryClick(category)}>
+                {category}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
-);
-
+  );
 }
