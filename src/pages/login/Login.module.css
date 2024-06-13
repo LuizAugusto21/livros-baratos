@@ -86,7 +86,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
-background-image: url('../../images/trash-icon.png');
+background-image: url('../../images/livros-bg.PNG');
 background-size: 1350PX; /* faz a imagem cobrir todo o container */
 background-position: center; /* centraliza a imagem */
 }
