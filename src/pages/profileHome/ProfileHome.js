@@ -39,21 +39,10 @@ export default function ProfileHome(){
                     </div>
                 </div>
                 <div className={styles["lista-livros"]}>
-                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"}
-                    Autor={"Suzane Lins"}
-                    />
-                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"}
-                    Autor={"Suzane CoLins"}
-                    />
-                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"}
-                    Autor={"Suzane Lins"}
-                    />
-                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"}
-                    Autor={"Suzane Lins"}
-                    />
-                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"}
-                    Autor={"Suzane Lins"}
-                    />
+                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"} />
+                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"} />
+                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"} />
+                    <BookCardAlternative preco={15} nomeLivro={"Jogos Vorazes"} />
                 </div>
             </div>
         </div>
