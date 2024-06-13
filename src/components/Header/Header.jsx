@@ -24,6 +24,10 @@ export default function Header({ isLogged, isHome }) {
     navigate("/carrinho");
   };
 
+  const handleProfileClick = () => {
+    navigate("/profileHome");
+  }
+
   return (
     <div className={styles["header"]}>
       <img
@@ -66,7 +70,7 @@ export default function Header({ isLogged, isHome }) {
               {isMenuOpen && (
                 <div className={styles["menuBox"]}>
                   <ul className={styles["menuBox-list"]}>
-                    <li className={styles["Profile"]}>
+                    <li className={styles["Profile"]} onClick={handleProfileClick}>
                       <img src="/ProfileIcon.svg" alt="" /> Conta
                     </li>
                     <li className={styles["Config"]}>
