@@ -21,7 +21,7 @@ function App() {
     <SearchProvider>
     <Router>
        <div className={styles["app-container"]}>
-          <Header isHome={true} isLogged={true}/>
+          <Header isHome={true} isLogged={JSON.parse(sessionStorage.getItem("isLogged")) || false}/>
           <main>
             <Routes>
               <Route path="/" element={<Homepage />} />
