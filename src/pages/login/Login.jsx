@@ -24,6 +24,7 @@ const Login = () => {
 
       if (user) {
         const { from } = location.state || { from: { pathname: "/" } };
+        localStorage.setItem("isLogged" , true)
         navigate(from.pathname);
       } else {
         setErrorMessage('Credenciais inválidas.');
