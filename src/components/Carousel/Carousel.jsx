@@ -10,7 +10,7 @@ export default function Carousel({ genero}) {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    fetch("http://localhost:3000/data/BookData.json")
+    fetch("http://localhost:8080/api/livros")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -46,18 +46,21 @@ export default function Carousel({ genero}) {
             {data
                 .slice(startIndex, startIndex + itemsPerPage)
                 .map((item, index) => {
-                    const { name, author, year, genre, description } = item;
-                    return (
-                        <BookCard
-                            key={index}
-                            preco={15}
-                            nomeLivro={name}
-                            Autor={author}
-                            ano={year}
-                            generos={genre}
-                            descricao={description}
-                        />
-                    );
+                  const { id, nome, descricao, nomeAutor, genero, imagemCapa, preco, condicao, situacao } = item;
+                  return (
+                    <BookCard
+                      key={id}
+                      preco={preco}
+                      nomeLivro={nome}
+                      Autor={nomeAutor}
+                      // ano={situacao} 
+                      generos={genero}
+                      descricao={descricao}
+                      imagemCapa={imagemCapa}
+                      condicao={condicao}
+                      situacao={situacao}
+                    />
+                  );
                 })}
             <button onClick={handleNext} className={styles["rightArrow"]} disabled={data.length <= itemsPerPage}>
                 <img src="/arrow_icon.png" alt="Scroll right" />
