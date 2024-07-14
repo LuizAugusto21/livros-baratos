@@ -15,13 +15,15 @@ import Proximidade from "./pages/proximidade/Proximidade";
 import styles from "./global.module.scss";
 import BookDetails from "./pages/bookDetails/BookDetails";
 import Sebos from "./pages/Sebos/Sebos";
+import ProfileHome from "./pages/profileHome/ProfileHome";
+import BookRegister from "./pages/bookRegister/BookRegister";
 
 function App() {
   return (
     <SearchProvider>
     <Router>
        <div className={styles["app-container"]}>
-          <Header isHome={true} isLogged={true}/>
+          <Header isHome={true} isLogged={JSON.parse(sessionStorage.getItem("isLogged")) || false}/> 
           <main>
             <Routes>
               <Route path="/" element={<Homepage />} />
@@ -33,6 +35,8 @@ function App() {
               <Route path="/proximidade" element={< Proximidade/>} />
               <Route path="/sebos" element={< Sebos/>} />
               <Route path="/search" element={<Search />} />
+              <Route path="/profileHome" element={<ProfileHome />} />
+              <Route path="/bookRegister" element={<BookRegister />} />
               {/* Adicione mais rotas conforme necessário */}
             </Routes>
           </main>
