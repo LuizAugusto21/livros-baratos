@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
-import styles from './Cadastro.module.css';
+import withRouter from '../../utils/withRouter';
+import './Cadastro.css';
 
-const baseUrl = 'http://localhost:3001/users';
+const baseUrl = 'http://localhost:8080/usuario';
 const initialState = {
-    user: { tipo: '', nome: '', endereco: '', contato: '', email: '', login: '', senha: '' },
-    list: [],
-    errors: {}
+    user: { tipoUsuario: '', nome: '', endereco: '', contato: '', email: '', login: '', senha: '' },
+    errors: {},
+    apiError: ''
 };
 
-export default class Cadastro extends Component {
+class Cadastro extends Component {
     constructor(props) {
         super(props);
         this.state = { ...initialState };
@@ -21,15 +22,19 @@ export default class Cadastro extends Component {
         this.updateField = this.updateField.bind(this);
     }
 
+    componentDidMount() {
+        this.clear();
+    }
+
     clear() {
-        this.setState({ user: initialState.user, errors: {} });
+        this.setState({ user: { ...initialState.user }, errors: {}, apiError: '' });
     }
 
     validate() {
-        const errors = {};
         const { user } = this.state;
+        const errors = {};
 
-        if (!user.tipo) errors.tipo = 'Campo obrigatório não informado.';
+        if (!user.tipoUsuario) errors.tipoUsuario = 'Campo obrigatório não informado.';
         if (!user.nome) errors.nome = 'Campo obrigatório não informado.';
         if (!user.endereco) errors.endereco = 'Campo obrigatório não informado.';
         if (!user.contato) errors.contato = 'Campo obrigatório não informado.';
@@ -47,141 +52,142 @@ export default class Cadastro extends Component {
             return;
         }
 
-        const user = this.state.user;
-        const method = 'post';
-        const url = baseUrl;
-        axios[method](url, user)
+        const { user } = this.state;
+        axios.post(`${baseUrl}`, user)
             .then(resp => {
-                const list = this.getUpdatedList(resp.data);
-                this.setState({ user: initialState.user, list, errors: {} });
+                this.clear();
+                this.props.navigate('/login', { state: { successMessage: 'Cadastro realizado com sucesso.' } });
+            })
+            .catch(error => {
+                if (error.response && error.response.data) {
+                    this.setState({ apiError: error.response.data });
+                } else {
+                    this.setState({ apiError: 'Erro desconhecido ao cadastrar usuário.' });
+                }
             });
     }
 
-    getUpdatedList(user) {
-        const list = this.state.list.filter(u => u.id !== user.id);
-        list.unshift(user);
-        return list;
-    }
-
     updateField(event) {
-        const user = { ...this.state.user };
+        const { user } = this.state;
         user[event.target.name] = event.target.value;
         this.setState({ user });
     }
 
     render() {
-        const { errors } = this.state;
+        const { errors, user, apiError } = this.state;
 
         return (
             <React.Fragment>
-                <main className={styles["content"]}>
-                    <div className={styles["container"]}>
+                <main className="content-cadastro">
+                    <div className="container-cadastro">
                         <Logo />
-                        <div className={styles["cadastro"]}>
+                        <div className="cadastro">
                             {Object.keys(errors).length > 0 && (
-                                <div className={styles["error-message"]}>* Campo obrigatório não informado.</div>
+                                <div className="error-message-cadastro">* Campo obrigatório não informado.</div>
                             )}
-                            <div className={styles["input-container"]}>
-                                <label>Qual o tipo da conta? <span className={styles["required"]}>*</span></label>
-                                <div className={styles["radio-buttons"]}>
+                            {apiError && (
+                                <div className="api-error-message-cadastro">{apiError}</div>
+                            )}
+                            <div className="input-container-cadastro">
+                                <label>Qual o tipo da conta? <span className="required">*</span></label>
+                                <div className="radio-buttons-cadastro">
                                     <input
                                         type="radio"
                                         id="leitor"
-                                        name="tipo"
-                                        value="leitor"
-                                        className={`${styles["input-field"]} ${errors.tipo ? styles["input-error"] : ''}`}
+                                        name="tipoUsuario"
+                                        value="0"
+                                        className={`input-field-cadastro ${errors.tipoUsuario ? 'input-error' : ''}`}
+                                        checked={user.tipoUsuario === '0'}
                                         onChange={this.updateField}
                                     />
                                     <label htmlFor="leitor">Leitor</label>
-        
+
                                     <input
                                         type="radio"
                                         id="sebo"
-                                        name="tipo"
-                                        value="sebo"
-                                        className={`${styles["input-field"]} ${errors.tipo ? styles["input-error"] : ''}`}
+                                        name="tipoUsuario"
+                                        value="1"
+                                        className={`input-field-cadastro ${errors.tipoUsuario ? 'input-error' : ''}`}
+                                        checked={user.tipoUsuario === '1'}
                                         onChange={this.updateField}
                                     />
                                     <label htmlFor="sebo">Sebo</label>
                                 </div>
                             </div>
-                            <div className={styles["input-container"]}>
-                                <label htmlFor="nome">Nome <span className={styles["required"]}>*</span></label>
+                            <div className="input-container-cadastro">
+                                <label htmlFor="nome">Nome <span className="required-cadastro">*</span></label>
                                 <input
                                     type="text"
                                     id="nome"
-                                    className={`${styles["input-field"]} ${errors.nome ? styles["input-error"] : ''}`}
+                                    className={`input-field-cadastro ${errors.nome ? 'input-error-cadastro' : ''}`}
                                     name="nome"
-                                    value={this.state.user.nome}
+                                    value={user.nome}
                                     onChange={this.updateField}
                                 />
                             </div>
-                            <div className={styles["input-container"]}>
-                                <label htmlFor="endereco">Endereço <span className={styles["required"]}>*</span></label>
+                            <div className="input-container-cadastro">
+                                <label htmlFor="endereco">Endereço <span className="required-cadastro">*</span></label>
                                 <input
                                     type="text"
                                     id="endereco"
-                                    className={`${styles["input-field"]} ${errors.endereco ? styles["input-error"] : ''}`}
+                                    className={`input-field-cadastro ${errors.endereco ? 'input-error-cadastro' : ''}`}
                                     name="endereco"
-                                    value={this.state.user.endereco}
+                                    value={user.endereco}
                                     onChange={this.updateField}
                                 />
                             </div>
-                            <div className={styles["input-container"]}>
-                                <label htmlFor="contato">Contato <span className={styles["required"]}>*</span></label>
+                            <div className="input-container-cadastro">
+                                <label htmlFor="contato">Contato <span className="required-cadastro">*</span></label>
                                 <input
                                     type="text"
                                     id="contato"
-                                    className={`${styles["input-field"]} ${errors.contato ? styles["input-error"] : ''}`}
+                                    className={`input-field-cadastro ${errors.contato ? 'input-error-cadastro' : ''}`}
                                     name="contato"
-                                    value={this.state.user.contato}
+                                    value={user.contato}
                                     onChange={this.updateField}
                                 />
                             </div>
-                            <div className={styles["input-container"]}>
-                                <label htmlFor="email">Email <span className={styles["required"]}>*</span></label>
+                            <div className="input-container-cadastro">
+                                <label htmlFor="email">Email <span className="required-cadastro">*</span></label>
                                 <input
                                     type="email"
                                     id="email"
-                                    className={`${styles["input-field"]} ${errors.email ? styles["input-error"] : ''}`}
+                                    className={`input-field-cadastro ${errors.email ? 'input-error-cadastro' : ''}`}
                                     name="email"
-                                    value={this.state.user.email}
+                                    value={user.email}
                                     onChange={this.updateField}
                                 />
                             </div>
-                            <div className={styles["input-container"]}>
-                                <label htmlFor="login">Login <span className={styles["required"]}>*</span></label>
+                            <div className="input-container-cadastro">
+                                <label htmlFor="login">Login <span className="required-cadastro">*</span></label>
                                 <input
                                     type="text"
                                     id="login"
-                                    className={`${styles["input-field"]} ${errors.login ? styles["input-error"] : ''}`}
+                                    className={`input-field-cadastro ${errors.login ? 'input-error-cadastro' : ''}`}
                                     name="login"
-                                    value={this.state.user.login}
+                                    value={user.login}
                                     onChange={this.updateField}
                                 />
                             </div>
-                            <div className={styles["input-container"]}>
-                                <label htmlFor="senha">Senha <span className={styles["required"]}>*</span></label>
+                            <div className="input-container-cadastro">
+                                <label htmlFor="senha">Senha <span className="required-cadastro">*</span></label>
                                 <input
                                     type="password"
                                     id="senha"
-                                    className={`${styles["input-field"]} ${errors.senha ? styles["input-error"] : ''}`}
+                                    className={`input-field-cadastro ${errors.senha ? 'input-error-cadastro' : ''}`}
                                     name="senha"
-                                    value={this.state.user.senha}
+                                    value={user.senha}
                                     onChange={this.updateField}
                                 />
                             </div>
-                            <div className={styles["login-buttons"]}>
-                                <button onClick={this.save}>CADASTRAR</button>
-                            </div>
-                            <div className={styles["login-link"]}>
-                                <p>Já possui uma conta? <Link to="/login" className={styles["login-link"]}>Login</Link></p>
-                            </div>
+                            <button className="btn-cadastro" onClick={this.save}>Cadastrar</button>
+                            <p>Já tem conta? <Link to="/login" className="login-link">Entre</Link></p>
                         </div>
                     </div>
                 </main>
             </React.Fragment>
         );
-        
     }
 }
+
+export default withRouter(Cadastro);

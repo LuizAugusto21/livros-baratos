@@ -11,20 +11,20 @@ export default function Search() {
   const { searchResult } = useContext(SearchContext);
 
   return (
-    <div className={styles["app-container"]}>
+    <div className={styles['app-container-search']}>
       <main>
-        <div className={styles["main-content"]}>
+        <div className={styles['main-content-search']}>
           <h1>Livros Baratos só aqui</h1>
           <SearchBar />
         </div>
-        <div className={styles["filters-container"]}>
+        <div className={styles['filters-container']}>
           <Category />
-          <div className={styles["right-filters"]}>
+          <div className={styles['right-filters']}>
             <Sorter />
             <Filter />
           </div>
         </div>
-        <div className={styles["search-results"]}>
+        <div className={styles['search-results']}>
           {searchResult.length > 0 ? (
             searchResult.map((book, index) => (
               <BookCard
@@ -35,13 +35,12 @@ export default function Search() {
               />
             ))
           ) : (
-            <div className={styles["results-null"]}>
-              <p>Nenhum resultado encontrado para a busca.</p>
+            <div className={styles['results-null']}>
+                <p>Nenhum resultado encontrado para a busca.</p>
             </div>
           )}
         </div>
       </main>
     </div>
   );
-
 }

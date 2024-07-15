@@ -16,11 +16,16 @@ import styles from "./global.module.scss";
 import BookDetails from "./pages/bookDetails/BookDetails";
 import Sebos from "./pages/Sebos/Sebos";
 import ProfileHome from "./pages/profileHome/ProfileHome";
+import ProfileCompras from "./pages/profileCompras/ProfileCompras";
+import ProfileVendas from "./pages/profileVendas/ProfileVendas";
+import ProfileEdit from "./pages/profileEdit/ProfileEdit";
+import { AuthProvider } from './contexts/AuthContext'; // Atualize o caminho conforme necessário
 import BookRegister from "./pages/bookRegister/BookRegister";
 
 function App() {
   return (
     <SearchProvider>
+    <AuthProvider>
     <Router>
        <div className={styles["app-container"]}>
           <Header isHome={true} isLogged={JSON.parse(sessionStorage.getItem("isLogged")) || false}/> 
@@ -34,8 +39,11 @@ function App() {
               <Route path="/detalhes" element={<BookDetails />} />
               <Route path="/proximidade" element={< Proximidade/>} />
               <Route path="/sebos" element={< Sebos/>} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/profileHome" element={<ProfileHome />} />
+              <Route path="/search" element={<Search/>} />
+              <Route path="/profileHome" element={<ProfileHome/>} />
+              <Route path="/profileCompras" element={<ProfileCompras/>} />
+              <Route path="/profileVendas" element={<ProfileVendas/>} />
+              <Route path="/profileEdit" element={<ProfileEdit/>} />
               <Route path="/bookRegister" element={<BookRegister />} />
               {/* Adicione mais rotas conforme necessário */}
             </Routes>
@@ -43,6 +51,7 @@ function App() {
           <Footer />
         </div>
     </Router>
+    </AuthProvider>
   </SearchProvider>
   );
 }

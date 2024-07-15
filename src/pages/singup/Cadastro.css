@@ -7,73 +7,77 @@
   padding: 30px;
 }
 
-.input-container {
+.input-container-cadastro {
   display: grid;
   grid-template-columns: 300px;
   gap: 5px;
   padding: 10px;
 }
 
-.input-container {
+.input-container-cadastro {
   display: grid;
   grid-template-columns: 300px;
   gap: 5px;
   padding: 5px;
 }
 
-.input-container label {
+.input-container-cadastro label {
   font-size: 23px;
   font-weight: 900; /* Deixa a fonte mais grossa */
   color: #E16A00; /* Muda a cor do texto para laranja */
 }
 
-.input-container select,
-.input-container input[type="text"],
-.input-container input[type="email"],
-.input-container input[type="password"] {
+.input-container-cadastro select,
+.input-container-cadastro input[type="text"],
+.input-container-cadastro input[type="email"],
+.input-container-cadastro input[type="password"] {
   border-radius: 5px; /* Adiciona bordas levemente arredondadas */
   background-color: rgb(252, 233, 200);
   padding: 5px;
   font-size: 16px;
 }
 
-.login-buttons {
+.login-buttons-cadastro button {
+  background-color: #E16A00;
+  color: white;
+  font-size: 27px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+  cursor: pointer;
+  font-weight: bold;
   display: flex;
   justify-content: center;
-
 }
 
-.login-link {
+.login-link-cadastro {
   text-align: center;
 }
 
-.login-link a {
+.link-cadastro a {
   text-decoration: underline;
   color: gray;
   font-size: 12px;
   font-weight: 600;
 }
 
-.radio-buttons {
+.radio-buttons-cadastro {
   display: flex;
 }
 
-.radio-buttons input[type="radio"] {
+.radio-buttons-cadastro input[type="radio"] {
   margin-right: 5px;
 }
 
-.radio-buttons label {
+.radio-buttons-cadastro label {
   font-size: 16px; /* Altera o tamanho do texto */
   color: rgb(92, 47, 11); /* Altera a cor do texto */
   padding: 0px;
   font-weight: 750;
 }
 
-*{
-font-family: 'Montserrat', sans-serif;
-}
 
-.content {
+.content-cadastro {
 display: flex;
 justify-content: center;
 align-items: center;
@@ -83,7 +87,7 @@ background-size: 1350PX; /* faz a imagem cobrir todo o container */
 background-position: center; /* centraliza a imagem */
 }
 
-.container {
+.container-cadastro {
 background-color: white;
 padding: 20px;
 border-radius: 10px;
@@ -93,16 +97,16 @@ flex-direction: column;
 align-items: center;
 }
 
-.error-message {
+.error-message-cadastro {
 color: red;
 margin-bottom: 10px;
 }
 
-.input-error {
+.input-error-cadastro {
 border: 2px solid red;
 }
 
-.required {
+.required-cadastro {
 color: red;
 font-size: 0.8em; 
 vertical-align: super; 
