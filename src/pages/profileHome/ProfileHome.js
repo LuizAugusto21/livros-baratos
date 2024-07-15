@@ -47,7 +47,7 @@ export default function ProfileHome() {
                 <div className={styles["titulo-e-botao"]}>
                     <div className={styles["titulo"]}>Seus livros à venda</div>
                     <div className={styles["botao"]}>
-                        <button className={styles["botao-cadastrar"]}>Cadastrar livro</button>
+                        <button className={styles["botao-cadastrar"]} onClick={() => navigate("/bookRegister")}>Cadastrar livro</button>
                     </div>
                 </div>
                 <div className={styles["lista-livros"]}>

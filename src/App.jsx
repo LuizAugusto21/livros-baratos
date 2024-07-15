@@ -20,7 +20,7 @@ import ProfileCompras from "./pages/profileCompras/ProfileCompras";
 import ProfileVendas from "./pages/profileVendas/ProfileVendas";
 import ProfileEdit from "./pages/profileEdit/ProfileEdit";
 import { AuthProvider } from './contexts/AuthContext'; // Atualize o caminho conforme necessário
-
+import BookRegister from "./pages/bookRegister/BookRegister";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
     <AuthProvider>
     <Router>
        <div className={styles["app-container"]}>
-          <Header isHome={true} isLogged={JSON.parse(sessionStorage.getItem("isLogged")) || false}/>
+          <Header isHome={true} isLogged={JSON.parse(sessionStorage.getItem("isLogged")) || false}/> 
           <main>
             <Routes>
               <Route path="/" element={<Homepage />} />
@@ -44,6 +44,7 @@ function App() {
               <Route path="/profileCompras" element={<ProfileCompras/>} />
               <Route path="/profileVendas" element={<ProfileVendas/>} />
               <Route path="/profileEdit" element={<ProfileEdit/>} />
+              <Route path="/bookRegister" element={<BookRegister />} />
               {/* Adicione mais rotas conforme necessário */}
             </Routes>
           </main>

@@ -1,98 +1,101 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./BookCard.module.scss";
 import { useNavigate } from "react-router-dom";
+import defaultImage from "../../images/default-placeholder.png"; // Importe a imagem padrão
 
+export default function BookCard({ nomeLivro, Autor, preco, descricao, ano, generos, favoritado, imagemCapa }) {
 
-export default function BookCard( {nomeLivro, Autor, preco, descricao, ano, generos, favoritado}) {
-  
   const navigate = useNavigate();
-  const [ book, setBook ] = useState(null);
+  const [book, setBook] = useState(null);
 
-  useEffect(()=> {
+  useEffect(() => {
     // Cria um objeto com as informações do livro atual
-    const newBook = { name: nomeLivro,
+    const newBook = {
+      name: nomeLivro,
       author: Autor,
       price: preco,
       genres: generos,
       description: descricao,
       year: ano,
-      isFavorited: favoritado};
+      isFavorited: favoritado,
+      coverImage: imagemCapa
+    };
 
-      setBook(newBook);
-  }, [])
+    setBook(newBook);
+  }, []);
 
   const handleDetailClick = () => {
-    
     const jsonValue = JSON.stringify(book);
     localStorage.setItem("currentBook", jsonValue);
-    
+
     // Vai para a página de detalhes
     navigate("/detalhes");
+  };
 
-  }
-
-  const [ itemsOnCart, setItemsOnCart] = useState([]);
+  const [itemsOnCart, setItemsOnCart] = useState([]);
 
   // Função para salvar os dados no localStorage
   const saveToLocalStorage = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
   };
 
-  function handleBuyButtonClick(){
-    const updatedItemsOnCart = [...itemsOnCart, book]; 
-        setItemsOnCart(updatedItemsOnCart);
+  function handleBuyButtonClick() {
+    const updatedItemsOnCart = [...itemsOnCart, book];
+    setItemsOnCart(updatedItemsOnCart);
 
-        // Registra a lista atualizada
-        saveToLocalStorage("OnCart", updatedItemsOnCart);
+    // Registra a lista atualizada
+    saveToLocalStorage("OnCart", updatedItemsOnCart);
 
-        console.log("Adicionou a lista do carrinho de compras");
+    console.log("Adicionou a lista do carrinho de compras");
 
-        // Navega até a página de carrinho
-        navigate("/carrinho")
+    // Navega até a página de carrinho
+    navigate("/carrinho");
   }
 
   useEffect(() => {
     // Carrega a lista atual de itens no carrinho
     const storedItensOnCart = loadListData("OnCart");
     if (storedItensOnCart) {
-        setItemsOnCart(storedItensOnCart);
+      setItemsOnCart(storedItensOnCart);
     }
   }, []);
 
   // Carrega a lista de favoritos
-  function loadListData(key){
+  function loadListData(key) {
     const jsonValue = localStorage.getItem(key);
-    if(jsonValue){
-        try{
-            return JSON.parse(jsonValue);
-        } catch(e) {
-            console.error("Erro ao analisar JSON: ", e);
-            return [];
-        }
+    if (jsonValue) {
+      try {
+        return JSON.parse(jsonValue);
+      } catch (e) {
+        console.error("Erro ao analisar JSON: ", e);
+        return [];
+      }
     }
     return [];
-}
-  
-return (
-  <div className={styles["BookCard-box"]}>
-      <div className={styles["BookCard-content"]}>
-          <img src="/default-placeholder.png" alt="" height={166} onClick={handleDetailClick} />
-          <div className={styles["BookCard-info"]}>
-              <p>
-              <div className={styles["price-condition"]}>
-                        <div className={styles["price"]}>R${preco}</div>
-                        <div className={styles["condition"]}></div>
-                    </div>
-                  <span>
-                      {nomeLivro}
-                  </span>{" "}
-                  <br />
-                  {Autor}
-              </p>
-          </div>
-          <button className={styles["botao-comprar"]} onClick={handleBuyButtonClick}>Comprar</button>
-      </div>
-  </div>
-);
+  }
 
+  // Defina a URL da imagem da capa, se disponível, ou use a imagem padrão
+  const coverImageUrl = book && book.coverImage ? book.coverImage : defaultImage;
+
+  return (
+    <div className={styles["BookCard-box"]}>
+      <div className={styles["BookCard-content"]}>
+        <img src={coverImageUrl} alt={nomeLivro} height={166} onClick={handleDetailClick} />
+        <div className={styles["BookCard-info"]}>
+          <p>
+            <div className={styles["price-condition"]}>
+              <div className={styles["price"]}>R${preco}</div>
+              <div className={styles["condition"]}></div>
+            </div>
+            <span>
+              {nomeLivro}
+            </span>{" "}
+            <br />
+            {Autor}
+          </p>
+        </div>
+        <button className={styles["botao-comprar"]} onClick={handleBuyButtonClick}>Comprar</button>
+      </div>
+    </div>
+  );
 }
