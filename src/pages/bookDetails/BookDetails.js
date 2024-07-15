@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
-import {Link, useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./BookDetails.module.css";
 import shoppingCartIcon from "../../images/cil_cart.png";
-import BookCover from "../../images/default-placeholder.png";
+import defaultImage from "../../images/default-placeholder.png";
 import heartEmptyIcon from "../../images/Coracao-vazio.png";
 import heartFullIcon from "../../images/Coracao-cheio.png";
 import CarouselAlternative from "../../components/CarouselAlternative/CarouselAlternative";
@@ -134,13 +134,15 @@ export default function BookDetails(){
         }
         return [];
     }
+
+    const coverImageUrl = book && book.coverImage ? book.coverImage : defaultImage;
   
     return (
         <div className={styles["container-principal-livro-detalhado"]}>
             <div className={styles["container-detalhes-e-carrossel"]}>
                 <div className={styles["container-detalhes"]}>
                     <div className={styles["container-imagem-informacoes"]}>
-                        <img className={styles["imagem-capa-livro"]} src={BookCover} alt="capa do livro" />
+                    <img className={styles["imagem-capa-livro"]} src={coverImageUrl} alt="capa do livro" />
                         <>
                             <div className={styles["informacoes"]}>
                                 { book 
@@ -149,7 +151,7 @@ export default function BookDetails(){
                                         <span>Titulo: {book.name}</span>
                                         <span>Autor(a): {book.author}</span>
                                         <span>Gênero: {book.genres}</span>
-                                        <span>Ano: {book.year}</span>
+                                        {/* <span>Ano: {book.year}</span> */}
                                     </div>
                                 :
                                     <div></div>
