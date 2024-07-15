@@ -3,9 +3,11 @@ import BookCardAlternative from "../../components/BookCardAlternative/BookCardAl
 import { useNavigate } from "react-router-dom";
 import styles from "./ProfileHome.module.css";
 import profilePic from "../../images/default_profilePic.jpg";
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function ProfileHome() {
     const navigate = useNavigate();
+    const { user } = useAuth();
 
     return (
         <div className={styles["container-principal"]}>
@@ -14,7 +16,7 @@ export default function ProfileHome() {
                     <div className={styles["paginas"]}>
                         <div className={styles["foto-e-nome"]}>
                             <img className={styles["foto"]} src={profilePic} alt="Profile" />
-                            <div className={styles["nome"]}>Fulano de Tal</div>
+                            <div className={styles["nome"]}>{user ? user.nome : "Carregando..."}</div>
                         </div>
                         <div className={styles["atalhos"]}>
                             <div className={styles["home"]}>

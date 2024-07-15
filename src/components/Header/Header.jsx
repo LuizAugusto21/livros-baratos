@@ -3,10 +3,12 @@ import styles from "./header.module.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import ProfilePic from "../Profile/ProfilePic";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
-export default function Header({ isLogged, isHome }) {
+export default function Header({ isHome }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,7 +28,12 @@ export default function Header({ isLogged, isHome }) {
 
   const handleProfileClick = () => {
     navigate("/profileHome");
-  }
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <div className={styles["header"]}>
@@ -40,17 +47,17 @@ export default function Header({ isLogged, isHome }) {
         {isHome ? null : <SearchBar className={styles["BarraPesquisa"]} />}
         <ul className={styles["navMenu"]}>
           <li>
-            <Link to=""> Vender</Link>
+            <Link to="">Vender</Link>
           </li>
           <li>
             <Link to="/sebos">Sebos</Link>
           </li>
           <li>
-            <Link to="/proximidade"> Por proximidade</Link>
+            <Link to="/proximidade">Por proximidade</Link>
           </li>
         </ul>
 
-        {!isLogged ? (
+        {!user ? (
           <button onClick={() => navigate("/login")}>Login</button>
         ) : (
           <div className={styles["menu-images"]}>
@@ -76,7 +83,7 @@ export default function Header({ isLogged, isHome }) {
                     <li className={styles["Config"]}>
                       <img src="/ConfigIcon.svg" alt="" /> Configurações
                     </li>
-                    <li className={styles["Exit"]}>
+                    <li className={styles["Exit"]} onClick={handleLogout}>
                       <img src="/ExitIcon.svg" alt="" /> Sair
                     </li>
                   </ul>
@@ -87,6 +94,5 @@ export default function Header({ isLogged, isHome }) {
         )}
       </div>
     </div>
-);
-
+  );
 }

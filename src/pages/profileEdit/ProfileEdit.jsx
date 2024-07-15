@@ -1,16 +1,15 @@
-// ProfileEdit.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import styles from "./ProfileEdit.module.css";
 import profilePic from "../../images/default_profilePic.jpg";
+import { useAuth } from "../../contexts/AuthContext";
 
-export default function ProfileEdit({ userId }) {
+export default function ProfileEdit() {
     const navigate = useNavigate();
-
-    // Estado para armazenar os dados do usuário
+    const { user } = useAuth();
     const [userData, setUserData] = useState({
-        id: userId,
+        id: '',
         tipo: '',
         nome: '',
         endereco: '',
@@ -21,43 +20,30 @@ export default function ProfileEdit({ userId }) {
     });
 
     useEffect(() => {
-        // Simulação de dados do usuário logado
-        const loggedInUser = {
-            id: 1,
-            tipo: 'Cliente',
-            nome: 'Fulano de Tal',
-            endereco: 'Rua A, 123',
-            contato: '(99) 99999-9999',
-            email: 'fulano@example.com',
-            login: 'fulano123',
-            senha: '********'
-        };
-        setUserData(loggedInUser); // Atualiza o estado com os dados do usuário logado
-    }, []);
+        if (user) {
+            setUserData(user); // Carrega os dados do usuário do contexto de autenticação
+        }
+    }, [user]);
 
-    // Função para lidar com a mudança nos campos do formulário
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserData({ ...userData, [name]: value });
     };
 
-    // Função para lidar com o envio do formulário
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Implementar lógica para enviar os dados atualizados para o backend
-        axios.put(`http://localhost:3001/users/${userId}`, userData)
+        axios.put(`http://localhost:8080/usuario/${userData.id}`, userData)
             .then(response => {
                 console.log('Dados atualizados com sucesso:', response.data);
-                navigate("/profileHome"); // Redireciona para a página inicial do perfil após a alteração
+                navigate("/profileHome");
             })
             .catch(error => {
                 console.error('Erro ao atualizar dados do usuário:', error);
             });
     };
 
-    // Função para cancelar a edição
     const handleCancel = () => {
-        navigate("/profileHome"); // Redireciona para a página inicial do perfil
+        navigate("/profileHome");
     };
 
     return (

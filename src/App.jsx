@@ -19,10 +19,13 @@ import ProfileHome from "./pages/profileHome/ProfileHome";
 import ProfileCompras from "./pages/profileCompras/ProfileCompras";
 import ProfileVendas from "./pages/profileVendas/ProfileVendas";
 import ProfileEdit from "./pages/profileEdit/ProfileEdit";
+import { AuthProvider } from './contexts/AuthContext'; // Atualize o caminho conforme necessário
+
 
 function App() {
   return (
     <SearchProvider>
+    <AuthProvider>
     <Router>
        <div className={styles["app-container"]}>
           <Header isHome={true} isLogged={JSON.parse(sessionStorage.getItem("isLogged")) || false}/>
@@ -47,6 +50,7 @@ function App() {
           <Footer />
         </div>
     </Router>
+    </AuthProvider>
   </SearchProvider>
   );
 }
