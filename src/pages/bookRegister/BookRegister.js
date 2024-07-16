@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./BookRegister.module.scss";
 import profilePic from "../../images/default_profilePic.jpg";
+import { useAuth } from "../../contexts/AuthContext";
 
-export default function BookDetails(){
+export default function BookDetails() {
     const navigate = useNavigate();
+    const { user } = useAuth();
     const [titulo, setTitulo] = useState('');
     const [autor, setAutor] = useState('');
     const [tipo, setTipo] = useState('NOVO');  // Default para 'NOVO'
@@ -12,7 +14,7 @@ export default function BookDetails(){
     const [preco, setPreco] = useState('');
     const [descricao, setDescricao] = useState('');
     const [showModal, setShowModal] = useState(false);
-    const [situacao, setSituacao] = useState('DISPONÍVEL')
+    const [situacao, setSituacao] = useState('DISPONÍVEL');
 
     const handleSubmit = async () => {
         let imagem = '';
@@ -33,7 +35,8 @@ export default function BookDetails(){
             genero: genero,
             preco: parseFloat(preco),
             descricao: descricao,
-            imagemCapa: imagem
+            imagemCapa: imagem,
+            proprietario: { id: user.id } // Adiciona o ID do usuário logado como proprietário
         };
 
         try {
@@ -60,14 +63,14 @@ export default function BookDetails(){
         navigate("/");  // Redirecionar para a página inicial
     };
 
-    return(
+    return (
         <div className={styles["container-principal"]}>
             <div className={styles["container-navegavel"]}>
                 <div className={styles["container-paginas-botoes"]}>
                     <div className={styles["paginas"]}>
                         <div className={styles["foto-e-nome"]}>
                             <img className={styles["foto"]} src={profilePic} />
-                            <div className={styles["nome"]}>Fulano de Tal</div>
+                            <div className={styles["nome"]}>{user.nome}</div> {/* Mostrar nome do usuário logado */}
                         </div>
                         <div className={styles["home"]}>Home</div>
                         <div className={styles["editar"]}>Editar Perfil</div>
@@ -76,7 +79,7 @@ export default function BookDetails(){
                     </div>
                     <div className={styles["botoes"]}>
                         <div className={styles["sair"]}> Sair </div>
-                        <div className={styles["voltar"] } onClick={() => navigate("/")}> Voltar </div>
+                        <div className={styles["voltar"]} onClick={() => navigate("/")}> Voltar </div>
                     </div>
                 </div>
             </div>
@@ -84,26 +87,26 @@ export default function BookDetails(){
                 <div className={styles["form"]}>
                     <h1 className={styles["cadastro-titulo"]}>Cadastro de livro</h1>
                     <h3>Titulo</h3>
-                    <input 
-                        id="titulo" 
-                        className={styles["titulo"]} 
-                        value={titulo} 
-                        onChange={(e) => setTitulo(e.target.value)} 
+                    <input
+                        id="titulo"
+                        className={styles["titulo"]}
+                        value={titulo}
+                        onChange={(e) => setTitulo(e.target.value)}
                     />
                     <h3>Autor</h3>
-                    <input 
-                        id="autor" 
-                        className={styles["autor"]} 
-                        value={autor} 
-                        onChange={(e) => setAutor(e.target.value)} 
-                    />            
+                    <input
+                        id="autor"
+                        className={styles["autor"]}
+                        value={autor}
+                        onChange={(e) => setAutor(e.target.value)}
+                    />
                     <div className={styles["tipo-genero-preco"]}>
                         <div>
                             <h3>Tipo</h3>
-                            <select 
-                                id="tipo" 
-                                className={styles["tipo"]} 
-                                value={tipo} 
+                            <select
+                                id="tipo"
+                                className={styles["tipo"]}
+                                value={tipo}
                                 onChange={(e) => setTipo(e.target.value)}
                             >
                                 <option value="NOVO">NOVO</option>
@@ -113,35 +116,35 @@ export default function BookDetails(){
                         </div>
                         <div>
                             <h3>Gênero</h3>
-                            <input 
-                                id="genero" 
-                                className={styles["genero"]} 
-                                value={genero} 
-                                onChange={(e) => setGenero(e.target.value)} 
+                            <input
+                                id="genero"
+                                className={styles["genero"]}
+                                value={genero}
+                                onChange={(e) => setGenero(e.target.value)}
                             />
                         </div>
                         <div>
-                            <h3>Preço</h3>                            
-                            <input 
-                                id="preco" 
-                                type="number" 
-                                className={styles["preco"]} 
-                                value={preco} 
-                                onChange={(e) => setPreco(e.target.value)} 
-                            />   
+                            <h3>Preço</h3>
+                            <input
+                                id="preco"
+                                type="number"
+                                className={styles["preco"]}
+                                value={preco}
+                                onChange={(e) => setPreco(e.target.value)}
+                            />
                         </div>
                     </div>
                     <h3>Descrição</h3>
-                    <input 
-                        id="descricao" 
-                        className={styles["descricao"]} 
-                        value={descricao} 
-                        onChange={(e) => setDescricao(e.target.value)} 
+                    <input
+                        id="descricao"
+                        className={styles["descricao"]}
+                        value={descricao}
+                        onChange={(e) => setDescricao(e.target.value)}
                     />
                 </div>
                 <div className={styles["box-botao"]}>
-                    <button 
-                        className={styles["botao-cadastrar"]} 
+                    <button
+                        className={styles["botao-cadastrar"]}
                         onClick={handleSubmit}
                     >
                         Cadastrar

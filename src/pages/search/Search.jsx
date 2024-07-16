@@ -29,9 +29,14 @@ export default function Search() {
             searchResult.map((book, index) => (
               <BookCard
                 key={index}
-                preco={15}
-                nomeLivro={book.name}
-                Autor={book.author}
+                preco={book.preco}
+                nomeLivro={book.nome}
+                Autor={book.nomeAutor}
+                generos={book.genero}
+                descricao={book.descricao}
+                imagemCapa={book.imagemCapa}
+                condicao={book.condicao}
+                situacao={book.situacao}
               />
             ))
           ) : (

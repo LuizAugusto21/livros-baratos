@@ -10,13 +10,13 @@ export default function SearchBar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/BookData.json')
+    fetch('http://localhost:8080/api/livros')
       .then((response) => response.json())
       .then((data) => {
         // Convert genres to arrays
         const processedData = data.map(book => ({
           ...book,
-          genre: book.genre.split(',').map(g => g.trim())
+          genero: book.genero.split(',').map(g => g.trim())
         }));
         setData(processedData);
       })
@@ -29,9 +29,9 @@ export default function SearchBar() {
     const searchQuery = search.toLowerCase();
 
     const filtered = data.filter((item) => {
-      const name = item.name ? item.name.toLowerCase() : '';
-      const author = item.author ? item.author.toLowerCase() : '';
-      const genres = item.genre ? item.genre.map(g => g.toLowerCase()) : [];
+      const name = item.nome ? item.nome.toLowerCase() : '';
+      const author = item.nomeAutor ? item.nomeAutor.toLowerCase() : '';
+      const genres = item.genero ? item.genero.map(g => g.toLowerCase()) : [];
 
       const matchesSearch = (
         name.includes(searchQuery) ||
@@ -40,7 +40,7 @@ export default function SearchBar() {
       );
 
       const matchesCategory = selectedCategory === 'Todos' || 
-        (item.genre && genres.includes(selectedCategory.toLowerCase()));
+        (item.genero && genres.includes(selectedCategory.toLowerCase()));
 
       return matchesSearch && matchesCategory;
     });

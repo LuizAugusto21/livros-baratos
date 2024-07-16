@@ -9,8 +9,8 @@ export default function ProfileEdit() {
     const navigate = useNavigate();
     const { user } = useAuth();
     const [userData, setUserData] = useState({
-        id: '',
-        tipo: '',
+        idUsuario: '',
+        tipoUsuario: '',
         nome: '',
         endereco: '',
         contato: '',
@@ -30,16 +30,19 @@ export default function ProfileEdit() {
         setUserData({ ...userData, [name]: value });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        axios.put(`http://localhost:8080/usuario/${userData.id}`, userData)
-            .then(response => {
-                console.log('Dados atualizados com sucesso:', response.data);
-                navigate("/profileHome");
-            })
-            .catch(error => {
+        try {
+            console.log('Dados enviados:', userData); // Log dos dados enviados
+            const response = await axios.put(`http://localhost:8080/usuario/${userData.idUsuario}`, userData);
+            navigate("/Login");
+        } catch (error) {
+            if (error.response) {
+                console.error('Erro ao atualizar dados do usuário:', error.response.data);
+            } else {
                 console.error('Erro ao atualizar dados do usuário:', error);
-            });
+            }
+        }
     };
 
     const handleCancel = () => {
